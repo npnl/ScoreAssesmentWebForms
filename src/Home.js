@@ -1,9 +1,13 @@
 // Home.js
 import React from 'react';
+import InputForm from './components/InputForm'
 
 class Home extends React.Component {
   render() {
-    return <p>Home</p>;
+    return(
+    	<div>
+    		<InputForm/>
+    	</div>);
   }
 }
 
