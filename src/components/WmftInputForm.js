@@ -1,18 +1,18 @@
-// FmaInputForm.js
+// WmftInputForm.js
 import React from 'react';
-import FmaFormRow from './FmaFormRow'
+import WmftFormRow from './WmftFormRow'
 import DownloadCSV from './DownloadCSV'
 
-class FmaInputForm extends React.Component {
+class WmftInputForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {rows: props.data}
-		// this.prepareTableData();
-		this.onSubmit = this.onSubmit.bind(this);
 		this.getCSVData = this.getCSVData.bind(this);
 		this.scoreChanged = this.scoreChanged.bind(this);
+		this.timeChanged = this.timeChanged.bind(this);
 		this.subjectChanged = this.subjectChanged.bind(this);
 		this.dateChanged = this.dateChanged.bind(this);
+
 	}
 
 	subjectChanged(event) {
@@ -23,13 +23,15 @@ class FmaInputForm extends React.Component {
 		this.setState({date: event.target.value});
 	}
 
-	onSubmit(event) {
-		event.preventDefault();
-	}
-
 	scoreChanged(item_no, value) {
 		var new_rows = this.state.rows;
 		new_rows[item_no-1]['score'] = value
+		this.setState({rows: new_rows});
+	}
+
+	timeChanged(item_no, value) {
+		var new_rows = this.state.rows;
+		new_rows[item_no-1]['time'] = value
 		this.setState({rows: new_rows});
 	}
 
@@ -50,9 +52,8 @@ class FmaInputForm extends React.Component {
 			month: month,
 			day: day,
 			item_no: item.item_no,
-			category: item.domain,
-			posture: item.specific,
-			movement: item.movement,
+			task: item.task,
+			time: item.time,
 			score: item.score
 		};
 		return new_item; 
@@ -64,7 +65,7 @@ class FmaInputForm extends React.Component {
 		var rows = [];
 		for (var i = 0; i < this.state.rows.length; i++) {
 			var data = this.state.rows[i];
-		  rows.push(<FmaFormRow data={data} scoreChanged={this.scoreChanged}/>);
+		  rows.push(<WmftFormRow data={data} scoreChanged={this.scoreChanged}/>);
 		}
 
 		return(
@@ -84,10 +85,9 @@ class FmaInputForm extends React.Component {
 					<thead>
 						<tr>
 							<th>Item</th>
-							<th>Category</th>
-							<th>Posture</th>
-							<th>Movement</th>
-							<th>Score</th>
+							<th>task</th>
+							<th>Time</th>
+							<th>FAS Score</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -95,11 +95,11 @@ class FmaInputForm extends React.Component {
 					</tbody>
 				</table>
 				<div className="download-btn">
-					<DownloadCSV dataHandler={this.getCSVData} filename="fma.csv"/>
+					<DownloadCSV dataHandler={this.getCSVData} filename="wmft.csv"/>
 				</div>
 			</div>
 			);
 	}
 }
 
-export default FmaInputForm;
+export default WmftInputForm;

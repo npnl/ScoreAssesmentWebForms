@@ -2,7 +2,9 @@
 import React from 'react';
 import NhssInputForm from './NhssInputForm'
 import FmaInputForm from './FmaInputForm'
+import WmftInputForm from './WmftInputForm'
 import {getFmaLeData, getFmaUeData, getFmaSenseData} from '../data/FmaData'
+import {getWmftData} from '../data/WmftData'
 
 class Forms extends React.Component {
 	constructor(props) {
@@ -25,6 +27,9 @@ class Forms extends React.Component {
 				break;
 			case 'FmaSenseInputForm':
 				form = (<FmaInputForm data={getFmaSenseData()}/>);
+				break;
+			case 'WmftAffectedInputForm':
+				form = (<WmftInputForm data={getWmftData()}/>);
 				break;
 		}
 		return(

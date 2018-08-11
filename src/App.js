@@ -26,6 +26,7 @@ class App extends Component {
 										<li><Link to="/FmaLeInputForm">FMA LE</Link></li>
 										<li><Link to="/FmaUeInputForm">FMA UE</Link></li>
 										<li><Link to="/FmaSenseInputForm">FMA Sense</Link></li>
+										<li><Link to="/WmftAffectedInputForm">WMFT Affected Arm</Link></li>
 									</ul>
 								</div>
 							</div>
@@ -36,6 +37,7 @@ class App extends Component {
 						<Route exact path="/FmaLeInputForm" component={()=><Forms form_type="FmaLeInputForm"/>} />
 						<Route exact path="/FmaUeInputForm" component={()=><Forms form_type="FmaUeInputForm"/>} />
 						<Route exact path="/FmaSenseInputForm" component={()=><Forms form_type="FmaSenseInputForm"/>} />
+						<Route exact path="/WmftAffectedInputForm" component={()=><Forms form_type="WmftAffectedInputForm"/>} />
 					</Switch>
 				</div>
 			</BrowserRouter>

@@ -221,7 +221,7 @@ class NhssInputForm extends React.Component {
 					</tbody>
 				</table>
 				<div className="download-btn">
-					<DownloadCSV dataHandler={this.getCSVData} />
+					<DownloadCSV dataHandler={this.getCSVData} filename="nhss.csv"/>
 				</div>
 			</div>
 			);
