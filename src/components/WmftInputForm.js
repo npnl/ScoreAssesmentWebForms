@@ -70,12 +70,15 @@ class WmftInputForm extends React.Component {
 
 		return(
 			<div className="container" style={{marginTop: 100 + 'px'}}>
-				<div className="form-row basic-info">
-					<div className="col-md-4 mb-3">
+				<div className="form-title">
+					<h1>Wolf Motor Function Task</h1>
+				</div>
+				<div className="basic-info">
+					<div className="subject_div">
 						<label>Subject Id</label>
 						<input type="text" className="form-control is-valid" placeholder="Subject Id" value={this.state.subID} onChange={this.subjectChanged} required />
 					</div>
-					<div className="col-md-4 mb-3">
+					<div className="date_div">
 						<label>Date</label>
 						<input type="date" className="form-control"  placeholder="Date" min="2010-01-01" max="2099-12-31" onChange={this.dateChanged} required />
 					</div>

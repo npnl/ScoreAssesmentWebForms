@@ -9,7 +9,21 @@ table {
 }
 
 .basic-info {
-	margin-bottom: 7%;
+	margin-bottom: 12%; 
+}
+
+.date_div {
+	width: 50%;
+	float: right;
+	padding-right: 15%;
+	padding-left: 15%;
+}
+
+.subject_div {
+	width: 50%;
+	float: left;
+	padding-right: 15%;
+	padding-left: 15%;
 }
 
 th {
@@ -26,4 +40,8 @@ td input{
 
 .main-container{
 	margin-top: 70px;
+}
+
+.form-title {
+	margin-bottom: 30px; 
 }

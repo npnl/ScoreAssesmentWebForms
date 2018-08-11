@@ -20,13 +20,13 @@ class Forms extends React.Component {
 				form = (<NhssInputForm/>);
 				break;
 			case 'FmaLeInputForm':
-				form = (<FmaInputForm data={getFmaLeData()}/>);
+				form = (<FmaInputForm extremity="LOWER EXTREMITY" data={getFmaLeData()}/>);
 				break;
 			case 'FmaUeInputForm':
-				form = (<FmaInputForm data={getFmaUeData()}/>);
+				form = (<FmaInputForm extremity="UPPER EXTREMITY" data={getFmaUeData()}/>);
 				break;
 			case 'FmaSenseInputForm':
-				form = (<FmaInputForm data={getFmaSenseData()}/>);
+				form = (<FmaInputForm extremity="SENSE" data={getFmaSenseData()}/>);
 				break;
 			case 'WmftAffectedInputForm':
 				form = (<WmftInputForm data={getWmftData()}/>);

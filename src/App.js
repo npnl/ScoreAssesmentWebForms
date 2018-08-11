@@ -34,8 +34,8 @@ class App extends Component {
 					<Switch>
 						<Route exact path="/" component={()=><Home/>} />
 						<Route exact path="/NhssInputForm" component={()=><Forms form_type="NhssInputForm"/>} />
-						<Route exact path="/FmaLeInputForm" component={()=><Forms form_type="FmaLeInputForm"/>} />
-						<Route exact path="/FmaUeInputForm" component={()=><Forms form_type="FmaUeInputForm"/>} />
+						<Route exact path="/FmaLeInputForm" component={()=><Forms form_type="FmaLeInputForm" />} />
+						<Route exact path="/FmaUeInputForm" component={()=><Forms form_type="FmaUeInputForm" />} />
 						<Route exact path="/FmaSenseInputForm" component={()=><Forms form_type="FmaSenseInputForm"/>} />
 						<Route exact path="/WmftAffectedInputForm" component={()=><Forms form_type="WmftAffectedInputForm"/>} />
 					</Switch>
