@@ -1,20 +1,20 @@
-// FssFormRow.js
+// FmaFormRow.js
 import React from 'react';
 
-class FssFormRow extends React.Component {
+class FmaFormRow extends React.Component {
 	constructor(props) {
 		super(props);
 		this.props = props;
 		this.state = {
 			item_no: props.data.item_no,
-			domain: props.data.domain,
-			specific: props.data.specific,
+			category: props.data.category,
+			posture: props.data.posture,
+			movement: props.data.movement,
 			score: '',
 			score_range: props.data.score_range
 		};
 
 		this.handleChange = this.handleChange.bind(this);
-		this.onSubmit = this.onSubmit.bind(this);
 	}
 
 	handleChange(event) {
@@ -25,21 +25,17 @@ class FssFormRow extends React.Component {
 		this.props.scoreChanged(this.state.item_no, event.target.value);
 	}
 
-	onSubmit(event) {
-			alert('An essay was submitted: ' + this.state.value);
-			event.preventDefault();
-	}
-
 	render() {
 		return(
 			<tr>
 				<th scope="row">{this.state.item_no}</th>
-				<td>{this.state.specific}</td>
+				<td>{this.state.category}</td>
+				<td>{this.state.posture}</td>
+				<td>{this.state.movement}</td>
 				<td><input type="number" min={this.state.score_range[0]} max={this.state.score_range[1]} value={this.state.score} onChange={this.handleChange}/></td>
-				<td>{this.state.domain}</td>
 			</tr>
 			);
 	}
 }
 
-export default FssFormRow;
+export default FmaFormRow;

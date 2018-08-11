@@ -1,9 +1,9 @@
-// InputForm.js
+// NhssInputForm.js
 import React from 'react';
-import FssFormRow from './FssFormRow'
+import NhssFormRow from './NhssFormRow'
 import DownloadCSV from './DownloadCSV'
 
-class InputForm extends React.Component {
+class NhssInputForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.prepareTableData();
@@ -28,9 +28,6 @@ class InputForm extends React.Component {
 	}
 
 	scoreChanged(item_no, value) {
-		console.log(item_no-1);
-		console.log(value);
-		console.log(this.state.rows);
 		var new_rows = this.state.rows;
 		new_rows[item_no-1]['score'] = value
 		this.setState({rows: new_rows});
@@ -39,12 +36,12 @@ class InputForm extends React.Component {
 	prepareTableData(){
 		var table_data = [];
 		var row = {
-					item_no: "1",
-					domain: "Levels of Consciousness",
-					specific: "Arousal Status",
-					score: '',
-					score_range:[0, 3]
-					};
+			item_no: "1",
+			domain: "Levels of Consciousness",
+			specific: "Arousal Status",
+			score: '',
+			score_range:[0, 3]
+			};
 		table_data.push(row);
 
 		row = {
@@ -167,25 +164,25 @@ class InputForm extends React.Component {
 	getCSVData() {
 		var date = this.state.date;
 		var date_obj = new Date(date);
-	  var day = date_obj.getDate() + 1;
-	  var month = date_obj.getMonth() + 1;
-	  var year = date_obj.getFullYear();
+		var day = date_obj.getDate() + 1;
+		var month = date_obj.getMonth() + 1;
+		var year = date_obj.getFullYear();
 
-	  var subID = this.state.subID;
+		var subID = this.state.subID;
 
 		var data = this.state.rows.map(function(item) { 
-    	var new_item = {
-    		subID: subID,
-    		date: date,
-    		year: year,
-    		month: month,
-    		day: day,
-    		item_no: item.item_no,
-				domain: item.domain,
-				specific: item.specific,
-				score: item.score
-    	};
-    	return new_item; 
+		var new_item = {
+			subID: subID,
+			date: date,
+			year: year,
+			month: month,
+			day: day,
+			item_no: item.item_no,
+			domain: item.domain,
+			specific: item.specific,
+			score: item.score
+		};
+		return new_item; 
 		}, this, subID, day, month, year, date);
 		return data;
 	}
@@ -194,7 +191,7 @@ class InputForm extends React.Component {
 		var rows = [];
 		for (var i = 0; i < this.state.rows.length; i++) {
 			var data = this.state.rows[i];
-		  rows.push(<FssFormRow data={data} scoreChanged={this.scoreChanged}/>);
+		  rows.push(<NhssFormRow data={data} scoreChanged={this.scoreChanged}/>);
 		}
 
 		return(
@@ -231,4 +228,4 @@ class InputForm extends React.Component {
 	}
 }
 
-export default InputForm;
+export default NhssInputForm;
