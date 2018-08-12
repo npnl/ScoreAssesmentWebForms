@@ -26,7 +26,7 @@ class NhssInputForm extends React.Component {
 		var base_index = this.state.rows[0]['item_no'];
 		item_no = item_no - base_index;
 		var new_rows = this.state.rows;
-		new_rows[item_no-1]['score'] = value
+		new_rows[item_no]['score'] = value
 		this.setState({rows: new_rows});
 	}
 

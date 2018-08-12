@@ -12,6 +12,7 @@ class FmaInputForm extends React.Component {
 		this.scoreChanged = this.scoreChanged.bind(this);
 		this.subjectChanged = this.subjectChanged.bind(this);
 		this.dateChanged = this.dateChanged.bind(this);
+		this.getComment = this.getComment.bind(this);
 	}
 
 	subjectChanged(event) {
@@ -26,8 +27,12 @@ class FmaInputForm extends React.Component {
 		var base_index = this.state.rows[0]['item_no'];
 		item_no = item_no - base_index;
 		var new_rows = this.state.rows;
-		new_rows[item_no-1]['score'] = value
+		new_rows[item_no]['score'] = value
 		this.setState({rows: new_rows});
+	}
+
+	getComment(score, comments) {
+		return comments.hasOwnProperty(score) ? comments[score] : comments['default'];
 	}
 
 	getCSVData() {
@@ -47,10 +52,11 @@ class FmaInputForm extends React.Component {
 			Month: month,
 			Day: day,
 			Item_no: item.item_no,
-			Category: item.domain,
-			Posture: item.specific,
+			Category: item.category,
+			Posture: item.posture,
 			Movement: item.movement,
-			Score: item.score
+			Score: item.score,
+			Comment: this.getComment(item.score, item.comments)
 		};
 		return new_item; 
 		}, this, subID, day, month, year, date);
