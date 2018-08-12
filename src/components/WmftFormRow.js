@@ -38,7 +38,7 @@ class WmftFormRow extends React.Component {
 			<tr>
 				<th scope="row">{this.state.item_no}</th>
 				<td>{this.state.task}</td>
-				<td><input type="number" min="0" value={this.state.time} onChange={this.handleChange}/></td>
+				<td><input type="number" min="0" value={this.state.time} onChange={this.handleTimeChange}/></td>
 				<td><input type="number" min={this.state.score_range[0]} max={this.state.score_range[1]} value={this.state.score} onChange={this.handleChange}/></td>
 			</tr>
 			);

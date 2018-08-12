@@ -23,6 +23,8 @@ class FmaInputForm extends React.Component {
 	}
 
 	scoreChanged(item_no, value) {
+		var base_index = this.state.rows[0]['item_no'];
+		item_no = item_no - base_index;
 		var new_rows = this.state.rows;
 		new_rows[item_no-1]['score'] = value
 		this.setState({rows: new_rows});
@@ -39,16 +41,16 @@ class FmaInputForm extends React.Component {
 
 		var data = this.state.rows.map(function(item) { 
 		var new_item = {
-			subID: subID,
-			date: date,
-			year: year,
-			month: month,
-			day: day,
-			item_no: item.item_no,
-			category: item.domain,
-			posture: item.specific,
-			movement: item.movement,
-			score: item.score
+			SubID: subID,
+			Date: date,
+			Year: year,
+			Month: month,
+			Day: day,
+			Item_no: item.item_no,
+			Category: item.domain,
+			Posture: item.specific,
+			Movement: item.movement,
+			Score: item.score
 		};
 		return new_item; 
 		}, this, subID, day, month, year, date);
@@ -86,6 +88,7 @@ class FmaInputForm extends React.Component {
 							<th>Posture</th>
 							<th>Movement</th>
 							<th>Score</th>
+							<th>Comments</th>
 						</tr>
 					</thead>
 					<tbody>

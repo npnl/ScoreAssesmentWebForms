@@ -12,7 +12,6 @@ class WmftInputForm extends React.Component {
 		this.timeChanged = this.timeChanged.bind(this);
 		this.subjectChanged = this.subjectChanged.bind(this);
 		this.dateChanged = this.dateChanged.bind(this);
-
 	}
 
 	subjectChanged(event) {
@@ -24,12 +23,16 @@ class WmftInputForm extends React.Component {
 	}
 
 	scoreChanged(item_no, value) {
+		var base_index = this.state.rows[0]['item_no'];
+		item_no = item_no - base_index;
 		var new_rows = this.state.rows;
 		new_rows[item_no-1]['score'] = value
 		this.setState({rows: new_rows});
 	}
 
 	timeChanged(item_no, value) {
+		var base_index = this.state.rows[0]['item_no'];
+		item_no = item_no - base_index;
 		var new_rows = this.state.rows;
 		new_rows[item_no-1]['time'] = value
 		this.setState({rows: new_rows});
@@ -41,20 +44,18 @@ class WmftInputForm extends React.Component {
 		var day = date_obj.getDate() + 1;
 		var month = date_obj.getMonth() + 1;
 		var year = date_obj.getFullYear();
-
 		var subID = this.state.subID;
-
 		var data = this.state.rows.map(function(item) { 
 		var new_item = {
-			subID: subID,
-			date: date,
-			year: year,
-			month: month,
-			day: day,
-			item_no: item.item_no,
-			task: item.task,
-			time: item.time,
-			score: item.score
+			SubID: subID,
+			Date: date,
+			Year: year,
+			Month: month,
+			Day: day,
+			Item_no: item.item_no,
+			Task: item.task,
+			Time: item.time,
+			Score: item.score
 		};
 		return new_item; 
 		}, this, subID, day, month, year, date);
@@ -65,7 +66,7 @@ class WmftInputForm extends React.Component {
 		var rows = [];
 		for (var i = 0; i < this.state.rows.length; i++) {
 			var data = this.state.rows[i];
-		  rows.push(<WmftFormRow data={data} scoreChanged={this.scoreChanged}/>);
+		  rows.push(<WmftFormRow data={data} scoreChanged={this.scoreChanged} timeChanged={this.timeChanged}/>);
 		}
 
 		return(

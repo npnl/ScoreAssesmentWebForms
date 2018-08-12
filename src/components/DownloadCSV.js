@@ -12,7 +12,7 @@ class DownloadCSV extends React.Component {
 	render() {
 		return(
 			<div>
-					<CSVLink filename={this.filename} className="btn btn-primary" data={this.props.dataHandler()}>Download CSV</CSVLink>
+				<CSVLink filename={this.filename} className="btn btn-primary" data={this.props.dataHandler()}>Download CSV</CSVLink>
 				</div>
 			);
 	}

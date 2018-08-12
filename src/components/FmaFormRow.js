@@ -11,10 +11,12 @@ class FmaFormRow extends React.Component {
 			posture: props.data.posture,
 			movement: props.data.movement,
 			score: '',
-			score_range: props.data.score_range
+			score_range: props.data.score_range,
+			comments: props.data.comments
 		};
 
 		this.handleChange = this.handleChange.bind(this);
+		this.getComment = this.getComment.bind(this);
 	}
 
 	handleChange(event) {
@@ -25,6 +27,12 @@ class FmaFormRow extends React.Component {
 		this.props.scoreChanged(this.state.item_no, event.target.value);
 	}
 
+	getComment() {
+		var comments = this.state.comments;
+		var score = this.state.score;
+		return comments.hasOwnProperty(score) ? comments[score] : comments['default'];
+	}
+
 	render() {
 		return(
 			<tr>
@@ -33,6 +41,7 @@ class FmaFormRow extends React.Component {
 				<td>{this.state.posture}</td>
 				<td>{this.state.movement}</td>
 				<td><input type="number" min={this.state.score_range[0]} max={this.state.score_range[1]} value={this.state.score} onChange={this.handleChange}/></td>
+				<td>{this.getComment()}</td>
 			</tr>
 			);
 	}
