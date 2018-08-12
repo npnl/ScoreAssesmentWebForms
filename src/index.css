@@ -50,3 +50,8 @@ td input{
 .form-title {
 	margin-bottom: 30px; 
 }
+
+.btn-disabled {
+	pointer-events: none;
+    opacity: 0.4;
+}

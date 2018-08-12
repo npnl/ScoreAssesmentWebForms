@@ -29,7 +29,10 @@ class Forms extends React.Component {
 				form = (<FmaInputForm extremity="SENSE" data={getFmaSenseData()}/>);
 				break;
 			case 'WmftAffectedInputForm':
-				form = (<WmftInputForm data={getWmftData()}/>);
+				form = (<WmftInputForm label="Affected Arm" data={getWmftData()}/>);
+				break;
+			case 'WmftUnAffectedInputForm':
+				form = (<WmftInputForm label="Un-Affected Arm" data={getWmftData()}/>);
 				break;
 		}
 		return(

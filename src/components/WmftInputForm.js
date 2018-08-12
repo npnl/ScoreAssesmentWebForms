@@ -6,7 +6,7 @@ import DownloadCSV from './DownloadCSV'
 class WmftInputForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {rows: props.data}
+		this.state = {rows: props.data, subID: '', date: ''}
 		this.getCSVData = this.getCSVData.bind(this);
 		this.scoreChanged = this.scoreChanged.bind(this);
 		this.timeChanged = this.timeChanged.bind(this);
@@ -78,7 +78,7 @@ class WmftInputForm extends React.Component {
 		return(
 			<div className="container" style={{marginTop: 100 + 'px'}}>
 				<div className="form-title">
-					<h1>Wolf Motor Function Task</h1>
+					<h1>Wolf Motor Function Task [{this.props.label}]</h1>
 				</div>
 				<div className="basic-info">
 					<div className="subject_div">
@@ -95,7 +95,7 @@ class WmftInputForm extends React.Component {
 					<thead>
 						<tr>
 							<th class="row-index">Item</th>
-							<th>task</th>
+							<th>Task</th>
 							<th>Time</th>
 							<th>FAS Score</th>
 							<th>Comment</th>
@@ -106,7 +106,7 @@ class WmftInputForm extends React.Component {
 					</tbody>
 				</table>
 				<div className="download-btn">
-					<DownloadCSV dataHandler={this.getCSVData} filename="wmft.csv"/>
+					<DownloadCSV dataHandler={this.getCSVData} filename={"WMFT_" + this.props.label.replace(/ +/g, "_")+ ".csv"} is_enabled={this.state.subID !== '' && this.state.date !== ''}/>
 				</div>
 			</div>
 			);

@@ -12,8 +12,9 @@ class DownloadCSV extends React.Component {
 	render() {
 		return(
 			<div>
-				<CSVLink filename={this.filename} className="btn btn-primary" data={this.props.dataHandler()}>Download CSV</CSVLink>
-				</div>
+				<p> <b>Subject_Id</b> and <b>Date</b> and mandatory fields to download the csv.</p>
+				<CSVLink filename={this.filename} className={this.props.is_enabled ? "btn btn-primary" : "btn btn-primary btn-disabled"} data={this.props.dataHandler()}>Download CSV</CSVLink>
+			</div>
 			);
 	}
 }

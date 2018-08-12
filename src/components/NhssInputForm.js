@@ -262,7 +262,7 @@ class NhssInputForm extends React.Component {
 		};
 		table_data.push(row);
 
-		this.state = {rows: table_data};
+		this.state = {rows: table_data, subID: '', date: ''};
 	}
 
 	getCSVData() {
@@ -330,7 +330,7 @@ class NhssInputForm extends React.Component {
 					</tbody>
 				</table>
 				<div className="download-btn">
-					<DownloadCSV dataHandler={this.getCSVData} filename="nhss.csv"/>
+					<DownloadCSV dataHandler={this.getCSVData} filename="NHSS.csv" is_enabled={this.state.subID !== '' && this.state.date !== ''}/>
 				</div>
 			</div>
 			);

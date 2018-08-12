@@ -6,7 +6,7 @@ import DownloadCSV from './DownloadCSV'
 class FmaInputForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {rows: props.data}
+		this.state = {rows: props.data, subID: '', date: ''}
 		this.props = props;
 		this.getCSVData = this.getCSVData.bind(this);
 		this.scoreChanged = this.scoreChanged.bind(this);
@@ -102,7 +102,7 @@ class FmaInputForm extends React.Component {
 					</tbody>
 				</table>
 				<div className="download-btn">
-					<DownloadCSV dataHandler={this.getCSVData} filename="fma.csv"/>
+					<DownloadCSV dataHandler={this.getCSVData} filename={"FMA_" + this.props.extremity.replace(/ +/g, "_")+ ".csv"} is_enabled={this.state.subID !== '' && this.state.date !== ''}/>
 				</div>
 			</div>
 			);
