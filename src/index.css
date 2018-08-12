@@ -35,6 +35,10 @@ td input{
 	width: 100%;
 }
 
+.row-index {
+	width: 5%;
+}
+
 .download-btn {
 	margin-bottom: 10%;
 }

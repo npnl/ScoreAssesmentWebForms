@@ -5,8 +5,17 @@ export const getWmftData = () => {
 		task: "Forearm to table",
 		time: '',
 		score: '',
-		score_range: [0, 3]
-		};
+		score_range: [0, 5],
+		comments: {
+			default: "FAS values should be 0 to 5.", 
+			0: "Does not attempt movement at all",
+			1: "UE does not participate functionally, but attempt is made", 
+			2: "Does, but requires assistance of other arm, requires >2 attempts, or very slow", 
+			3: "Does, but movement influenced by synergy, performed slowly, or with great effort", 
+			4: "Does, but movement is slightly slower, less precise than normal", 
+			5: "Movement appears to be normal"
+		}
+	};
 		table_data.push(row);
 
 	row = {
@@ -14,8 +23,17 @@ export const getWmftData = () => {
 		task: "Forearm to box",
 		time: '',
 		score: '',
-		score_range: [0, 3]
-		};
+		score_range: [0, 5],
+		comments: {
+			default: "FAS values should be 0 to 5.", 
+			0: "Does not attempt movement at all",
+			1: "UE does not participate functionally, but attempt is made", 
+			2: "Does, but requires assistance of other arm, requires >2 attempts, or very slow", 
+			3: "Does, but movement influenced by synergy, performed slowly, or with great effort", 
+			4: "Does, but movement is slightly slower, less precise than normal", 
+			5: "Movement appears to be normal"
+		}
+	};
 		table_data.push(row);
 
 	row = {
@@ -23,8 +41,17 @@ export const getWmftData = () => {
 		task: "Extend elbow (to the side)",
 		time: '',
 		score: '',
-		score_range: [0, 3]
-		};
+		score_range: [0, 5],
+		comments: {
+			default: "FAS values should be 0 to 5.", 
+			0: "Does not attempt movement at all",
+			1: "UE does not participate functionally, but attempt is made", 
+			2: "Does, but requires assistance of other arm, requires >2 attempts, or very slow", 
+			3: "Does, but movement influenced by synergy, performed slowly, or with great effort", 
+			4: "Does, but movement is slightly slower, less precise than normal", 
+			5: "Movement appears to be normal"
+		}
+	};
 		table_data.push(row);
 
 	row = {
@@ -32,8 +59,17 @@ export const getWmftData = () => {
 		task: "Extend elbow (to the side with weight)",
 		time: '',
 		score: '',
-		score_range: [0, 3]
-		};
+		score_range: [0, 5],
+		comments: {
+			default: "FAS values should be 0 to 5.", 
+			0: "Does not attempt movement at all",
+			1: "UE does not participate functionally, but attempt is made", 
+			2: "Does, but requires assistance of other arm, requires >2 attempts, or very slow", 
+			3: "Does, but movement influenced by synergy, performed slowly, or with great effort", 
+			4: "Does, but movement is slightly slower, less precise than normal", 
+			5: "Movement appears to be normal"
+		}
+	};
 		table_data.push(row);
 
 	row = {
@@ -41,8 +77,17 @@ export const getWmftData = () => {
 		task: "Hand to table (front)",
 		time: '',
 		score: '',
-		score_range: [0, 3]
-		};
+		score_range: [0, 5],
+		comments: {
+			default: "FAS values should be 0 to 5.", 
+			0: "Does not attempt movement at all",
+			1: "UE does not participate functionally, but attempt is made", 
+			2: "Does, but requires assistance of other arm, requires >2 attempts, or very slow", 
+			3: "Does, but movement influenced by synergy, performed slowly, or with great effort", 
+			4: "Does, but movement is slightly slower, less precise than normal", 
+			5: "Movement appears to be normal"
+		}
+	};
 		table_data.push(row);
 
 	row = {
@@ -50,17 +95,29 @@ export const getWmftData = () => {
 		task: "Hand to box (front)",
 		time: '',
 		score: '',
-		score_range: [0, 3]
-		};
+		score_range: [0, 5],
+		comments: {
+			default: "FAS values should be 0 to 5.", 
+			0: "Does not attempt movement at all",
+			1: "UE does not participate functionally, but attempt is made", 
+			2: "Does, but requires assistance of other arm, requires >2 attempts, or very slow", 
+			3: "Does, but movement influenced by synergy, performed slowly, or with great effort", 
+			4: "Does, but movement is slightly slower, less precise than normal", 
+			5: "Movement appears to be normal"
+		}
+	};
 		table_data.push(row);
 
 	row = {
 		item_no: 7,
 		task: "Weight to box",
-		time: '',
+		time: 'na',
 		score: '',
-		score_range: [0, 3]
-		};
+		score_range: [0, 600],
+		comments: {
+			default: "Weight values must be numeric. Record weight in kgs rather than FAS" 
+		}
+	};
 		table_data.push(row);
 
 	row = {
@@ -68,8 +125,17 @@ export const getWmftData = () => {
 		task: "Reach and retrieve",
 		time: '',
 		score: '',
-		score_range: [0, 3]
-		};
+		score_range: [0, 5],
+		comments: {
+			default: "FAS values should be 0 to 5.", 
+			0: "Does not attempt movement at all",
+			1: "UE does not participate functionally, but attempt is made", 
+			2: "Does, but requires assistance of other arm, requires >2 attempts, or very slow", 
+			3: "Does, but movement influenced by synergy, performed slowly, or with great effort", 
+			4: "Does, but movement is slightly slower, less precise than normal", 
+			5: "Movement appears to be normal"
+		}
+	};
 		table_data.push(row);
 
 	row = {
@@ -77,8 +143,17 @@ export const getWmftData = () => {
 		task: "Lift can",
 		time: '',
 		score: '',
-		score_range: [0, 3]
-		};
+		score_range: [0, 5],
+		comments: {
+			default: "FAS values should be 0 to 5.", 
+			0: "Does not attempt movement at all",
+			1: "UE does not participate functionally, but attempt is made", 
+			2: "Does, but requires assistance of other arm, requires >2 attempts, or very slow", 
+			3: "Does, but movement influenced by synergy, performed slowly, or with great effort", 
+			4: "Does, but movement is slightly slower, less precise than normal", 
+			5: "Movement appears to be normal"
+		}
+	};
 		table_data.push(row);
 
 	row = {
@@ -86,8 +161,17 @@ export const getWmftData = () => {
 		task: "Lift pencil",
 		time: '',
 		score: '',
-		score_range: [0, 3]
-		};
+		score_range: [0, 5],
+		comments: {
+			default: "FAS values should be 0 to 5.", 
+			0: "Does not attempt movement at all",
+			1: "UE does not participate functionally, but attempt is made", 
+			2: "Does, but requires assistance of other arm, requires >2 attempts, or very slow", 
+			3: "Does, but movement influenced by synergy, performed slowly, or with great effort", 
+			4: "Does, but movement is slightly slower, less precise than normal", 
+			5: "Movement appears to be normal"
+		}
+	};
 		table_data.push(row);
 
 	row = {
@@ -95,8 +179,17 @@ export const getWmftData = () => {
 		task: "Lift paper clip",
 		time: '',
 		score: '',
-		score_range: [0, 3]
-		};
+		score_range: [0, 5],
+		comments: {
+			default: "FAS values should be 0 to 5.", 
+			0: "Does not attempt movement at all",
+			1: "UE does not participate functionally, but attempt is made", 
+			2: "Does, but requires assistance of other arm, requires >2 attempts, or very slow", 
+			3: "Does, but movement influenced by synergy, performed slowly, or with great effort", 
+			4: "Does, but movement is slightly slower, less precise than normal", 
+			5: "Movement appears to be normal"
+		}
+	};
 		table_data.push(row);
 
 	row = {
@@ -104,8 +197,17 @@ export const getWmftData = () => {
 		task: "Stack checkers",
 		time: '',
 		score: '',
-		score_range: [0, 3]
-		};
+		score_range: [0, 5],
+		comments: {
+			default: "FAS values should be 0 to 5.", 
+			0: "Does not attempt movement at all",
+			1: "UE does not participate functionally, but attempt is made", 
+			2: "Does, but requires assistance of other arm, requires >2 attempts, or very slow", 
+			3: "Does, but movement influenced by synergy, performed slowly, or with great effort", 
+			4: "Does, but movement is slightly slower, less precise than normal", 
+			5: "Movement appears to be normal"
+		}
+	};
 		table_data.push(row);
 
 	row = {
@@ -113,17 +215,29 @@ export const getWmftData = () => {
 		task: "Flip cards",
 		time: '',
 		score: '',
-		score_range: [0, 3]
-		};
+		score_range: [0, 5],
+		comments: {
+			default: "FAS values should be 0 to 5.", 
+			0: "Does not attempt movement at all",
+			1: "UE does not participate functionally, but attempt is made", 
+			2: "Does, but requires assistance of other arm, requires >2 attempts, or very slow", 
+			3: "Does, but movement influenced by synergy, performed slowly, or with great effort", 
+			4: "Does, but movement is slightly slower, less precise than normal", 
+			5: "Movement appears to be normal"
+		}
+	};
 		table_data.push(row);
 
 	row = {
 		item_no: 14,
 		task: "Grip strength",
-		time: '',
+		time: 'na',
 		score: '',
-		score_range: [0, 3]
-		};
+		score_range: [0, 600],
+		comments: {
+			default: "Grip strength values must be numeric. Record grip strength in kgs rather than FAS", 
+		}
+	};
 		table_data.push(row);
 
 	row = {
@@ -131,8 +245,17 @@ export const getWmftData = () => {
 		task: "Turning key in lock",
 		time: '',
 		score: '',
-		score_range: [0, 3]
-		};
+		score_range: [0, 5],
+		comments: {
+			default: "FAS values should be 0 to 5.", 
+			0: "Does not attempt movement at all",
+			1: "UE does not participate functionally, but attempt is made", 
+			2: "Does, but requires assistance of other arm, requires >2 attempts, or very slow", 
+			3: "Does, but movement influenced by synergy, performed slowly, or with great effort", 
+			4: "Does, but movement is slightly slower, less precise than normal", 
+			5: "Movement appears to be normal"
+		}
+	};
 		table_data.push(row);
 
 	row = {
@@ -140,8 +263,17 @@ export const getWmftData = () => {
 		task: "Fold towel",
 		time: '',
 		score: '',
-		score_range: [0, 3]
-		};
+		score_range: [0, 5],
+		comments: {
+			default: "FAS values should be 0 to 5.", 
+			0: "Does not attempt movement at all",
+			1: "UE does not participate functionally, but attempt is made", 
+			2: "Does, but requires assistance of other arm, requires >2 attempts, or very slow", 
+			3: "Does, but movement influenced by synergy, performed slowly, or with great effort", 
+			4: "Does, but movement is slightly slower, less precise than normal", 
+			5: "Movement appears to be normal"
+		}
+	};
 		table_data.push(row);
 
 	row = {
@@ -149,8 +281,17 @@ export const getWmftData = () => {
 		task: "Lift basket",
 		time: '',
 		score: '',
-		score_range: [0, 3]
-		};
+		score_range: [0, 5],
+		comments: {
+			default: "FAS values should be 0 to 5.", 
+			0: "Does not attempt movement at all",
+			1: "UE does not participate functionally, but attempt is made", 
+			2: "Does, but requires assistance of other arm, requires >2 attempts, or very slow", 
+			3: "Does, but movement influenced by synergy, performed slowly, or with great effort", 
+			4: "Does, but movement is slightly slower, less precise than normal", 
+			5: "Movement appears to be normal"
+		}
+	};
 		table_data.push(row);
 	return table_data;
 }

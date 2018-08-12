@@ -67,7 +67,7 @@ class FmaInputForm extends React.Component {
 		var rows = [];
 		for (var i = 0; i < this.state.rows.length; i++) {
 			var data = this.state.rows[i];
-		  rows.push(<FmaFormRow data={data} scoreChanged={this.scoreChanged}/>);
+		  rows.push(<FmaFormRow data={data} getComment={this.getComment} scoreChanged={this.scoreChanged}/>);
 		}
 
 		return(
@@ -89,7 +89,7 @@ class FmaInputForm extends React.Component {
 				<table className="table table-bordered">
 					<thead>
 						<tr>
-							<th>Item</th>
+							<th class="row-index">Item</th>
 							<th>Category</th>
 							<th>Posture</th>
 							<th>Movement</th>
@@ -98,7 +98,7 @@ class FmaInputForm extends React.Component {
 						</tr>
 					</thead>
 					<tbody>
-						{rows}
+					{rows}
 					</tbody>
 				</table>
 				<div className="download-btn">

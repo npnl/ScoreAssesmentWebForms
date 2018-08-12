@@ -10,6 +10,7 @@ class NhssFormRow extends React.Component {
 			domain: props.data.domain,
 			specific: props.data.specific,
 			score: '',
+			comments: props.data.comments,
 			score_range: props.data.score_range
 		};
 
@@ -27,10 +28,11 @@ class NhssFormRow extends React.Component {
 	render() {
 		return(
 			<tr>
-				<th scope="row">{this.state.item_no}</th>
+				<th class="row-index">{this.state.item_no}</th>
 				<td>{this.state.specific}</td>
 				<td><input type="number" min={this.state.score_range[0]} max={this.state.score_range[1]} value={this.state.score} onChange={this.handleChange}/></td>
 				<td>{this.state.domain}</td>
+				<td>{this.props.getComment(this.state.score, this.state.comments)}</td>
 			</tr>
 			);
 	}

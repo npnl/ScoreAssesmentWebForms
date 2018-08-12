@@ -10,7 +10,8 @@ class WmftFormRow extends React.Component {
 			task: props.data.task,
 			time: props.data.time,
 			score: '',
-			score_range: props.data.score_range
+			score_range: props.data.score_range,
+			comments: props.data.comments
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -36,10 +37,11 @@ class WmftFormRow extends React.Component {
 	render() {
 		return(
 			<tr>
-				<th scope="row">{this.state.item_no}</th>
+				<th class="row-index">{this.state.item_no}</th>
 				<td>{this.state.task}</td>
-				<td><input type="number" min="0" value={this.state.time} onChange={this.handleTimeChange}/></td>
+				<td><input type="number" min="0" value={this.state.time} onChange={this.handleTimeChange} disabled={this.state.time === 'na'}/></td>
 				<td><input type="number" min={this.state.score_range[0]} max={this.state.score_range[1]} value={this.state.score} onChange={this.handleChange}/></td>
+				<td>{this.props.getComment(this.state.score, this.state.comments)}</td>
 			</tr>
 			);
 	}

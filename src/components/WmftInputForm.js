@@ -12,6 +12,7 @@ class WmftInputForm extends React.Component {
 		this.timeChanged = this.timeChanged.bind(this);
 		this.subjectChanged = this.subjectChanged.bind(this);
 		this.dateChanged = this.dateChanged.bind(this);
+		this.getComment = this.getComment.bind(this);
 	}
 
 	subjectChanged(event) {
@@ -38,6 +39,10 @@ class WmftInputForm extends React.Component {
 		this.setState({rows: new_rows});
 	}
 
+	getComment(score, comments) {
+		return comments.hasOwnProperty(score) ? comments[score] : comments['default'];
+	}
+
 	getCSVData() {
 		var date = this.state.date;
 		var date_obj = new Date(date);
@@ -55,7 +60,8 @@ class WmftInputForm extends React.Component {
 			Item_no: item.item_no,
 			Task: item.task,
 			Time: item.time,
-			Score: item.score
+			Score: item.score,
+			Comment: this.getComment(item.score, item.comments)
 		};
 		return new_item; 
 		}, this, subID, day, month, year, date);
@@ -66,7 +72,7 @@ class WmftInputForm extends React.Component {
 		var rows = [];
 		for (var i = 0; i < this.state.rows.length; i++) {
 			var data = this.state.rows[i];
-		  rows.push(<WmftFormRow data={data} scoreChanged={this.scoreChanged} timeChanged={this.timeChanged}/>);
+		  rows.push(<WmftFormRow data={data} getComment={this.getComment} scoreChanged={this.scoreChanged} timeChanged={this.timeChanged}/>);
 		}
 
 		return(
@@ -88,10 +94,11 @@ class WmftInputForm extends React.Component {
 				<table className="table table-bordered">
 					<thead>
 						<tr>
-							<th>Item</th>
+							<th class="row-index">Item</th>
 							<th>task</th>
 							<th>Time</th>
 							<th>FAS Score</th>
+							<th>Comment</th>
 						</tr>
 					</thead>
 					<tbody>
