@@ -115,7 +115,7 @@ export const getWmftData = () => {
 		score: '',
 		score_range: [0, 600],
 		comments: {
-			default: "Weight values must be numeric. Record weight in kgs rather than FAS. Time does not apply for this item" 
+			default: 'Weight values must be numeric. Record weight in kgs rather than FAS. Time does not apply for this item' 
 		}
 	};
 		table_data.push(row);

@@ -61,7 +61,10 @@ class WmftInputForm extends React.Component {
 			Task: item.task,
 			Time: item.time,
 			Score: item.score,
-			Comment: this.getComment(item.score, item.comments)
+			Comment: this.getComment(item.score, item.comments),
+			Median_Time: '',
+			Total_FAS: '',
+			AVG_Strength: ''
 		};
 		return new_item; 
 		}, this, subID, day, month, year, date);

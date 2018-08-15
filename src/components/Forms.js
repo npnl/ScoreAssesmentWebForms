@@ -5,6 +5,7 @@ import FmaInputForm from './FmaInputForm'
 import WmftInputForm from './WmftInputForm'
 import {getFmaLeData, getFmaUeData, getFmaSenseData} from '../data/FmaData'
 import {getWmftData} from '../data/WmftData'
+import {getNhssData} from '../data/NhssData'
 
 class Forms extends React.Component {
 	constructor(props) {
@@ -17,7 +18,7 @@ class Forms extends React.Component {
 		var form;
 		switch(this.form_type){
 			case 'NhssInputForm':
-				form = (<NhssInputForm/>);
+				form = (<NhssInputForm data={getNhssData()}/>);
 				break;
 			case 'FmaLeInputForm':
 				form = (<FmaInputForm extremity="LOWER EXTREMITY" data={getFmaLeData()}/>);

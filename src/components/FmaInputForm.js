@@ -56,7 +56,12 @@ class FmaInputForm extends React.Component {
 			Posture: item.posture,
 			Movement: item.movement,
 			Score: item.score,
-			Comment: this.getComment(item.score, item.comments)
+			Comment: this.getComment(item.score, item.comments),
+			Scale: '',
+			FMA_UE_Total: '',
+			FMA_LE_Total: '',
+			FMA_SENSE_Total: '',
+			FMA_Total: ''
 		};
 		return new_item; 
 		}, this, subID, day, month, year, date);
