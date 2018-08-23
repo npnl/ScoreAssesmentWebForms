@@ -13,6 +13,10 @@ class FmaInputForm extends React.Component {
 		this.subjectChanged = this.subjectChanged.bind(this);
 		this.dateChanged = this.dateChanged.bind(this);
 		this.getComment = this.getComment.bind(this);
+		this.calculateFmaLeTotal = this.calculateFmaLeTotal.bind(this);
+		this.calculateFmaUeTotal = this.calculateFmaUeTotal.bind(this);
+		this.calculateFmaSenseTotal = this.calculateFmaSenseTotal.bind(this);
+		this.getExtremityType = this.getExtremityType.bind(this);
 	}
 
 	subjectChanged(event) {
@@ -24,15 +28,64 @@ class FmaInputForm extends React.Component {
 	}
 
 	scoreChanged(item_no, value) {
-		var base_index = this.state.rows[0]['item_no'];
-		item_no = item_no - base_index;
 		var new_rows = this.state.rows;
+		if (item_no > 17 && item_no < 51) {
+			item_no += 1;
+		}
+		else if (item_no > 50) {
+			item_no += 2;
+		}
 		new_rows[item_no]['score'] = value
 		this.setState({rows: new_rows});
 	}
 
 	getComment(score, comments) {
 		return comments.hasOwnProperty(score) ? comments[score] : comments['default'];
+	}
+
+	calculateFmaLeTotal() {
+		var total = 0;
+		for (var i = 0; i < this.state.rows.length ; i++) {
+			var item_no = Number(this.state.rows[i]['item_no']);
+			if (item_no >= 1 && item_no <= 17 && item_no !== -1) {
+				total += Number(this.state.rows[i]['score']);
+			}
+		}
+		return total;
+	}
+
+	calculateFmaUeTotal() {
+		var total = 0;
+		for (var i = 0; i < this.state.rows.length; i++) {
+			var item_no = Number(this.state.rows[i]['item_no']);
+			if (item_no >= 18 && item_no <= 50 && item_no !== -1) {
+				total += Number(this.state.rows[i]['score']);
+			}
+		}
+		return total;
+	}
+
+	calculateFmaSenseTotal() {
+		var total = 0;
+		for (var i = 0; i < this.state.rows.length; i++) {
+			var item_no = Number(this.state.rows[i]['item_no']);
+			if (item_no >= 51 && item_no <= 62 && item_no !== -1) {
+				total += Number(this.state.rows[i]['score']);
+			}
+		}
+		return total;
+	}
+
+	getExtremityType(item_no) {
+		if (item_no <= 17) {
+			return "LE";
+		}
+		else if (item_no <= 50){
+			return "UE";
+		}
+		else {
+			return "SENSE";
+		}
 	}
 
 	getCSVData() {
@@ -43,28 +96,37 @@ class FmaInputForm extends React.Component {
 		var year = date_obj.getFullYear();
 
 		var subID = this.state.subID;
+		var total_le = this.calculateFmaLeTotal();
+		var total_ue = this.calculateFmaUeTotal();
+		var total_sense = this.calculateFmaSenseTotal();
+		var total_score = total_le + total_ue + total_sense;
 
 		var data = this.state.rows.map(function(item) { 
-		var new_item = {
-			SubID: subID,
-			Date: date,
-			Year: year,
-			Month: month,
-			Day: day,
-			Item_no: item.item_no,
-			Category: item.category,
-			Posture: item.posture,
-			Movement: item.movement,
-			Score: item.score,
-			Comment: this.getComment(item.score, item.comments),
-			Scale: '',
-			FMA_UE_Total: '',
-			FMA_LE_Total: '',
-			FMA_SENSE_Total: '',
-			FMA_Total: ''
-		};
-		return new_item; 
+			var new_item = {
+				SubID: subID,
+				Date: date,
+				Year: year,
+				Month: month,
+				Day: day,
+				Item_no: item.item_no,
+				Category: item.category,
+				Posture: item.posture,
+				Movement: item.movement,
+				Score: item.score,
+				Comment: this.getComment(item.score, item.comments),
+				Scale: this.getExtremityType(item.item_no),
+				FMA_UE_Total: total_le,
+				FMA_LE_Total: total_ue,
+				FMA_SENSE_Total: total_sense,
+				FMA_Total: total_score
+			};
+			return new_item; 
 		}, this, subID, day, month, year, date);
+
+		data = data.filter(function (item) {
+    		return Number(item.Item_no) !== -1;
+		});
+
 		return data;
 	}
 
@@ -94,7 +156,7 @@ class FmaInputForm extends React.Component {
 				<table className="table table-bordered">
 					<thead>
 						<tr>
-							<th class="row-index">Item</th>
+							<th className="row-index">Item</th>
 							<th>Category</th>
 							<th>Posture</th>
 							<th>Movement</th>

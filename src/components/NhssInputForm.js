@@ -12,6 +12,9 @@ class NhssInputForm extends React.Component {
 		this.subjectChanged = this.subjectChanged.bind(this);
 		this.dateChanged = this.dateChanged.bind(this);
 		this.getComment = this.getComment.bind(this);
+		this.calculateLocTotal = this.calculateLocTotal.bind(this);
+		this.calculateMotorTotal = this.calculateMotorTotal.bind(this);
+		this.calculateNihssTotal = this.calculateNihssTotal.bind(this);
 	}
 
 	subjectChanged(event) {
@@ -34,6 +37,26 @@ class NhssInputForm extends React.Component {
 		return comments.hasOwnProperty(score) ? comments[score] : comments['default'];
 	}
 
+	calculateLocTotal() {
+		return parseInt(this.state.rows[0]['score'], 10) + parseInt(this.state.rows[1]['score'], 10) + parseInt(this.state.rows[2]['score'], 10)
+	}
+
+	calculateMotorTotal() {
+		var total = 0;
+		for (var i = 3; i < 7; i++) {
+			total += parseInt(this.state.rows[i]['score'], 10);
+		}
+		return total;
+	}
+
+	calculateNihssTotal() {
+		var total = 0;
+		for (var i = 0; i < this.state.rows.length; i++) {
+			total += parseInt(this.state.rows[i]['score'], 10);
+		}
+		return total;
+	}
+
 	getCSVData() {
 		var date = this.state.date;
 		var date_obj = new Date(date);
@@ -42,6 +65,9 @@ class NhssInputForm extends React.Component {
 		var year = date_obj.getFullYear();
 
 		var subID = this.state.subID;
+		var loc_total = this.calculateLocTotal();
+		var motor_total = this.calculateMotorTotal();
+		var nihss_total = this.calculateNihssTotal();
 
 		var data = this.state.rows.map(function(item) { 
 		var new_item = {
@@ -55,9 +81,9 @@ class NhssInputForm extends React.Component {
 			Specific: item.specific,
 			Score: item.score,
 			Comment: this.getComment(item.score, item.comments),
-			Loc_Total: '',
-			Motor_Total: '',
-			NHSS_Total: ''
+			Loc_Total: loc_total,
+			Motor_Total: motor_total,
+			NHSS_Total: nihss_total
 		};
 		return new_item; 
 		}, this, subID, day, month, year, date);

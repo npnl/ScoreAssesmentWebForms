@@ -1,6 +1,19 @@
 export const getFmaLeData = () => {
 	var table_data = [];
 	var row = {
+		item_no: -1,
+		separator: true,
+		category: "FMA Lower Extremity",
+		posture: "",
+		movement: "",
+		score: '',
+		score_range: [0, 0],
+		comments: {
+			default: ""
+		}
+	};
+	table_data.push(row);
+	row = {
 		item_no: 1,
 		category: "Reflex Activity",
 		posture: "Supine or Sitting",
@@ -13,7 +26,7 @@ export const getFmaLeData = () => {
 			2: "Reflex activity can be Elicited"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 2,
 		category: "Reflex Activity",
@@ -27,7 +40,7 @@ export const getFmaLeData = () => {
 			2: "Reflex activity can be Elicited"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 3,
 		category: "Flexory Synergy",
@@ -42,7 +55,7 @@ export const getFmaLeData = () => {
 			2: "Full Motion"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 4,
 		category: "Flexory Synergy",
@@ -57,7 +70,7 @@ export const getFmaLeData = () => {
 			2: "Full Motion"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 5,
 		category: "Flexory Synergy",
@@ -72,7 +85,7 @@ export const getFmaLeData = () => {
 			2: "Full Motion"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 6,
 		category: "Extensory Synergy",
@@ -87,7 +100,7 @@ export const getFmaLeData = () => {
 			2: "Full Motion"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 7,
 		category: "Extensory Synergy",
@@ -102,7 +115,7 @@ export const getFmaLeData = () => {
 			2: "Full Motion"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 8,
 		category: "Extensory Synergy",
@@ -117,7 +130,7 @@ export const getFmaLeData = () => {
 			2: "Full Motion"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 9,
 		category: "Extensory Synergy",
@@ -132,7 +145,7 @@ export const getFmaLeData = () => {
 			2: "Full Motion"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 10,
 		category: "Movement Combining Synergy",
@@ -147,7 +160,7 @@ export const getFmaLeData = () => {
 			2: "Knee flexion beyond 90"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 11,
 		category: "Movement Combining Synergy",
@@ -162,7 +175,7 @@ export const getFmaLeData = () => {
 			2: "Normal dorsiflexion; Heel must remain on floor"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 12,
 		category: "Movement Out of Synergy",
@@ -177,7 +190,7 @@ export const getFmaLeData = () => {
 			2: "Knee flexion beyond 90; NO hip flexion"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 13,
 		category: "Movement Out of Synergy",
@@ -192,7 +205,7 @@ export const getFmaLeData = () => {
 			2: "Full motion"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 14,
 		category: "Normal Reflexes",
@@ -207,7 +220,7 @@ export const getFmaLeData = () => {
 			2: "No more than one reflex is lively and none are hyperactive"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 15,
 		category: "Coordination/Speed Sitting",
@@ -222,7 +235,7 @@ export const getFmaLeData = () => {
 			2: "No evident tremor"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 16,
 		category: "Coordination/Speed Sitting",
@@ -237,7 +250,7 @@ export const getFmaLeData = () => {
 			2: "No evident dysmetria"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 17,
 		category: "Coordination/Speed Sitting",
@@ -252,7 +265,20 @@ export const getFmaLeData = () => {
 			2: "Less than 2 s different from unaffected leg"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
+	row = {
+		item_no: -1,
+		separator: true,
+		category: "FMA Upper Extremity",
+		posture: "",
+		movement: "",
+		score: '',
+		score_range: [0, 0],
+		comments: {
+			default: ""
+		}
+	};
+	table_data.push(row);
 	return table_data;
 }
 
@@ -271,7 +297,7 @@ export const getFmaUeData = () => {
 			2: "Reflex activity can be Elicited"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 19,
 		category: "Reflex Activity",
@@ -285,7 +311,7 @@ export const getFmaUeData = () => {
 			2: "Reflex activity can be Elicited"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 20,
 		category: "Flexor Synergy",
@@ -300,7 +326,7 @@ export const getFmaUeData = () => {
 			2: "Performed faultlessly"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 21,
 		category: "Flexor Synergy",
@@ -315,7 +341,7 @@ export const getFmaUeData = () => {
 			2: "Performed faultlessly"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 22,
 		category: "Flexor Synergy",
@@ -330,7 +356,7 @@ export const getFmaUeData = () => {
 			2: "Performed faultlessly"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 23,
 		category: "Flexor Synergy",
@@ -345,7 +371,7 @@ export const getFmaUeData = () => {
 			2: "Performed faultlessly"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 24,
 		category: "Flexor Synergy",
@@ -360,7 +386,7 @@ export const getFmaUeData = () => {
 			2: "Performed faultlessly"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 25,
 		category: "Flexor Synergy",
@@ -375,7 +401,7 @@ export const getFmaUeData = () => {
 			2: "Performed faultlessly"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 26,
 		category: "Extensor Synergy",
@@ -390,7 +416,7 @@ export const getFmaUeData = () => {
 			2: "Performed faultlessly"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 27,
 		category: "Extensor Synergy",
@@ -405,7 +431,7 @@ export const getFmaUeData = () => {
 			2: "Performed faultlessly"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 28,
 		category: "Extensor Synergy",
@@ -420,7 +446,7 @@ export const getFmaUeData = () => {
 			2: "Performed faultlessly"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 29,
 		category: "Movement Combining Synergy",
@@ -435,7 +461,7 @@ export const getFmaUeData = () => {
 			2: "Performed faultlessly; Hand clears ASIS, extends toward sacrum"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 30,
 		category: "Movement Combining Synergy",
@@ -450,7 +476,7 @@ export const getFmaUeData = () => {
 			2: "Faultlessly Performed; Shoulder flexed with elbow extended"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 31,
 		category: "Movement Combining Synergy",
@@ -465,7 +491,7 @@ export const getFmaUeData = () => {
 			2: "Complete pronation/supination with arm held in correct position"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 32,
 		category: "Movement Out Synergy",
@@ -480,7 +506,7 @@ export const getFmaUeData = () => {
 			2: "Performed faultlessly"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 33,
 		category: "Movement Out Synergy",
@@ -495,7 +521,7 @@ export const getFmaUeData = () => {
 			2: "Performed faultlessly"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 34,
 		category: "Movement Out Synergy",
@@ -510,7 +536,7 @@ export const getFmaUeData = () => {
 			2: "Performed faultlessly"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 35,
 		category: "Normal Reflexes",
@@ -525,7 +551,7 @@ export const getFmaUeData = () => {
 			2: "No reflexes are hyperactive, no more than one is lively"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 36,
 		category: "Wrist",
@@ -540,7 +566,7 @@ export const getFmaUeData = () => {
 			2: "Position maintained with slight resistance"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 37,
 		category: "Wrist",
@@ -555,7 +581,7 @@ export const getFmaUeData = () => {
 			2: "Active smooth movement through full range of motion"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 38,
 		category: "Wrist",
@@ -570,7 +596,7 @@ export const getFmaUeData = () => {
 			2: "Position maintained with slight resistance"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 39,
 		category: "Wrist",
@@ -585,7 +611,7 @@ export const getFmaUeData = () => {
 			2: "Active smooth movement through full range of motion"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 40,
 		category: "Wrist",
@@ -600,7 +626,7 @@ export const getFmaUeData = () => {
 			2: "Smooth AND complete motion"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 41,
 		category: "Hand",
@@ -615,7 +641,7 @@ export const getFmaUeData = () => {
 			2: "Complete active flexion (compared to unaffected hand)"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 42,
 		category: "Hand",
@@ -630,7 +656,7 @@ export const getFmaUeData = () => {
 			2: "Complete active extension (compared to unaffected hand)"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 43,
 		category: "Hand",
@@ -645,7 +671,7 @@ export const getFmaUeData = () => {
 			2: "Grasp maintained against resistance"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 44,
 		category: "Hand",
@@ -660,7 +686,7 @@ export const getFmaUeData = () => {
 			2: "Grasp maintained against resistance"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 45,
 		category: "Hand",
@@ -675,7 +701,7 @@ export const getFmaUeData = () => {
 			2: "Grasp maintained against resistance"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 46,
 		category: "Hand",
@@ -690,7 +716,7 @@ export const getFmaUeData = () => {
 			2: "Grasp maintained against resistance"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 47,
 		category: "Hand",
@@ -705,7 +731,7 @@ export const getFmaUeData = () => {
 			2: "Grasp maintained against resistance"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 48,
 		category: "Coordination/Speed",
@@ -720,7 +746,7 @@ export const getFmaUeData = () => {
 			2: "No tremor"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 49,
 		category: "Coordination/Speed",
@@ -735,7 +761,7 @@ export const getFmaUeData = () => {
 			2: "No dysmetria"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
 	row = {
 		item_no: 50,
 		category: "Coordination/Speed",
@@ -750,7 +776,20 @@ export const getFmaUeData = () => {
 			2: "Less than 2 s different from unaffected leg"
 		}
 	};
-		table_data.push(row);
+	table_data.push(row);
+	row = {
+		item_no: -1,
+		separator: true,
+		category: "FMA Sense",
+		posture: "",
+		movement: "",
+		score: '',
+		score_range: [0, 0],
+		comments: {
+			default: ""
+		}
+	};
+	table_data.push(row);
 	return table_data;
 }
 

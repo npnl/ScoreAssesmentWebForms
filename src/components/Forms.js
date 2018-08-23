@@ -20,8 +20,11 @@ class Forms extends React.Component {
 			case 'NhssInputForm':
 				form = (<NhssInputForm data={getNhssData()}/>);
 				break;
-			case 'FmaLeInputForm':
-				form = (<FmaInputForm extremity="LOWER EXTREMITY" data={getFmaLeData()}/>);
+			case 'FmaInputForm':
+				var data = getFmaLeData();
+				data = data.concat(getFmaUeData());
+				data = data.concat(getFmaSenseData());
+				form = (<FmaInputForm extremity="" data={data}/>);
 				break;
 			case 'FmaUeInputForm':
 				form = (<FmaInputForm extremity="UPPER EXTREMITY" data={getFmaUeData()}/>);
@@ -35,6 +38,9 @@ class Forms extends React.Component {
 			case 'WmftUnAffectedInputForm':
 				form = (<WmftInputForm label="Un-Affected Arm" data={getWmftData()}/>);
 				break;
+			default:
+				form = (<div>Something went wrong</div>);
+				break
 		}
 		return(
 			<div>

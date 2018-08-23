@@ -12,7 +12,8 @@ class FmaFormRow extends React.Component {
 			movement: props.data.movement,
 			score: '',
 			score_range: props.data.score_range,
-			comments: props.data.comments
+			comments: props.data.comments,
+			separator: props.data.separator
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -27,9 +28,18 @@ class FmaFormRow extends React.Component {
 	}
 
 	render() {
-		return(
+		var row;
+		if (this.state.separator === true) {
+			row = (
+				<tr>
+					<td className="separator" colSpan={6}><h4>{this.state.category}</h4></td>
+				</tr>
+			);
+		}
+		else {
+			row = (
 			<tr>
-				<th class="row-index">{this.state.item_no}</th>
+				<td className="row-index">{this.state.item_no}</td>
 				<td>{this.state.category}</td>
 				<td>{this.state.posture}</td>
 				<td>{this.state.movement}</td>
@@ -37,6 +47,8 @@ class FmaFormRow extends React.Component {
 				<td>{this.props.getComment(this.state.score, this.state.comments)}</td>
 			</tr>
 			);
+		}
+		return row;
 	}
 }
 

@@ -35,6 +35,11 @@ td input{
 	width: 100%;
 }
 
+.separator {
+	background-color: #f2f2f2;
+	font-weight: bold;
+}
+
 .row-index {
 	width: 5%;
 }
