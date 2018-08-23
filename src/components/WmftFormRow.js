@@ -11,7 +11,10 @@ class WmftFormRow extends React.Component {
 			time: props.data.time,
 			score: '',
 			score_range: props.data.score_range,
-			comments: props.data.comments
+			comments: props.data.comments,
+			separator: props.data.separator,
+			category: props.data.category,
+			index: props.index
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -23,7 +26,7 @@ class WmftFormRow extends React.Component {
 			return
 		}
 		this.setState({score: event.target.value});
-		this.props.scoreChanged(this.state.item_no, event.target.value);
+		this.props.scoreChanged(this.state.item_no, this.state.index, event.target.value);
 	}
 
 	handleTimeChange(event) {
@@ -31,19 +34,30 @@ class WmftFormRow extends React.Component {
 			return
 		}
 		this.setState({time: event.target.value});
-		this.props.timeChanged(this.state.item_no, event.target.value);
+		this.props.timeChanged(this.state.item_no, this.state.index, event.target.value);
 	}
 
 	render() {
-		return(
-			<tr>
-				<th class="row-index">{this.state.item_no}</th>
-				<td>{this.state.task}</td>
-				<td><input type="number" min="0" value={this.state.time} onChange={this.handleTimeChange} disabled={this.state.time === 'na'}/></td>
-				<td><input type="number" min={this.state.score_range[0]} max={this.state.score_range[1]} value={this.state.score} onChange={this.handleChange}/></td>
-				<td>{this.props.getComment(this.state.score, this.state.comments)}</td>
-			</tr>
+		var row;
+		if (this.state.separator === true) {
+			row = (
+				<tr>
+					<td className="separator" colSpan={5}><h4>{this.state.category}</h4></td>
+				</tr>
 			);
+		}
+		else {
+			row = (
+				<tr>
+					<th class="row-index">{this.state.item_no}</th>
+					<td>{this.state.task}</td>
+					<td><input type="number" min="0" value={this.state.time} onChange={this.handleTimeChange} disabled={this.state.time === 'na'}/></td>
+					<td><input type="number" min={this.state.score_range[0]} max={this.state.score_range[1]} value={this.state.score} onChange={this.handleChange}/></td>
+					<td>{this.props.getComment(this.state.score, this.state.comments)}</td>
+				</tr>
+				);
+		}
+		return row;
 	}
 }
 

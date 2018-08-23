@@ -1,6 +1,19 @@
 export const getWmftData = () => {
 	var table_data = [];
 	var row = {
+		item_no: -1,
+		separator: true,
+		category: "Assessment of Affected Arm",
+		posture: "",
+		movement: "",
+		score: '',
+		score_range: [0, 0],
+		comments: {
+			default: ""
+		}
+	};
+	table_data.push(row);
+	row = {
 		item_no: 1,
 		task: "Forearm to table",
 		time: '',

@@ -124,7 +124,7 @@ class FmaInputForm extends React.Component {
 		}, this, subID, day, month, year, date);
 
 		data = data.filter(function (item) {
-    		return Number(item.Item_no) !== -1;
+			return Number(item.Item_no) !== -1;
 		});
 
 		return data;

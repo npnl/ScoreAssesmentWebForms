@@ -13,6 +13,9 @@ class WmftInputForm extends React.Component {
 		this.subjectChanged = this.subjectChanged.bind(this);
 		this.dateChanged = this.dateChanged.bind(this);
 		this.getComment = this.getComment.bind(this);
+		this.calculateMedianTime = this.calculateMedianTime.bind(this);
+		this.getTotalScore = this.getTotalScore.bind(this);
+		this.getAverageStrength = this.getAverageStrength.bind(this);
 	}
 
 	subjectChanged(event) {
@@ -23,24 +26,89 @@ class WmftInputForm extends React.Component {
 		this.setState({date: event.target.value});
 	}
 
-	scoreChanged(item_no, value) {
-		var base_index = this.state.rows[0]['item_no'];
-		item_no = item_no - base_index;
+	scoreChanged(item_no, index, value) {
 		var new_rows = this.state.rows;
-		new_rows[item_no]['score'] = value
+		new_rows[index]['score'] = value;
 		this.setState({rows: new_rows});
 	}
 
-	timeChanged(item_no, value) {
-		var base_index = this.state.rows[0]['item_no'];
-		item_no = item_no - base_index;
+	timeChanged(item_no, index, value) {
 		var new_rows = this.state.rows;
-		new_rows[item_no]['time'] = value
+		new_rows[index]['time'] = value;
 		this.setState({rows: new_rows});
 	}
 
 	getComment(score, comments) {
 		return comments.hasOwnProperty(score) ? comments[score] : comments['default'];
+	}
+
+	calculateMedianTime(is_affected) {
+		var values = [];
+		var start_index;
+		if (is_affected === true) {
+			start_index = 0;
+		}
+		else {
+			start_index = 18;
+		}
+		for(var i=0; i < 18; i++) {
+			var item_no = Number(this.state.rows[start_index + i]['item_no']);
+			if (item_no !== -1) {
+				values.push(Number(this.state.rows[start_index + i]['score']));
+			}
+		}
+
+		values.sort(function(a, b) {
+			return a-b;
+		});
+
+		if(values.length ===0) {
+			return 0;
+		}
+		var half = Math.floor(values.length / 2);
+		if (values.length % 2) {
+			return values[half];
+		}
+		else {
+			return (values[half - 1] + values[half]) / 2.0;
+		}
+	}
+
+	getTotalScore(is_affected) {
+		var total = 0;
+		var start_index;
+		if (is_affected === true) {
+			start_index = 0;
+		}
+		else {
+			start_index = 18;
+		}
+		for(var i= 0; i < 18; i++) {
+			var item_no = Number(this.state.rows[start_index + i]['item_no']);
+			if((item_no !== 7 && item_no !== 14) && item_no !== -1) {
+				total += Number(this.state.rows[start_index + i]['score']);
+			}
+		}
+		return total;
+	}
+
+	getAverageStrength(is_affected) {
+		var total = 0;
+		var start_index;
+		if (is_affected === true) {
+			start_index = 0;
+		}
+		else {
+			start_index = 18;
+		}
+		for(var i= 0; i < 18; i++) {
+			var item_no = Number(this.state.rows[start_index + i]['item_no']);
+			if(item_no === 7 || item_no === 14) {
+				total += Number(this.state.rows[start_index + i]['score']);
+			}
+		}
+		var average = parseFloat(total/2);
+		return average;
 	}
 
 	getCSVData() {
@@ -50,24 +118,52 @@ class WmftInputForm extends React.Component {
 		var month = date_obj.getMonth() + 1;
 		var year = date_obj.getFullYear();
 		var subID = this.state.subID;
-		var data = this.state.rows.map(function(item) { 
-		var new_item = {
-			SubID: subID,
-			Date: date,
-			Year: year,
-			Month: month,
-			Day: day,
-			Item_no: item.item_no,
-			Task: item.task,
-			Time: item.time,
-			Score: item.score,
-			Comment: this.getComment(item.score, item.comments),
-			Median_Time: '',
-			Total_FAS: '',
-			AVG_Strength: ''
-		};
-		return new_item; 
-		}, this, subID, day, month, year, date);
+
+		var affected_median = this.calculateMedianTime(true);
+		var un_affected_median = this.calculateMedianTime(false);
+
+		var affected_total_score = this.getTotalScore(true);
+		var un_affected_total_score = this.getTotalScore(false);
+
+		var affected_strength = this.getAverageStrength(true);
+		var un_affected_strength = this.getAverageStrength(false);
+
+
+		var data = this.state.rows.map(function(item, index) {
+			var median;
+			var strength;
+			var total_score;
+			if (index < 18){
+				median = affected_median;
+				strength = affected_strength;
+				total_score = affected_total_score;
+			}
+			else {
+				median = un_affected_median;
+				strength = un_affected_strength;
+				total_score = un_affected_total_score;
+			}
+			var new_item = {
+				SubID: subID,
+				Date: date,
+				Year: year,
+				Month: month,
+				Day: day,
+				Item_no: item.item_no,
+				Task: item.task,
+				Time: item.time,
+				Score: item.score,
+				Comment: this.getComment(item.score, item.comments),
+				Median_Time: median,
+				Total_FAS: total_score,
+				AVG_Strength: strength
+			};
+			return new_item; 
+		}, this, subID, day, month, year, date, affected_median, un_affected_median, affected_strength, un_affected_strength, affected_total_score, un_affected_total_score);
+
+		data = data.filter(function (item) {
+			return Number(item.Item_no) !== -1;
+		});
 		return data;
 	}
 
@@ -75,13 +171,13 @@ class WmftInputForm extends React.Component {
 		var rows = [];
 		for (var i = 0; i < this.state.rows.length; i++) {
 			var data = this.state.rows[i];
-		  rows.push(<WmftFormRow data={data} getComment={this.getComment} scoreChanged={this.scoreChanged} timeChanged={this.timeChanged}/>);
+			rows.push(<WmftFormRow data={data} getComment={this.getComment} scoreChanged={this.scoreChanged} timeChanged={this.timeChanged} index={i}/>);
 		}
 
 		return(
 			<div className="container" style={{marginTop: 100 + 'px'}}>
 				<div className="form-title">
-					<h1>Wolf Motor Function Task [{this.props.label}]</h1>
+					<h1>Wolf Motor Function Task {this.props.label}</h1>
 				</div>
 				<div className="basic-info">
 					<div className="subject_div">

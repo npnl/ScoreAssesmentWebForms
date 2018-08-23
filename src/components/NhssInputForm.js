@@ -94,7 +94,7 @@ class NhssInputForm extends React.Component {
 		var rows = [];
 		for (var i = 0; i < this.state.rows.length; i++) {
 			var data = this.state.rows[i];
-		  rows.push(<NhssFormRow data={data} getComment={this.getComment} scoreChanged={this.scoreChanged}/>);
+		  	rows.push(<NhssFormRow data={data} getComment={this.getComment} scoreChanged={this.scoreChanged}/>);
 		}
 
 		return(
