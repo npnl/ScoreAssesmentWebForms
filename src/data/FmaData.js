@@ -6,6 +6,7 @@ export const getFmaLeData = () => {
 		category: "FMA Lower Extremity",
 		posture: "",
 		movement: "",
+		rowspan: 1,
 		score: '',
 		score_range: [0, 0],
 		comments: {
@@ -18,6 +19,7 @@ export const getFmaLeData = () => {
 		category: "Reflex Activity",
 		posture: "Supine or Sitting",
 		movement: "Achilles Reflex",
+		rowspan: 2,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -32,6 +34,7 @@ export const getFmaLeData = () => {
 		category: "Reflex Activity",
 		posture: "Supine or Sitting",
 		movement: "Patellar Reflex",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -46,6 +49,7 @@ export const getFmaLeData = () => {
 		category: "Flexory Synergy",
 		posture: "Supine",
 		movement: "Flexor Synergy-Hip",
+		rowspan: 3,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -61,6 +65,7 @@ export const getFmaLeData = () => {
 		category: "Flexory Synergy",
 		posture: "Supine",
 		movement: "Flexor Synergy-Knee",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -76,6 +81,7 @@ export const getFmaLeData = () => {
 		category: "Flexory Synergy",
 		posture: "Supine",
 		movement: "Flexor Synergy-Ankle",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -91,6 +97,7 @@ export const getFmaLeData = () => {
 		category: "Extensory Synergy",
 		posture: "Side-lying",
 		movement: "Extensor Synergy-Hip",
+		rowspan: 4,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -106,6 +113,7 @@ export const getFmaLeData = () => {
 		category: "Extensory Synergy",
 		posture: "Side-lying",
 		movement: "Adductor Synergy-Hip",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -121,6 +129,7 @@ export const getFmaLeData = () => {
 		category: "Extensory Synergy",
 		posture: "Side-lying",
 		movement: "Extensor Synergy-Knee",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -136,6 +145,7 @@ export const getFmaLeData = () => {
 		category: "Extensory Synergy",
 		posture: "Side-lying",
 		movement: "Extensory Synergy-Ankle",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -151,6 +161,7 @@ export const getFmaLeData = () => {
 		category: "Movement Combining Synergy",
 		posture: "Sitting",
 		movement: "Knee Flexion Beyond 90",
+		rowspan: 2,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -166,6 +177,7 @@ export const getFmaLeData = () => {
 		category: "Movement Combining Synergy",
 		posture: "Sitting",
 		movement: "Ankle Dorsiflexion",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -181,6 +193,7 @@ export const getFmaLeData = () => {
 		category: "Movement Out of Synergy",
 		posture: "Standing",
 		movement: "Knee Flexion",
+		rowspan: 2,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -196,6 +209,7 @@ export const getFmaLeData = () => {
 		category: "Movement Out of Synergy",
 		posture: "Standing",
 		movement: "Ankle Dorsiflexion",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -211,6 +225,7 @@ export const getFmaLeData = () => {
 		category: "Normal Reflexes",
 		posture: "Sitting",
 		movement: "Normal Reflexes",
+		rowspan: 1,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -226,6 +241,7 @@ export const getFmaLeData = () => {
 		category: "Coordination/Speed Sitting",
 		posture: "Sitting",
 		movement: "Coordination Tremor",
+		rowspan: 3,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -241,6 +257,7 @@ export const getFmaLeData = () => {
 		category: "Coordination/Speed Sitting",
 		posture: "Sitting",
 		movement: "Coordination Dysmetria",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -256,6 +273,7 @@ export const getFmaLeData = () => {
 		category: "Coordination/Speed Sitting",
 		posture: "Sitting",
 		movement: "Coordination Speed",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -272,6 +290,7 @@ export const getFmaLeData = () => {
 		category: "FMA Upper Extremity",
 		posture: "",
 		movement: "",
+		rowspan: 1,
 		score: '',
 		score_range: [0, 0],
 		comments: {
@@ -289,6 +308,7 @@ export const getFmaUeData = () => {
 		category: "Reflex Activity",
 		posture: "Sitting",
 		movement: "Reflex Activity - Triceps",
+		rowspan: 2,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -303,6 +323,7 @@ export const getFmaUeData = () => {
 		category: "Reflex Activity",
 		posture: "Sitting",
 		movement: "Reflex Activity - Biceps",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -317,6 +338,7 @@ export const getFmaUeData = () => {
 		category: "Flexor Synergy",
 		posture: "Sitting",
 		movement: "Elevation - Scapular",
+		rowspan: 6,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -332,6 +354,7 @@ export const getFmaUeData = () => {
 		category: "Flexor Synergy",
 		posture: "Sitting",
 		movement: "Retraction - Scapular",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -347,6 +370,7 @@ export const getFmaUeData = () => {
 		category: "Flexor Synergy",
 		posture: "Sitting",
 		movement: "Shoulder Abduction",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -362,6 +386,7 @@ export const getFmaUeData = () => {
 		category: "Flexor Synergy",
 		posture: "Sitting",
 		movement: "External Rotation",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -377,6 +402,7 @@ export const getFmaUeData = () => {
 		category: "Flexor Synergy",
 		posture: "Sitting",
 		movement: "Elbow Flexion",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -392,6 +418,7 @@ export const getFmaUeData = () => {
 		category: "Flexor Synergy",
 		posture: "Sitting",
 		movement: "Forearm Supination",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -407,6 +434,7 @@ export const getFmaUeData = () => {
 		category: "Extensor Synergy",
 		posture: "Sitting",
 		movement: "Internal Rotation",
+		rowspan: 3,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -422,6 +450,7 @@ export const getFmaUeData = () => {
 		category: "Extensor Synergy",
 		posture: "Sitting",
 		movement: "Elbow Extension",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -437,6 +466,7 @@ export const getFmaUeData = () => {
 		category: "Extensor Synergy",
 		posture: "Sitting",
 		movement: "Forearm Pronation",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -452,6 +482,7 @@ export const getFmaUeData = () => {
 		category: "Movement Combining Synergy",
 		posture: "Sitting",
 		movement: "Hand to Lumbar Spine",
+		rowspan: 3,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -467,6 +498,7 @@ export const getFmaUeData = () => {
 		category: "Movement Combining Synergy",
 		posture: "Sitting",
 		movement: "Shoulder to 90; Elbow at 0",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -482,6 +514,7 @@ export const getFmaUeData = () => {
 		category: "Movement Combining Synergy",
 		posture: "Sitting",
 		movement: "Pronation/Supination; Shoulder at 0 Elbow at 90",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -497,6 +530,7 @@ export const getFmaUeData = () => {
 		category: "Movement Out Synergy",
 		posture: "Sitting",
 		movement: "Shoulder Abduction",
+		rowspan: 3,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -512,6 +546,7 @@ export const getFmaUeData = () => {
 		category: "Movement Out Synergy",
 		posture: "Sitting",
 		movement: "Shoulder Flexion",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -527,6 +562,7 @@ export const getFmaUeData = () => {
 		category: "Movement Out Synergy",
 		posture: "Sitting",
 		movement: "Pronation/Supination; Elbow at 0, Shoulder flexion between 30-90 ",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -542,6 +578,7 @@ export const getFmaUeData = () => {
 		category: "Normal Reflexes",
 		posture: "Sitting",
 		movement: "Bicep/Tricep Reflexes",
+		rowspan: 1,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -557,6 +594,7 @@ export const getFmaUeData = () => {
 		category: "Wrist",
 		posture: "Sitting",
 		movement: "Stability, elbow 90",
+		rowspan: 5,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -572,6 +610,7 @@ export const getFmaUeData = () => {
 		category: "Wrist",
 		posture: "Sitting",
 		movement: "Flexion/Extension, elbow 90",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -587,6 +626,7 @@ export const getFmaUeData = () => {
 		category: "Wrist",
 		posture: "Sitting",
 		movement: "Stability, elbow 0",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -602,6 +642,7 @@ export const getFmaUeData = () => {
 		category: "Wrist",
 		posture: "Sitting",
 		movement: "Flexion/Extension, elbow 0",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -617,6 +658,7 @@ export const getFmaUeData = () => {
 		category: "Wrist",
 		posture: "Sitting",
 		movement: "Circumduction",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -632,6 +674,7 @@ export const getFmaUeData = () => {
 		category: "Hand",
 		posture: "Sitting",
 		movement: "Finger flexion",
+		rowspan: 7,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -647,6 +690,7 @@ export const getFmaUeData = () => {
 		category: "Hand",
 		posture: "Sitting",
 		movement: "Finger extenstion",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -662,6 +706,7 @@ export const getFmaUeData = () => {
 		category: "Hand",
 		posture: "Sitting",
 		movement: "Grasp 1",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -677,6 +722,7 @@ export const getFmaUeData = () => {
 		category: "Hand",
 		posture: "Sitting",
 		movement: "Grasp 2",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -692,6 +738,7 @@ export const getFmaUeData = () => {
 		category: "Hand",
 		posture: "Sitting",
 		movement: "Grasp 3",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -707,6 +754,7 @@ export const getFmaUeData = () => {
 		category: "Hand",
 		posture: "Sitting",
 		movement: "Grasp 4",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -722,6 +770,7 @@ export const getFmaUeData = () => {
 		category: "Hand",
 		posture: "Sitting",
 		movement: "Grasp 5",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -737,6 +786,7 @@ export const getFmaUeData = () => {
 		category: "Coordination/Speed",
 		posture: "Sitting",
 		movement: "Tremor",
+		rowspan: 3,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -752,6 +802,7 @@ export const getFmaUeData = () => {
 		category: "Coordination/Speed",
 		posture: "Sitting",
 		movement: "Dysmetria",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -767,6 +818,7 @@ export const getFmaUeData = () => {
 		category: "Coordination/Speed",
 		posture: "Sitting",
 		movement: "Speed",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -783,6 +835,7 @@ export const getFmaUeData = () => {
 		category: "FMA Sense",
 		posture: "",
 		movement: "",
+		rowspan: 1,
 		score: '',
 		score_range: [0, 0],
 		comments: {
@@ -800,6 +853,7 @@ export const getFmaSenseData = () => {
 		category: "Light Touch - UE",
 		posture: "Supine or Sitting",
 		movement: "Upper arm ",
+		rowspan: 2,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -815,6 +869,7 @@ export const getFmaSenseData = () => {
 		category: "Light Touch - UE",
 		posture: "Supine or Sitting",
 		movement: "Hand",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -830,6 +885,7 @@ export const getFmaSenseData = () => {
 		category: "Light Touch - LE",
 		posture: "Supine or Sitting",
 		movement: "Thigh",
+		rowspan: 2,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -845,6 +901,7 @@ export const getFmaSenseData = () => {
 		category: "Light Touch - LE",
 		posture: "Supine or Sitting",
 		movement: "Sole of foot",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -860,6 +917,7 @@ export const getFmaSenseData = () => {
 		category: "Proprioception-UE",
 		posture: "Supine or Sitting",
 		movement: "Shoulder",
+		rowspan: 4,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -875,6 +933,7 @@ export const getFmaSenseData = () => {
 		category: "Proprioception-UE",
 		posture: "Supine or Sitting",
 		movement: "Elbow",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -890,6 +949,7 @@ export const getFmaSenseData = () => {
 		category: "Proprioception-UE",
 		posture: "Supine or Sitting",
 		movement: "Wrist",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -905,6 +965,7 @@ export const getFmaSenseData = () => {
 		category: "Proprioception-UE",
 		posture: "Supine or Sitting",
 		movement: "Thumb",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -920,6 +981,7 @@ export const getFmaSenseData = () => {
 		category: "Proprioception-LE",
 		posture: "Supine or Sitting",
 		movement: "Hip",
+		rowspan: 4,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -935,6 +997,7 @@ export const getFmaSenseData = () => {
 		category: "Proprioception-LE",
 		posture: "Supine or Sitting",
 		movement: "Knee",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -950,6 +1013,7 @@ export const getFmaSenseData = () => {
 		category: "Proprioception-LE",
 		posture: "Supine or Sitting",
 		movement: "Ankle",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -965,6 +1029,7 @@ export const getFmaSenseData = () => {
 		category: "Proprioception-LE",
 		posture: "Supine or Sitting",
 		movement: "Toe",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -974,7 +1039,7 @@ export const getFmaSenseData = () => {
 			2: "Intact; all answers are correct, little or no difference between sides"
 		}
 	};
-
+	table_data.push(row);
 	return table_data;
 }
 

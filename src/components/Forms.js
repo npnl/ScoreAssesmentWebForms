@@ -32,7 +32,7 @@ class Forms extends React.Component {
 			case 'FmaSenseInputForm':
 				form = (<FmaInputForm extremity="SENSE" data={getFmaSenseData()}/>);
 				break;
-			case 'WmftAffectedInputForm':
+			case 'WmftInputForm':
 				var data_affected = getWmftData();
 				var data_unaffected = getWmftData();
 				data_unaffected[0]['category'] = "Assessment of Un-affected Arm";

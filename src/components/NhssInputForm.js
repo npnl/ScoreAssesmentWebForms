@@ -15,6 +15,7 @@ class NhssInputForm extends React.Component {
 		this.calculateLocTotal = this.calculateLocTotal.bind(this);
 		this.calculateMotorTotal = this.calculateMotorTotal.bind(this);
 		this.calculateNihssTotal = this.calculateNihssTotal.bind(this);
+		this.getCurrentDate = this.getCurrentDate.bind(this);
 	}
 
 	subjectChanged(event) {
@@ -90,6 +91,16 @@ class NhssInputForm extends React.Component {
 		return data;
 	}
 
+	getCurrentDate() {
+		var d = new Date(),
+		month = '' + (d.getMonth() + 1),
+		day = '' + d.getDate(),
+		year = d.getFullYear();
+		if (month.length < 2) month = '0' + month;
+		if (day.length < 2) day = '0' + day;
+		return [year, month, day].join('-');
+	}
+
 	render() {
 		var rows = [];
 		for (var i = 0; i < this.state.rows.length; i++) {
@@ -109,7 +120,7 @@ class NhssInputForm extends React.Component {
 					</div>
 					<div className="date_div">
 						<label>Date</label>
-						<input type="date" className="form-control"  placeholder="Date" min="2010-01-01" max="2099-12-31" onChange={this.dateChanged} required />
+						<input type="date" className="form-control"  value={this.getCurrentDate()} placeholder="Date" min="2010-01-01" max="2099-12-31" onChange={this.dateChanged} required />
 					</div>
 				</div>
 

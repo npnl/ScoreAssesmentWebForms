@@ -4,6 +4,7 @@ export const getNhssData = () =>{
 		item_no: "1",
 		domain: "Levels of Consciousness",
 		specific: "Arousal Status",
+		rowspan: 3,
 		score: '',
 		score_range:[0, 3],
 		comments: {
@@ -20,6 +21,7 @@ export const getNhssData = () =>{
 		item_no: "2",
 		domain: "Levels of Consciousness",
 		specific:"Current Month and Age",
+		rowspan: 0,
 		score: '',
 		score_range:[0, 2],
 		comments: {
@@ -34,6 +36,7 @@ export const getNhssData = () =>{
 		item_no: "3",
 		domain: "Levels of Consciousness",
 		specific:"Commands: Open/Close Eyes and Hands",
+		rowspan: 0,
 		score: '',
 		score_range:[0, 2],
 		comments: {
@@ -46,8 +49,9 @@ export const getNhssData = () =>{
 	table_data.push(row);
 	row = {
 		item_no: "4",
-		domain: "Levels of Consciousness",
+		domain: "",
 		specific:"Eye Movements",
+		rowspan: 1,
 		score: '',
 		score_range:[0, 2],
 		comments: {
@@ -60,8 +64,9 @@ export const getNhssData = () =>{
 	table_data.push(row);
 	row = {
 		item_no: "5",
-		domain: "Levels of Consciousness",
+		domain: "",
 		specific:"Visual Fields",
+		rowspan: 1,
 		score: '',
 		score_range:[0, 3],
 		comments: {
@@ -75,8 +80,9 @@ export const getNhssData = () =>{
 	table_data.push(row);
 	row = {
 		item_no: "6",
-		domain: "Levels of Consciousness",
+		domain: "",
 		specific:"Facial Movements",
+		rowspan: 1,
 		score: '',
 		score_range:[0, 3],
 		comments: {
@@ -93,6 +99,7 @@ export const getNhssData = () =>{
 		item_no: "7",
 		domain: "Motor",
 		specific: "Left Arm",
+		rowspan: 4,
 		score: '',
 		score_range: [0, 4],
 		comments: {
@@ -109,6 +116,7 @@ export const getNhssData = () =>{
 		item_no: "8",
 		domain: "Motor",
 		specific: "Rights Arm",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 4],
 		comments: {
@@ -125,6 +133,7 @@ export const getNhssData = () =>{
 		item_no: "9",
 		domain: "Motor",
 		specific: "Left Leg",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 4],
 		comments: {
@@ -141,6 +150,7 @@ export const getNhssData = () =>{
 		item_no: "10",
 		domain: "Motor",
 		specific: "Right Leg",
+		rowspan: 0,
 		score: '',
 		score_range: [0, 4],
 		comments: {
@@ -157,6 +167,7 @@ export const getNhssData = () =>{
 		item_no: "11",
 		domain: "",
 		specific: "Limb Ataxia",
+		rowspan: 1,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -171,6 +182,7 @@ export const getNhssData = () =>{
 		item_no: "12",
 		domain: "",
 		specific: "Sensory",
+		rowspan: 1,
 		score: '',
 		score_range: [0, 2],
 		comments: {
@@ -185,6 +197,7 @@ export const getNhssData = () =>{
 		item_no: "13",
 		domain: "",
 		specific: "Language/Aphasia",
+		rowspan: 1,
 		score: '',
 		score_range: [0, 3],
 		comments: {
@@ -200,6 +213,7 @@ export const getNhssData = () =>{
 		item_no: "14",
 		domain: "",
 		specific: "Dysarthia",
+		rowspan: 1,
 		score: '',
 		score_range: [0, 3],
 		comments: {
@@ -215,6 +229,7 @@ export const getNhssData = () =>{
 		item_no: "15",
 		domain: "",
 		specific: "Neglect",
+		rowspan: 1,
 		score: '',
 		score_range: [0, 2],
 		comments: {

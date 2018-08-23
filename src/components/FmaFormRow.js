@@ -13,7 +13,8 @@ class FmaFormRow extends React.Component {
 			score: '',
 			score_range: props.data.score_range,
 			comments: props.data.comments,
-			separator: props.data.separator
+			separator: props.data.separator,
+			rowspan: props.data.rowspan
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -36,14 +37,24 @@ class FmaFormRow extends React.Component {
 				</tr>
 			);
 		}
-		else {
+		else if (this.state.rowspan !== undefined && this.state.rowspan === 0) {
 			row = (
 			<tr>
 				<td className="row-index">{this.state.item_no}</td>
-				<td>{this.state.category}</td>
-				<td>{this.state.posture}</td>
 				<td>{this.state.movement}</td>
-				<td><input type="number" min={this.state.score_range[0]} max={this.state.score_range[1]} value={this.state.score} onChange={this.handleChange}/></td>
+				<td><input type="number" min={this.state.score_range[0]} max={this.state.score_range[1]} placeholder="Score" value={this.state.score} onChange={this.handleChange}/></td>
+				<td>{this.props.getComment(this.state.score, this.state.comments)}</td>
+			</tr>
+			);
+		}
+		else{
+			row = (
+			<tr>
+				<td className="row-index">{this.state.item_no}</td>
+				<td className="common-td" rowSpan={this.state.rowspan}>{this.state.category}</td>
+				<td className="common-td" rowSpan={this.state.rowspan}>{this.state.posture}</td>
+				<td>{this.state.movement}</td>
+				<td><input type="number" min={this.state.score_range[0]} max={this.state.score_range[1]} placeholder="Score" value={this.state.score} onChange={this.handleChange}/></td>
 				<td>{this.props.getComment(this.state.score, this.state.comments)}</td>
 			</tr>
 			);

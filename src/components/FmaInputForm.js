@@ -6,7 +6,7 @@ import DownloadCSV from './DownloadCSV'
 class FmaInputForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {rows: props.data, subID: '', date: ''}
+		this.state = {rows: props.data, subID: '', date: new Date()}
 		this.props = props;
 		this.getCSVData = this.getCSVData.bind(this);
 		this.scoreChanged = this.scoreChanged.bind(this);
@@ -17,6 +17,7 @@ class FmaInputForm extends React.Component {
 		this.calculateFmaUeTotal = this.calculateFmaUeTotal.bind(this);
 		this.calculateFmaSenseTotal = this.calculateFmaSenseTotal.bind(this);
 		this.getExtremityType = this.getExtremityType.bind(this);
+		this.getCurrentDate = this.getCurrentDate.bind(this);
 	}
 
 	subjectChanged(event) {
@@ -130,6 +131,16 @@ class FmaInputForm extends React.Component {
 		return data;
 	}
 
+	getCurrentDate() {
+		var d = new Date(),
+		month = '' + (d.getMonth() + 1),
+		day = '' + d.getDate(),
+		year = d.getFullYear();
+		if (month.length < 2) month = '0' + month;
+		if (day.length < 2) day = '0' + day;
+		return [year, month, day].join('-');
+	}
+
 	render() {
 		var rows = [];
 		for (var i = 0; i < this.state.rows.length; i++) {
@@ -149,7 +160,7 @@ class FmaInputForm extends React.Component {
 					</div>
 					<div className="date_div">
 						<label>Date</label>
-						<input type="date" className="form-control"  placeholder="Date" min="2010-01-01" max="2099-12-31" onChange={this.dateChanged} required />
+						<input type="date" className="form-control" value={this.getCurrentDate()} placeholder="Date" min="2010-01-01" max="2099-12-31" onChange={this.dateChanged} required />
 					</div>
 				</div>
 

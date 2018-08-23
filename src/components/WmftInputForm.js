@@ -16,6 +16,7 @@ class WmftInputForm extends React.Component {
 		this.calculateMedianTime = this.calculateMedianTime.bind(this);
 		this.getTotalScore = this.getTotalScore.bind(this);
 		this.getAverageStrength = this.getAverageStrength.bind(this);
+		this.getCurrentDate = this.getCurrentDate.bind(this);
 	}
 
 	subjectChanged(event) {
@@ -167,6 +168,16 @@ class WmftInputForm extends React.Component {
 		return data;
 	}
 
+	getCurrentDate() {
+		var d = new Date(),
+		month = '' + (d.getMonth() + 1),
+		day = '' + d.getDate(),
+		year = d.getFullYear();
+		if (month.length < 2) month = '0' + month;
+		if (day.length < 2) day = '0' + day;
+		return [year, month, day].join('-');
+	}
+
 	render() {
 		var rows = [];
 		for (var i = 0; i < this.state.rows.length; i++) {
@@ -186,7 +197,7 @@ class WmftInputForm extends React.Component {
 					</div>
 					<div className="date_div">
 						<label>Date</label>
-						<input type="date" className="form-control"  placeholder="Date" min="2010-01-01" max="2099-12-31" onChange={this.dateChanged} required />
+						<input type="date" className="form-control"  value={this.getCurrentDate()} placeholder="Date" min="2010-01-01" max="2099-12-31" onChange={this.dateChanged} required />
 					</div>
 				</div>
 
@@ -205,7 +216,7 @@ class WmftInputForm extends React.Component {
 					</tbody>
 				</table>
 				<div className="download-btn">
-					<DownloadCSV dataHandler={this.getCSVData} filename={"WMFT_" + this.props.label.replace(/ +/g, "_")+ ".csv"} is_enabled={this.state.subID !== '' && this.state.date !== ''}/>
+					<DownloadCSV dataHandler={this.getCSVData} filename={"WMFT.csv"} is_enabled={this.state.subID !== '' && this.state.date !== ''}/>
 				</div>
 			</div>
 			);

@@ -31,8 +31,13 @@ th {
 	text-align: center;
 }
 
-td input{
+td input {
 	width: 100%;
+}
+
+.common-td {
+	text-align: center; 
+    vertical-align: middle !important;
 }
 
 .separator {
