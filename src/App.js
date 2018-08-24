@@ -18,7 +18,7 @@ class App extends Component {
 										<span className="icon-bar"></span>
 										<span className="icon-bar"></span>
 									</button>
-									<a className="navbar-brand" href="/home">Home</a>
+									<Link className="navbar-brand" to="/Home">Home</Link>
 								</div>
 								<div id="navbar" className="collapse navbar-collapse">
 									<ul className="nav navbar-nav">
