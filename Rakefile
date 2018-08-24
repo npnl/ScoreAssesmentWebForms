@@ -27,9 +27,7 @@ task :publish => [:generate] do
 
     message = "Site updated at #{Time.now.utc}"
     system "git commit -q -m #{message.inspect}"
-    system "git push origin deploy"
-    system "git push npnl deploy"
-
+    system "git push -f npnl deploy:gh-pages"
     Dir.chdir pwd
   end
 end
