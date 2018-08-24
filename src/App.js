@@ -8,7 +8,7 @@ import './App.css';
 class App extends Component {
 	render() {
 		return (
-			<BrowserRouter>
+			<BrowserRouter basename={"/ScoreAssessmentWebForms"}>
 				<div className="App">
 						<nav className="navbar navbar-inverse navbar-fixed-top">
 							<div className="container">
