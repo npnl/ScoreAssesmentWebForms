@@ -19,15 +19,15 @@ task :publish => [:generate] do
 
     Dir.chdir tmp
     system "git reset -q && git checkout -q . && git clean -dfq"
-    system "git checkout deploy"
-    system "git pull origin deploy"
+    system "git checkout gh-pages"
+    system "git pull origin gh-pages"
 
     cp_r "#{pwd}/build/.", tmp
     system "git add ."
 
     message = "Site updated at #{Time.now.utc}"
     system "git commit -q -m #{message.inspect}"
-    system "git push -f npnl deploy:gh-pages"
+    system "git push -f npnl gh-pages"
     Dir.chdir pwd
   end
 end

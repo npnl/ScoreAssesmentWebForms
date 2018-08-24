@@ -18,7 +18,7 @@ class App extends Component {
 										<span className="icon-bar"></span>
 										<span className="icon-bar"></span>
 									</button>
-									<a className="navbar-brand" href="/">Home</a>
+									<a className="navbar-brand" href="/home">Home</a>
 								</div>
 								<div id="navbar" className="collapse navbar-collapse">
 									<ul className="nav navbar-nav">
@@ -33,7 +33,7 @@ class App extends Component {
 							</div>
 						</nav>
 					<Switch>
-						<Route exact path="/" component={()=><Home/>} />
+						<Route exact path="/home" component={()=><Home/>} />
 						<Route exact path="/NhssInputForm" component={()=><Forms form_type="NhssInputForm"/>} />
 						<Route exact path="/FmaInputForm" component={()=><Forms form_type="FmaInputForm" />} />
 						{/* <Route exact path="/FmaUeInputForm" component={()=><Forms form_type="FmaUeInputForm" />} /> */}
