@@ -6,6 +6,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "react": "^16.4.2",
+    "react-anchor-link-smooth-scroll": "^1.0.11",
     "react-bootstrap": "^0.32.1",
     "react-csv": "^1.0.14",
     "react-dom": "^16.4.2",

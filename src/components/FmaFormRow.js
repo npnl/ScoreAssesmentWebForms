@@ -14,7 +14,8 @@ class FmaFormRow extends React.Component {
 			score_range: props.data.score_range,
 			comments: props.data.comments,
 			separator: props.data.separator,
-			rowspan: props.data.rowspan
+			rowspan: props.data.rowspan,
+			row_id: props.data.row_id
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -33,7 +34,7 @@ class FmaFormRow extends React.Component {
 		if (this.state.separator === true) {
 			row = (
 				<tr>
-					<td className="separator" colSpan={6}><h4>{this.state.category}</h4></td>
+					<td className="separator" id={this.state.row_id} colSpan={6}><h4>{this.state.category}</h4></td>
 				</tr>
 			);
 		}

@@ -9,6 +9,7 @@ export const getFmaLeData = () => {
 		rowspan: 1,
 		score: '',
 		score_range: [0, 0],
+		row_id: 'LE',
 		comments: {
 			default: ""
 		}
@@ -293,6 +294,7 @@ export const getFmaLeData = () => {
 		rowspan: 1,
 		score: '',
 		score_range: [0, 0],
+		row_id: 'UE',
 		comments: {
 			default: ""
 		}
@@ -838,6 +840,7 @@ export const getFmaUeData = () => {
 		rowspan: 1,
 		score: '',
 		score_range: [0, 0],
+		row_id: 'Sense',
 		comments: {
 			default: ""
 		}

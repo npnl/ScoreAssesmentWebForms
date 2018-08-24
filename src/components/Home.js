@@ -14,7 +14,7 @@ class Home extends React.Component {
 		return(
 			<div className="main-container">
 				<h1>Select a form type.</h1>
-				<h2><Link to="/NhssInputForm">NHSS</Link></h2>
+				<h2><Link to="/NhssInputForm">NIHSS</Link></h2>
 				<h2><Link to="/FmaInputForm">FMA</Link></h2>
 				<h2><Link to="/WmftInputForm">WMFT</Link></h2>
 			</div>);

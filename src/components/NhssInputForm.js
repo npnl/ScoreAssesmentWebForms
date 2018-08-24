@@ -111,7 +111,7 @@ class NhssInputForm extends React.Component {
 		return(
 			<div className="container" style={{marginTop: 100 + 'px'}}>
 				<div className="form-title">
-					<h1>Wolf Motor Function Task</h1>
+					<h1>NIH Stroke Scale</h1>
 				</div>
 				<div className="basic-info">
 					<div className="subject_div">

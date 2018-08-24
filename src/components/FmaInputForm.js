@@ -1,5 +1,7 @@
 // FmaInputForm.js
 import React from 'react';
+import ReactDOM from 'react-dom'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 import FmaFormRow from './FmaFormRow'
 import DownloadCSV from './DownloadCSV'
 
@@ -150,6 +152,10 @@ class FmaInputForm extends React.Component {
 
 		return(
 			<div className="container" style={{marginTop: 100 + 'px'}}>
+				<AnchorLink offset='0' href="#LE" id="btn-LE" title="LE">LE</AnchorLink>
+				<AnchorLink offset='0' href="#UE" id="btn-UE" title="UE">UE</AnchorLink>
+				<AnchorLink offset='0' href="#Sense" id="btn-Sense" title="Sense">Sense</AnchorLink>
+
 				<div className="form-title">
 					<h1>FUGL-MEYER ASSESSMENT {this.props.extremity}</h1>
 				</div>

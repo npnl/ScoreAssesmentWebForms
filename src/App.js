@@ -22,7 +22,7 @@ class App extends Component {
 								</div>
 								<div id="navbar" className="collapse navbar-collapse">
 									<ul className="nav navbar-nav">
-										<li><Link to="/NhssInputForm">NHSS</Link></li>
+										<li><Link to="/NhssInputForm">NIHSS</Link></li>
 										<li><Link to="/FmaInputForm">FMA</Link></li>
 										{/* <li><Link to="/FmaUeInputForm">FMA UE</Link></li> */}
 										{/* <li><Link to="/FmaSenseInputForm">FMA Sense</Link></li> */}
