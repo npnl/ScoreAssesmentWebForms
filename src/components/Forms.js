@@ -36,6 +36,7 @@ class Forms extends React.Component {
 				var data_affected = getWmftData();
 				var data_unaffected = getWmftData();
 				data_unaffected[0]['category'] = "Assessment of Un-affected Arm";
+				data_unaffected[0]['row_id'] = "un-affected";
 				data = data_affected.concat(data_unaffected);
 				form = (<WmftInputForm label="" data={data}/>);
 				break;

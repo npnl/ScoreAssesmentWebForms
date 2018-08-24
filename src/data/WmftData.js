@@ -8,6 +8,7 @@ export const getWmftData = () => {
 		movement: "",
 		score: '',
 		score_range: [0, 0],
+		row_id: "affected",
 		comments: {
 			default: ""
 		}

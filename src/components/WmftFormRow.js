@@ -14,7 +14,8 @@ class WmftFormRow extends React.Component {
 			comments: props.data.comments,
 			separator: props.data.separator,
 			category: props.data.category,
-			index: props.index
+			index: props.index,
+			row_id: props.data.row_id
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -42,7 +43,7 @@ class WmftFormRow extends React.Component {
 		if (this.state.separator === true) {
 			row = (
 				<tr>
-					<td className="separator" colSpan={5}><h4>{this.state.category}</h4></td>
+					<td className="separator" id={this.state.row_id} colSpan={5}><h4>{this.state.category}</h4></td>
 				</tr>
 			);
 		}
