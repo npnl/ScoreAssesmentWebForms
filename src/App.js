@@ -8,7 +8,7 @@ import './App.css';
 class App extends Component {
 	render() {
 		return (
-			<BrowserRouter basename={"/ScoreAssessmentWebForms"}>
+			<BrowserRouter basename="/ScoreAssessmentWebForms">
 				<div className="App">
 						<nav className="navbar navbar-inverse navbar-fixed-top">
 							<div className="container">
@@ -18,7 +18,7 @@ class App extends Component {
 										<span className="icon-bar"></span>
 										<span className="icon-bar"></span>
 									</button>
-									<Link className="navbar-brand" to="/Home">Home</Link>
+									<Link className="navbar-brand" to="/">Home</Link>
 								</div>
 								<div id="navbar" className="collapse navbar-collapse">
 									<ul className="nav navbar-nav">
@@ -33,7 +33,7 @@ class App extends Component {
 							</div>
 						</nav>
 					<Switch>
-						<Route exact path="/home" component={()=><Home/>} />
+						<Route exact path="/" component={()=><Home/>} />
 						<Route exact path="/NhssInputForm" component={()=><Forms form_type="NhssInputForm"/>} />
 						<Route exact path="/FmaInputForm" component={()=><Forms form_type="FmaInputForm" />} />
 						{/* <Route exact path="/FmaUeInputForm" component={()=><Forms form_type="FmaUeInputForm" />} /> */}
