@@ -139,7 +139,7 @@ export const getNhssData = () =>{
 		comments: {
 			default: "Values must be 0 to 4.",
 			0: "Normal (no drift)",
-			1: "Some drift (arms drifts partially downward)",
+			1: "Some drift (legs drifts partially downward)",
 			2: "Drift (leg drifts down to surface within 5s)",
 			3: "Movement, but not against gravity", 
 			4: "Complete paralysis (no movement at all)"
@@ -156,7 +156,7 @@ export const getNhssData = () =>{
 		comments: {
 			default: "Values must be 0 to 4.",
 			0: "Normal (no drift)",
-			1: "Some drift (arms drifts partially downward)",
+			1: "Some drift (legs drifts partially downward)",
 			2: "Drift (leg drifts down to surface within 5s)",
 			3: "Movement, but not against gravity", 
 			4: "Complete paralysis (no movement at all)"

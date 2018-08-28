@@ -219,7 +219,7 @@ class WmftInputForm extends React.Component {
 					</tbody>
 				</table>
 				<div className="download-btn">
-					<DownloadCSV dataHandler={this.getCSVData} filename={"WMFT.csv"} is_enabled={this.state.subID !== '' && this.state.date !== ''}/>
+					<DownloadCSV dataHandler={this.getCSVData} subjectId={this.state.subID} date={this.state.date} filename={"WMFT.csv"} is_enabled={this.state.subID !== '' && this.state.date !== ''}/>
 				</div>
 			</div>
 			);
