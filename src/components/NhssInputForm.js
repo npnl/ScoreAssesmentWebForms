@@ -6,7 +6,8 @@ import DownloadCSV from './DownloadCSV'
 class NhssInputForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {rows: props.data, subID: '', date: ''}
+		this.getCurrentDate = this.getCurrentDate.bind(this);
+		this.state = {rows: props.data, subID: '', date: this.getCurrentDate()}
 		this.getCSVData = this.getCSVData.bind(this);
 		this.scoreChanged = this.scoreChanged.bind(this);
 		this.subjectChanged = this.subjectChanged.bind(this);
@@ -15,7 +16,6 @@ class NhssInputForm extends React.Component {
 		this.calculateLocTotal = this.calculateLocTotal.bind(this);
 		this.calculateMotorTotal = this.calculateMotorTotal.bind(this);
 		this.calculateNihssTotal = this.calculateNihssTotal.bind(this);
-		this.getCurrentDate = this.getCurrentDate.bind(this);
 	}
 
 	subjectChanged(event) {
@@ -120,7 +120,7 @@ class NhssInputForm extends React.Component {
 					</div>
 					<div className="date_div">
 						<label>Date</label>
-						<input type="date" className="form-control"  value={this.getCurrentDate()} placeholder="Date" min="2010-01-01" max="2099-12-31" onChange={this.dateChanged} required />
+						<input type="date" className="form-control"  value={this.state.date} placeholder="Date" min="2010-01-01" max="2099-12-31" onChange={this.dateChanged} required />
 					</div>
 				</div>
 

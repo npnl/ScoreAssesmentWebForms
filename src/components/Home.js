@@ -1,6 +1,5 @@
 // Home.js
 import React from 'react';
-import { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class Home extends React.Component {
@@ -17,6 +16,7 @@ class Home extends React.Component {
 				<h2><Link to="/NhssInputForm">NIHSS</Link></h2>
 				<h2><Link to="/FmaInputForm">FMA</Link></h2>
 				<h2><Link to="/WmftInputForm">WMFT</Link></h2>
+				<h2><Link to="/OtCogAssessment">OT Cog Assessment</Link></h2>
 			</div>);
 	}
 }

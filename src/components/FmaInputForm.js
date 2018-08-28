@@ -1,6 +1,5 @@
 // FmaInputForm.js
 import React from 'react';
-import ReactDOM from 'react-dom'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import FmaFormRow from './FmaFormRow'
 import DownloadCSV from './DownloadCSV'
@@ -8,7 +7,8 @@ import DownloadCSV from './DownloadCSV'
 class FmaInputForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {rows: props.data, subID: '', date: new Date()}
+		this.getCurrentDate = this.getCurrentDate.bind(this);
+		this.state = {rows: props.data, subID: '', date: this.getCurrentDate()}
 		this.props = props;
 		this.getCSVData = this.getCSVData.bind(this);
 		this.scoreChanged = this.scoreChanged.bind(this);
@@ -19,7 +19,6 @@ class FmaInputForm extends React.Component {
 		this.calculateFmaUeTotal = this.calculateFmaUeTotal.bind(this);
 		this.calculateFmaSenseTotal = this.calculateFmaSenseTotal.bind(this);
 		this.getExtremityType = this.getExtremityType.bind(this);
-		this.getCurrentDate = this.getCurrentDate.bind(this);
 	}
 
 	subjectChanged(event) {
@@ -166,7 +165,7 @@ class FmaInputForm extends React.Component {
 					</div>
 					<div className="date_div">
 						<label>Date</label>
-						<input type="date" className="form-control" value={this.getCurrentDate()} placeholder="Date" min="2010-01-01" max="2099-12-31" onChange={this.dateChanged} required />
+						<input type="date" className="form-control" value={this.state.date} placeholder="Date" min="2010-01-01" max="2099-12-31" onChange={this.dateChanged} required />
 					</div>
 				</div>
 

@@ -1,6 +1,5 @@
 // WmftInputForm.js
 import React from 'react';
-import ReactDOM from 'react-dom'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import WmftFormRow from './WmftFormRow'
 import DownloadCSV from './DownloadCSV'
@@ -8,7 +7,8 @@ import DownloadCSV from './DownloadCSV'
 class WmftInputForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {rows: props.data, subID: '', date: ''}
+		this.getCurrentDate = this.getCurrentDate.bind(this);
+		this.state = {rows: props.data, subID: '', date: this.getCurrentDate()}
 		this.getCSVData = this.getCSVData.bind(this);
 		this.scoreChanged = this.scoreChanged.bind(this);
 		this.timeChanged = this.timeChanged.bind(this);
@@ -18,7 +18,6 @@ class WmftInputForm extends React.Component {
 		this.calculateMedianTime = this.calculateMedianTime.bind(this);
 		this.getTotalScore = this.getTotalScore.bind(this);
 		this.getAverageStrength = this.getAverageStrength.bind(this);
-		this.getCurrentDate = this.getCurrentDate.bind(this);
 	}
 
 	subjectChanged(event) {
@@ -201,7 +200,7 @@ class WmftInputForm extends React.Component {
 					</div>
 					<div className="date_div">
 						<label>Date</label>
-						<input type="date" className="form-control"  value={this.getCurrentDate()} placeholder="Date" min="2010-01-01" max="2099-12-31" onChange={this.dateChanged} required />
+						<input type="date" className="form-control"  value={this.state.date} placeholder="Date" min="2010-01-01" max="2099-12-31" onChange={this.dateChanged} required />
 					</div>
 				</div>
 
