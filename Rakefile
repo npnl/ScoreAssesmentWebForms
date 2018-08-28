@@ -32,5 +32,5 @@ task :publish do
 end
 
 task :generate_and_publish => [:generate, :publish] do
-    puts "Published without building"
+    puts "Published a fresh build"
 end
