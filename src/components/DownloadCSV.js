@@ -63,7 +63,7 @@ class DownloadCSV extends React.Component {
 	};
 
 	render() {
-		var note = (<p> <b>Subject_Id</b> and <b>Date</b> and mandatory fields to download the csv.</p>);
+		var note = this.props.customMessage === undefined ? (<p> <b>Subject_Id</b> an d <b>Date</b> and mandatory fields to download the csv.</p>) : (<p>{this.props.customMessage}</p>);
 		return(
 			<div>
 				{this.props.hideNode === true ? '' : note}

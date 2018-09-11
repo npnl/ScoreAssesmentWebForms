@@ -25,12 +25,19 @@ class CustomRadioButtons extends React.Component {
     for (var j = 0; j < this.state.values.length; j++) {
         row_option_values.push(<td><input type="radio" className="td-radio" value={this.state.values[j]} onChange={this.handleChange} checked={this.state.selected === this.state.values[j]}></input></td>);
     }
-    var row = (
-      <tr>
+    var selected_row = (
+      <tr className="success">
         <td className="question-cell">{this.state.option_name}</td>
         {row_option_values}
       </tr>
       );
+    var not_selected_row = (
+      <tr className="warning">
+        <td className="question-cell">{this.state.option_name}</td>
+        {row_option_values}
+      </tr>
+      );
+    var row = this.state.selected !== '' ? selected_row : not_selected_row;
     return row;
   }
 }

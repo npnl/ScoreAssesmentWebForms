@@ -10,13 +10,13 @@ class SisInputForm extends React.Component {
 		this.state = {tables: props.data, selections: selections}
 		this.scoreChanged = this.scoreChanged.bind(this);
 		this.getCSVData = this.getCSVData.bind(this);
+		this.hasAllAnswered = this.hasAllAnswered.bind(this);
 	}
 
 	scoreChanged(question_id, sub_question_id, value) {
 		var id = "" + question_id + sub_question_id;
 		var selections = this.state.selections;
 		selections[id] = "" + value;
-		console.log(selections);
 		this.setState({selections: selections}); 
 	}
 
@@ -32,6 +32,15 @@ class SisInputForm extends React.Component {
 			return new_item; 
 		}, this, selections);
 		return data;
+	}
+
+	hasAllAnswered() {
+		var selections = this.state.selections;
+		var keys = Object.keys(selections);
+		if (keys.length === 59) {
+			return true;
+		}
+		return false;
 	}
 
 	render() {
@@ -53,7 +62,7 @@ class SisInputForm extends React.Component {
 				</div>
 
 				<div className="download-btn">
-					<DownloadCSV dataHandler={this.getCSVData} subjectId={"SIS"} date={""} filename={"Input.csv"} hideNode={true} is_enabled={true}/>
+					<DownloadCSV dataHandler={this.getCSVData} subjectId={"SIS"} date={""} filename={"Input.csv"} hideNode={false} is_enabled={this.hasAllAnswered()} customMessage="Please answer all the given questions to download/email the CSV"/>
 				</div>
 
 			</div>
