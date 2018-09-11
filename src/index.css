@@ -45,6 +45,10 @@ td input {
     vertical-align: middle !important;
 }
 
+.td-radio {
+	width: auto;
+}
+
 .separator {
 	background-color: #9370DB;
 	color: white;
@@ -53,6 +57,11 @@ td input {
 
 .row-index {
 	width: 5%;
+}
+
+.question-cell {
+	width: 40%;
+	text-align: left; 
 }
 
 .download-btn {

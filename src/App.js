@@ -28,6 +28,7 @@ class App extends Component {
 										{/* <li><Link to="/FmaSenseInputForm">FMA Sense</Link></li> */}
 										<li><Link to="/WmftInputForm">WMFT</Link></li>
 										<li><Link to="/OtCogAssessment">OT Cog Assessment</Link></li>
+										<li><Link to="/SisInputForm">Stroke Impact Scale</Link></li>
 										{/* <li><Link to="/WmftUnAffectedInputForm">WMFT Un-Affected Arm</Link></li> */}
 									</ul>
 								</div>
@@ -41,6 +42,7 @@ class App extends Component {
 						{/*<Route exact path="/FmaSenseInputForm" component={()=><Forms form_type="FmaSenseInputForm"/>} /> */}
 						<Route exact path="/WmftInputForm" component={()=><Forms form_type="WmftInputForm"/>} />
 						<Route exact path="/OtCogAssessment" component={() => <OtCogAssessment />} />
+						<Route exact path="/SisInputForm" component={() => <Forms form_type="SisInputForm" />} />
 						{/* <Route exact path="/WmftUnAffectedInputForm" component={()=><Forms form_type="WmftUnAffectedInputForm"/>} /> */}
 					</Switch>
 				</div>

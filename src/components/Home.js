@@ -17,6 +17,7 @@ class Home extends React.Component {
 				<h2><Link to="/FmaInputForm">FMA</Link></h2>
 				<h2><Link to="/WmftInputForm">WMFT</Link></h2>
 				<h2><Link to="/OtCogAssessment">OT Cog Assessment</Link></h2>
+				<h2><Link to="/SisInputForm">Stroke Impact Scale</Link></h2>
 			</div>);
 	}
 }

@@ -63,9 +63,10 @@ class DownloadCSV extends React.Component {
 	};
 
 	render() {
+		var note = (<p> <b>Subject_Id</b> and <b>Date</b> and mandatory fields to download the csv.</p>);
 		return(
 			<div>
-				<p> <b>Subject_Id</b> and <b>Date</b> and mandatory fields to download the csv.</p>
+				{this.props.hideNode === true ? '' : note}
 				<CSVLink filename={this.props.subjectId.replace(/ +/g, "_")+ "_" + this.props.date.replace(/ +/g, "_") + "_"+ this.filename} className={this.props.is_enabled ? "btn btn-primary" : "btn btn-primary btn-disabled"} data={this.props.dataHandler()}>Download CSV</CSVLink>
 				<button className={this.props.is_enabled ? "btn btn-primary" : "btn btn-primary btn-disabled"} onClick={this.emailCSV}>Email CSV</button>
 			</div>
