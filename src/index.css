@@ -44,6 +44,21 @@ td input {
 	font-size: 120%;
 }
 
+.slidecontainer {
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
+.aligncenter {
+	margin: auto;
+}
+
 
 .common-td {
 	text-align: center; 
