@@ -39,6 +39,11 @@ td input {
 	width: 100%;
 }
 
+.sis-description {
+	text-align: justify;
+	font-size: 120%;
+}
+
 
 .common-td {
 	text-align: center; 

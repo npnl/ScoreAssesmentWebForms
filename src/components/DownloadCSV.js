@@ -34,7 +34,7 @@ class DownloadCSV extends React.Component {
 		values.forEach(function(value) {
 			var text = value.toString();
 			
-			if (text.indexOf(separator) == -1 && text.indexOf('"') == -1) {
+			if (text.indexOf(separator) === -1 && text.indexOf('"') === -1) {
 				result.push(text);
 			} else {
 				result.push('"' + text.replace(/"/g, '""') + '"');

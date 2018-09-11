@@ -142,17 +142,6 @@ export const getSisData = () => {
 	table_data.push(row);
 
 	row = {
-		description: '',
-		headings: [
-				],
-		options: [
-				],
-		option_values: [5, 4, 3, 2, 1]
-	};
-	table_data.push(row);
-
-
-	row = {
 		description: 'The following questions are about your ability to use your hand that was MOST AFFECTED by your stroke.',
 		headings: [
 				'7. In the past 2 weeks, how difficult was it to use your hand that was most affected by your stroke to...',
