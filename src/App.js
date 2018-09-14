@@ -43,6 +43,7 @@ class App extends Component {
 						<Route exact path="/WmftInputForm" component={()=><Forms form_type="WmftInputForm"/>} />
 						<Route exact path="/OtCogAssessment" component={() => <OtCogAssessment />} />
 						<Route exact path="/SisInputForm" component={() => <Forms form_type="SisInputForm" />} />
+						<Route component={()=><Home/>} />
 						{/* <Route exact path="/WmftUnAffectedInputForm" component={()=><Forms form_type="WmftUnAffectedInputForm"/>} /> */}
 					</Switch>
 				</div>
