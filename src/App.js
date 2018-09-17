@@ -28,9 +28,11 @@ class App extends Component {
 										{/* <li><Link to="/FmaSenseInputForm">FMA Sense</Link></li> */}
 										<li><Link to="/WmftInputForm">WMFT</Link></li>
 										<li><Link to="/OtCogAssessment">OT Cog Assessment</Link></li>
-										<li><Link to="/SisInputForm">Stroke Impact Scale</Link></li>
-										<li><Link to="/MRSForm">Modified Rankin Scale(MRS)</Link></li>
-										<li><Link to="/MRSForm">Modified Ashworth Scale(MAS)</Link></li>
+										<li><Link to="/SisInputForm">SIS</Link></li>
+										<li><Link to="/MRSForm">MRS</Link></li>
+										<li><Link to="/MASForm">MAS</Link></li>
+										<li><Link to="/MmtRomForm">MMT/ROM</Link></li>
+										<li><Link to="/BarthelIndexForm">Barthel Index Form</Link></li>
 										{/* <li><Link to="/WmftUnAffectedInputForm">WMFT Un-Affected Arm</Link></li> */}
 									</ul>
 								</div>
@@ -47,6 +49,8 @@ class App extends Component {
 						<Route exact path="/SisInputForm" component={() => <Forms form_type="SisInputForm" />} />
 						<Route exact path="/MRSForm" component={() => <Forms form_type="MRSForm" />} />
 						<Route exact path="/MASForm" component={() => <Forms form_type="MASForm" />} />
+						<Route exact path="/MmtRomForm" component={() => <Forms form_type="MmtRomForm" />} />
+						<Route exact path="/BarthelIndexForm" component={() => <Forms form_type="BarthelIndexForm" />} />
 						<Route component={()=><Home/>} />
 						{/* <Route exact path="/WmftUnAffectedInputForm" component={()=><Forms form_type="WmftUnAffectedInputForm"/>} /> */}
 					</Switch>

@@ -121,33 +121,33 @@ class MASForm extends React.Component {
 					<thead>
 						<tr>
 							<th className="row-index">Score</th>
-							<th>Description</th>
+							<th className="th-left">Description</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<th className="row-index">0</th>
-							<th>No increase in muscle tone</th>
+							<td className="">0</td>
+							<td className="td-left">No increase in muscle tone</td>
 						</tr>
 						<tr>
-							<th className="row-index">1</th>
-							<th>Slight increase in muscle tone, manifested by a catch and release or by minimal resistance at the end of the range of motion when the affected part(s) is moved in flexion or extension</th>
+							<td className="">1</td>
+							<td className="td-left">Slight increase in muscle tone, manifested by a catch and release or by minimal resistance at the end of the range of motion when the affected part(s) is moved in flexion or extension</td>
 						</tr>
 						<tr>
-							<th className="row-index">1+</th>
-							<th>Slight increase in muscle tone, manifested by a catch, followed by minimal resistance throughout the remainder (less than half) of the ROM</th>
+							<td className="">1+</td>
+							<td className="td-left">Slight increase in muscle tone, manifested by a catch, followed by minimal resistance throughout the remainder (less than half) of the ROM</td>
 						</tr>
 						<tr>
-							<th className="row-index">2</th>
-							<th>More marked increase in muscle tone through most of the ROM, but affected part(s) easily moved</th>
+							<td className="">2</td>
+							<td className="td-left">More marked increase in muscle tone through most of the ROM, but affected part(s) easily moved</td>
 						</tr>
 						<tr>
-							<th className="row-index">3</th>
-							<th>Considerable increase in muscle tone, passive movement difficult</th>
+							<td className="">3</td>
+							<td className="td-left">Considerable increase in muscle tone, passive movement difficult</td>
 						</tr>
 						<tr>
-							<th className="row-index">4</th>
-							<th>Affected part(s) rigid in flexion or extension</th>
+							<td className="">4</td>
+							<td className="td-left">Affected part(s) rigid in flexion or extension</td>
 						</tr>
 					</tbody>
 				</table>

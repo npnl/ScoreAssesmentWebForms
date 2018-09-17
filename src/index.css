@@ -39,6 +39,14 @@ td input {
 	width: 100%;
 }
 
+.th-left {
+	text-align: left;
+}
+
+.td-left {
+	text-align: left;
+}
+
 .sis-description {
 	text-align: justify;
 	font-size: 120%;
@@ -90,6 +98,10 @@ td input {
 
 .row-index {
 	width: 5%;
+}
+
+.row-index-mmt {
+	width: 9%;
 }
 
 .question-cell {

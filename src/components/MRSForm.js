@@ -78,40 +78,40 @@ class MRSForm extends React.Component {
 					<thead>
 						<tr>
 							<th className="row-index">Score</th>
-							<th>Description</th>
+							<th className="td-left">Description</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<th className="row-index">0</th>
-							<th>No symptoms at all</th>
+							<td className="">0</td>
+							<td className="td-left">No symptoms at all</td>
 						</tr>
 						<tr>
-							<th className="row-index">1</th>
-							<th>No significant disability despite symptoms; able to carry out all usual duties and activities</th>
+							<td className="">1</td>
+							<td className="td-left">No significant disability despite symptoms; able to carry out all usual duties and activities</td>
 						</tr>
 						<tr>
-							<th className="row-index">2</th>
-							<th>Slight disability; unable to carry out all previous activities, but able to look after own affairs without assistance</th>
+							<td className="">2</td>
+							<td className="td-left">Slight disability; unable to carry out all previous activities, but able to look after own affairs without assistance</td>
 						</tr>
 						<tr>
-							<th className="row-index">3</th>
-							<th>Moderate disability; requiring some help, but able to walk without assistance</th>
-						</tr>
-
-						<tr>
-							<th className="row-index">4</th>
-							<th>Moderately severe disability; unable to walk without assistance and unable to attend to own bodily needs without assistance</th>
+							<td className="">3</td>
+							<td className="td-left">Moderate disability; requiring some help, but able to walk without assistance</td>
 						</tr>
 
 						<tr>
-							<th className="row-index">5</th>
-							<th>Severe disability; bedridden, incontinent and requiring constant nursing care and attention</th>
+							<td className="">4</td>
+							<td className="td-left">Moderately severe disability; unable to walk without assistance and unable to attend to own bodily needs without assistance</td>
 						</tr>
 
 						<tr>
-							<th className="row-index">6</th>
-							<th>Dead</th>
+							<td className="">5</td>
+							<td className="td-left">Severe disability; bedridden, incontinent and requiring constant nursing care and attention</td>
+						</tr>
+
+						<tr>
+							<td className="">6</td>
+							<td className="td-left">Dead</td>
 						</tr>
 					</tbody>
 				</table>
