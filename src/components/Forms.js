@@ -3,6 +3,8 @@ import React from 'react';
 import NhssInputForm from './NhssInputForm'
 import FmaInputForm from './FmaInputForm'
 import WmftInputForm from './WmftInputForm'
+import MRSForm from './MRSForm'
+import MASForm from './MASForm'
 import SisInputForm from './SisInputForm'
 import {getFmaLeData, getFmaUeData, getFmaSenseData} from '../data/FmaData'
 import {getWmftData} from '../data/WmftData'
@@ -47,6 +49,12 @@ class Forms extends React.Component {
 				break;
 			case 'SisInputForm':
 				form = (<SisInputForm data={getSisData()}/>);
+				break;
+			case 'MRSForm':
+				form = (<MRSForm />);
+				break;
+			case 'MASForm':
+				form = (<MASForm />);
 				break;
 			default:
 				form = (<div>Something went wrong</div>);

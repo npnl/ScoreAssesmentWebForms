@@ -18,6 +18,8 @@ class Home extends React.Component {
 				<h2><Link to="/WmftInputForm">WMFT</Link></h2>
 				<h2><Link to="/OtCogAssessment">OT Cog Assessment</Link></h2>
 				<h2><Link to="/SisInputForm">Stroke Impact Scale</Link></h2>
+				<h2><Link to="/MRSForm">Modified Rankin Scale(MRS)</Link></h2>
+				<h2><Link to="/MASForm">Modified Ashworth Scale(MAS)</Link></h2>
 			</div>);
 	}
 }

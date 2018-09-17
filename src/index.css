@@ -59,6 +59,19 @@ td input {
 	margin: auto;
 }
 
+.mrs-score {
+	margin: 5%;
+}
+
+.mrs-score label {
+	margin-left: 3%;
+	margin-right: 3%;
+}
+
+.mas-table {
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
 
 .common-td {
 	text-align: center; 
