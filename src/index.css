@@ -9,8 +9,24 @@ table {
     table-layout: fixed;
 }
 
-.basic-info {
-	margin-bottom: 12%; 
+@media (min-width:641px)  {
+	.basic-info {
+		margin-bottom: 17%; 
+	}
+
+	.main-form-container {
+		margin-top: 200px;
+	}
+}
+
+@media (min-width:1281px) {
+	.basic-info {
+		margin-bottom: 8%; 
+	}
+
+	.main-form-container {
+		margin-top: 100px;
+	}
 }
 
 .date_div {
@@ -58,6 +74,8 @@ td input {
 .sis-description {
 	text-align: justify;
 	font-size: 120%;
+	margin-right: 20px;
+	margin-left: 20px;
 }
 
 .slidecontainer {
@@ -98,8 +116,6 @@ td input {
 	width: auto;
 }
 
-input[type='radio'] { transform: scale(1.25); }
-
 .separator {
 	background-color: #9370DB;
 	color: white;
@@ -138,10 +154,6 @@ input[type='radio'] { transform: scale(1.25); }
 
 .container {
 	text-align: center;
-}
-
-.main-form-container {
-	margin-top: 200px;
 }
 
 .container-left {
