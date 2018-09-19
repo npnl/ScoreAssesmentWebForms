@@ -109,7 +109,7 @@ class NhssInputForm extends React.Component {
 		}
 
 		return(
-			<div className="container" style={{marginTop: 100 + 'px'}}>
+			<div className="main-form-container">
 				<div className="form-title">
 					<h1>NIH Stroke Scale</h1>
 				</div>

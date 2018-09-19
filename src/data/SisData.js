@@ -4,11 +4,11 @@ export const getSisData = () => {
 		description: 'These questions are about the physical problems which may have occurred as a result of your stroke.',
 		headings: [
 				'1. In the past week, how would you rate the strength of your....',
-				'A lot of strength',
-				'Quite a bit of strength',
-				'Some strength',
-				'A little strength',
-				'No strength at all'
+				'A lot of strength (5)',
+				'Quite a bit of strength (4)',
+				'Some strength (3)',
+				'A little strength (2)',
+				'No strength at all (1)'
 				],
 		options: [
 				'a. Arm that was most affected by your stroke?',
@@ -24,11 +24,11 @@ export const getSisData = () => {
 		description: 'These questions are about your memory and thinking.',
 		headings: [
 				'2. In the past week, how difficult was it for you to...',
-				'Not difficult at all',
-				'A little difficult',
-				'Somewhat difficult',
-				'Very difficult',
-				'Extremely difficult'
+				'Not difficult at all (5)',
+				'A little difficult (4)',
+				'Somewhat difficult (3)',
+				'Very difficult (2)',
+				'Extremely difficult (1)'
 				],
 		options: [
 				'a. Remember things that people just told you?',
@@ -47,11 +47,11 @@ export const getSisData = () => {
 		description: 'These questions are about how you feel, about changes in your mood and about your ability to control your emotions since your stroke.',
 		headings: [
 				'3. In the past week, how often did you...',
-				'None of the time',
-				'A little of the time',
-				'Some of the time',
-				'Most of the time'
-				],
+				'None of the time (4)',
+				'A little of the time (3)',
+				'Some of the time (2)',
+				'Most of the time (1)'
+				 ],
 		options: [
 				'a. All of the time a. Feel sad?',
 				'b. Feel that there is nobody you are close to?',
@@ -71,11 +71,11 @@ export const getSisData = () => {
 		description: 'The following questions are about your ability to communicate with other people, as well as your ability to understand what you read and what you hear in a conversation.',
 		headings: [
 				'4. In the past week, how difficult was it to...',
-				'Not difficult at all',
-				'A little difficult',
-				'Somewhat difficult',
-				'Very difficult',
-				'Extremely difficult'
+				'Not difficult at all (5)',
+				'A little difficult (4)',
+				'Somewhat difficult (3)',
+				'Very difficult (2)',
+				'Extremely difficult (1)'
 				],
 		options: [
 				'a. Say the name of someone who was in front of you?',
@@ -94,11 +94,11 @@ export const getSisData = () => {
 		description: 'The following questions ask about activities you might do during a typical day.',
 		headings: [
 				'5. In the past 2 weeks, how difficult was it to...',
-				'Not difficult at all',
-				'A little difficult',
-				'Somewhat difficult',
-				'Very difficult',
-				'Could not do at all'
+				'Not difficult at all (5)',
+				'A little difficult (4)',
+				'Somewhat difficult (3)',
+				'Very difficult (2)',
+				'Could not do at all (1)'
 				],
 		options: [
 				'a. Cut your food with a knife and fork?',
@@ -120,11 +120,11 @@ export const getSisData = () => {
 		description: 'The following questions are about your ability to be mobile, at home and in the community.',
 		headings: [
 				'6. In the past 2 weeks, how difficult was it to...',
-				'Not difficult at all',
-				'A little difficult',
-				'Somewhat difficult',
-				'Very difficult',
-				'Could not do at all'
+				'Not difficult at all (5)',
+				'A little difficult (4)',
+				'Somewhat difficult (3)',
+				'Very difficult (2)',
+				'Could not do at all (1)'
 				],
 		options: [
 				'a. Stay sitting without losing your balance?',
@@ -145,11 +145,11 @@ export const getSisData = () => {
 		description: 'The following questions are about your ability to use your hand that was MOST AFFECTED by your stroke.',
 		headings: [
 				'7. In the past 2 weeks, how difficult was it to use your hand that was most affected by your stroke to...',
-				'Not difficult at all',
-				'A little difficult',
-				'Somewhat difficult',
-				'Very difficult',
-				'Could not do at all'
+				'Not difficult at all (5)',
+				'A little difficult (4)',
+				'Somewhat difficult (3)',
+				'Very difficult (2)',
+				'Could not do at all (1)'
 				],
 		options: [
 				'a. Carry heavy objects (e.g. bag of groceries)?',
@@ -166,11 +166,11 @@ export const getSisData = () => {
 		description: 'The following questions are about how stroke has affected your ability to participate in the activities that you usually do, things that are meaningful to you and help you to find purpose in life.',
 		headings: [
 				'8. During the past 4 weeks, how much of the time have you been limited in...',
-				'None of the time',
-				'A little of the time',
-				'Some of the time',
-				'Most of the time',
-				'All of the time'
+				'None of the time (5)',
+				'A little of the time (4)',
+				'Some of the time (3)',
+				'Most of the time (2)',
+				'All of the time (1)'
 				],
 		options: [
 				'a. Your work (paid, voluntary or other)',

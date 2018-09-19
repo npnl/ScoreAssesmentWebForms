@@ -48,6 +48,11 @@ class Home extends React.Component {
 								<h2><Link to="/BarthelIndexForm">Barthel Index Form</Link></h2>
 							</td>
 						</tr>
+						<tr>
+							<td>
+								<h2><Link to="/ArmTestForm">ARM Test</Link></h2>
+							</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>);

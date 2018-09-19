@@ -39,6 +39,14 @@ td input {
 	width: 100%;
 }
 
+.activity-heading {
+	float: left;
+}
+
+.row-index-arm {
+	width: 80%;
+}
+
 .th-left {
 	text-align: left;
 }
@@ -90,6 +98,8 @@ td input {
 	width: auto;
 }
 
+input[type='radio'] { transform: scale(1.25); }
+
 .separator {
 	background-color: #9370DB;
 	color: white;
@@ -130,9 +140,20 @@ td input {
 	text-align: center;
 }
 
+.main-form-container {
+	margin-top: 200px;
+}
+
 .container-left {
 	text-align: left;
 	margin: 100px;
+}
+
+.ot-container {
+	text-align: left;
+	margin-top: 200px;
+	margin-left: 30px;
+	margin-right: 30px;
 }
 
 .form-check-label {

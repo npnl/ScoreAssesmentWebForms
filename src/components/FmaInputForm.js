@@ -150,7 +150,7 @@ class FmaInputForm extends React.Component {
 		}
 
 		return(
-			<div className="container" style={{marginTop: 100 + 'px'}}>
+			<div className="main-form-container">
 				<AnchorLink offset='0' href="#LE" id="btn-LE" title="LE">LE</AnchorLink>
 				<AnchorLink offset='0' href="#UE" id="btn-UE" title="UE">UE</AnchorLink>
 				<AnchorLink offset='0' href="#Sense" id="btn-Sense" title="Sense">Sense</AnchorLink>

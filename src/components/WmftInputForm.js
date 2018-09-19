@@ -187,7 +187,7 @@ class WmftInputForm extends React.Component {
 		}
 
 		return(
-			<div className="container" style={{marginTop: 100 + 'px'}}>
+			<div className="main-form-container">
 				<AnchorLink offset='0' href="#affected" id="btn-UE" title="Affected">Affected</AnchorLink>
 				<AnchorLink offset='0' href="#un-affected" id="btn-Sense" title="Un-Affected">Un-Affected</AnchorLink>
 				<div className="form-title">

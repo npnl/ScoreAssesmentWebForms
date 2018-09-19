@@ -218,7 +218,7 @@ class BarthelIndexForm extends React.Component {
 		}
 
 		return(
-			<div className="container" style={{marginTop: 100 + 'px'}}>
+			<div className="main-form-container">
 				<div className="form-title">
 					<h2>Barthel Index of Activities of Daily Living</h2>
 				</div>

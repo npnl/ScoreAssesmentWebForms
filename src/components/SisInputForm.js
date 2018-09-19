@@ -95,7 +95,7 @@ class SisInputForm extends React.Component {
 		}
 
 		return(
-			<div className="container" style={{marginTop: 100 + 'px'}}>
+			<div className="main-form-container">
 				<div className="form-title">
 					<h1>Stroke Impact Scale VERSION 3.0</h1><br/><br/>
 					<p className="sis-description">The purpose of this questionnaire is to evaluate how stroke has impacted your health and life. We want to know from YOUR POINT OF VIEW how stroke has affected you. We will ask you questions about impairments and disabilities caused by your stroke, as well as how stroke has affected your quality of life. Finally, we will ask you to rate how much you think you have recovered from your stroke.</p><br/>

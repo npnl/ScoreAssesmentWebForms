@@ -747,7 +747,7 @@ class OtCogAssessment extends React.Component {
 
 	render() {
 		return(
-			<div className="container-left" style={{marginTop: 100 + 'px'}}>
+			<div className="ot-container">
 				<h1 align="center">OT Assessments</h1>
 				<h2>General Information</h2>
 				<p> Use this calculator at your own risk!  It is your responsibility to check the results.</p>

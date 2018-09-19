@@ -135,7 +135,7 @@ class MmtRomForm extends React.Component {
 		}
 
 		return(
-			<div className="container" style={{marginTop: 100 + 'px'}}>
+			<div className="main-form-container">
 				<div className="form-title">
 					<h2>REINVENT Manual Muscle Testing Grading Guide and Range of Motion Typical Values</h2>
 				</div>

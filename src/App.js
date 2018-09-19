@@ -33,6 +33,7 @@ class App extends Component {
 										<li><Link to="/MASForm">MAS</Link></li>
 										<li><Link to="/MmtRomForm">MMT/ROM</Link></li>
 										<li><Link to="/BarthelIndexForm">Barthel Index Form</Link></li>
+										<li><Link to="/ArmTestForm">ARM Test</Link></li>
 										{/* <li><Link to="/WmftUnAffectedInputForm">WMFT Un-Affected Arm</Link></li> */}
 									</ul>
 								</div>
@@ -51,6 +52,7 @@ class App extends Component {
 						<Route exact path="/MASForm" component={() => <Forms form_type="MASForm" />} />
 						<Route exact path="/MmtRomForm" component={() => <Forms form_type="MmtRomForm" />} />
 						<Route exact path="/BarthelIndexForm" component={() => <Forms form_type="BarthelIndexForm" />} />
+						<Route exact path="/ArmTestForm" component={() => <Forms form_type="ArmTestForm" />} />
 						<Route component={()=><Home/>} />
 						{/* <Route exact path="/WmftUnAffectedInputForm" component={()=><Forms form_type="WmftUnAffectedInputForm"/>} /> */}
 					</Switch>
