@@ -20,7 +20,14 @@ class MmtRomForm extends React.Component {
 	getFormData() {
 		var rows = [];
 		var row = {
-			muscle_name: "Elbow flexion/extension",
+			muscle_name: "Elbow flexion",
+			range: [0, 150],
+			rom: '',
+			mmt: ''
+		};
+		rows.push(row);
+		row = {
+			muscle_name: "Elbow extension",
 			range: [0, 150],
 			rom: '',
 			mmt: ''

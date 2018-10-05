@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Link, Switch, Route } from 'react-router-dom';
 import Forms from './components/Forms';
+import SignUp from './components/SignUp';
+import LoginForm from './components/LoginForm';
 import Home from './components/Home';
 import OtCogAssessment from './components/OtCogAssessment'
 import './App.css';
@@ -53,6 +55,8 @@ class App extends Component {
 						<Route exact path="/MmtRomForm" component={() => <Forms form_type="MmtRomForm" />} />
 						<Route exact path="/BarthelIndexForm" component={() => <Forms form_type="BarthelIndexForm" />} />
 						<Route exact path="/ArmTestForm" component={() => <Forms form_type="ArmTestForm" />} />
+						<Route exact path="/SignUp" component={() => <SignUp />} />
+						<Route exact path="/Login" component={() => <LoginForm />} />
 						<Route component={()=><Home/>} />
 						{/* <Route exact path="/WmftUnAffectedInputForm" component={()=><Forms form_type="WmftUnAffectedInputForm"/>} /> */}
 					</Switch>

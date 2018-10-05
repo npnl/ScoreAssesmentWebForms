@@ -47,6 +47,7 @@ export const getSisData = () => {
 		description: 'These questions are about how you feel, about changes in your mood and about your ability to control your emotions since your stroke.',
 		headings: [
 				'3. In the past week, how often did you...',
+				'(5)',
 				'None of the time (4)',
 				'A little of the time (3)',
 				'Some of the time (2)',
@@ -63,7 +64,7 @@ export const getSisData = () => {
 				'h. Feel that life is worth living?',
 				'i. Smile and laugh at least once a day?'
 				],
-		option_values: [4, 3, 2, 1]
+		option_values: [5, 4, 3, 2, 1]
 	};
 	table_data.push(row);
 
