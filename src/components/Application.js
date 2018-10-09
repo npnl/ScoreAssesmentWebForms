@@ -1,13 +1,15 @@
-// Home.js
-import React from 'react';
-import { Link } from 'react-router-dom';
+var React                = require('react');
+var RouteHandler         = require('react-router').RouteHandler;
+var Header               = require('../components/Header.js');
+var LeftPanel            = require('../components/LeftPanel.js');
 var Notice               = require('../components/common/Notice.js');
 var Spinner              = require('../components/common/Spinner.js');
 var SessionStore         = require('../stores/SessionStore.js');
 var SpinnerStore         = require('../stores/SpinnerStore.js');
 var NoticeStore          = require('../stores/NoticeStore.js');
+var RouteActionCreators  = require('../actions/RouteActionCreators.js');
 
-class Home extends React.Component {
+class Application extends React.Component {
 
   constructor(props) {
     super(props);
@@ -56,69 +58,21 @@ class Home extends React.Component {
     }
   }
 
-	render() {
+  render() {
+    return (
+      <div id="wrapper">
+        <Spinner show={this.state.showSpinner}/>
+        <Notice show={this.state.showNotice} noticeMessage={this.state.noticeMessage} error={this.state.errorNotice} />
+        <div className="app">
+          <div className="view-container">
+            <section id="content">
+              <RouteHandler/>
+            </section>
+          </div>
+        </div>
+      </div>
+    );
+  }
+};
 
-  	var option_table = (
-  		<div className="main-container">
-				<h1>Select a form type.</h1>
-				<table className="table table-bordered table-striped">
-					<tbody>
-					<tr>
-						<td>
-							<h2><Link to="/NhssInputForm">NIHSS</Link></h2>
-						</td>
-						<td>
-							<h2><Link to="/FmaInputForm">FMA</Link></h2>
-						</td>
-						<td>
-							<h2><Link to="/WmftInputForm">WMFT</Link></h2>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h2><Link to="/OtCogAssessment">OT Cog Assessment</Link></h2>
-						</td>
-						<td>
-							<h2><Link to="/SisInputForm">SIS</Link></h2>
-						</td>
-						<td>
-							<h2><Link to="/MRSForm">MRS</Link></h2>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h2><Link to="/MASForm">MAS</Link></h2>
-						</td>
-						<td>
-							<h2><Link to="/MmtRomForm">MMT/ROM</Link></h2>
-						</td>
-						<td>
-							<h2><Link to="/BarthelIndexForm">Barthel Index Form</Link></h2>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h2><Link to="/ArmTestForm">ARM Test</Link></h2>
-						</td>
-					</tr>
-					</tbody>
-				</table>
-			</div>
-		);
-
-  	var login_link = (
-  		<div className="main-container">
-				<h1><Link to="/Login">Login</Link></h1>
-			</div>
-		);
-
-  	var comp = (this.state.isLoggedIn) ? option_table : login_link;
-
-		return(
-			<div>
-				{comp}
-			</div>);
-	}
-}
-
-export default Home;
+export default Application;

@@ -1,8 +1,6 @@
 // LoginForm.js
 import React from 'react';
-import DownloadCSV from './DownloadCSV'
-import ArmTestRow from './ArmTestRow'
-import BarthelIndexCell from './BarthelIndexCell'
+import SessionActionCreators from '../actions/SessionActionCreators'
 
 class LoginForm extends React.Component {
 	constructor(props) {
@@ -15,6 +13,9 @@ class LoginForm extends React.Component {
 
 	login(event) {
 		event.preventDefault();
+    var username = this.state.email;
+    var password = this.state.password;
+    SessionActionCreators.login(username, password);
 	}
 
 	onChange(event, field_name) {
@@ -30,7 +31,7 @@ class LoginForm extends React.Component {
 					<h2>Please Login</h2>
 				</div>
 				<div className="login-form">
-					<form>
+					<form onSubmit={this.login}>
 						<div className="form-group row">
 							<label className="col-sm-2 col-form-label">Email</label>
 							<div className="col-sm-3">
@@ -43,7 +44,7 @@ class LoginForm extends React.Component {
 								<input type="password" id="password" className="form-control" ref="password" onChange={(event) => this.onChange(event, "password")} value={this.state.password} placeholder="Password"></input>
 							</div>
 						</div>
-						<button type="submit" className="btn btn-default" onSubmit={this.login}>Submit</button>
+						<button type="submit" className="btn btn-default">Submit</button>
 					</form>
 				</div>
 			</div>
