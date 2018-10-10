@@ -50,4 +50,4 @@ LabelTextBox.defaultProps = {
     selectable: true
 }
 
-module.exports = LabelTextBox;
+export default  LabelTextBox;

@@ -71,13 +71,14 @@ class Header extends React.Component {
           <li><Link to="/MmtRomForm">MMT/ROM</Link></li>
           <li><Link to="/BarthelIndexForm">Barthel Index Form</Link></li>
           <li><Link to="/ArmTestForm">ARM Test</Link></li>
+          <li><Link to="/Logout">Logout</Link></li>
         </ul>
     </div>);
 
     var logout_header = (
       <div id="navbar" className="collapse navbar-collapse">
         <ul className="nav navbar-nav">
-          <li><Link to="/login">Login</Link></li>
+          <li><Link to="/Login">Login</Link></li>
         </ul>
       </div>
     );

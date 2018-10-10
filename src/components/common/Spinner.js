@@ -1,23 +1,27 @@
-var React        = require('react');
-var SpinnerStore = require('../../stores/SpinnerStore.js');
+import React, { Component } from 'react';
+import { connect } from "react-redux";
 
-class Spinner extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.props = props;
-  }
-
+export class Spinner extends Component {
   render() {
     if( this.props.show ){
       return (
-      <div id="overlay">
-        <div className="spinner"></div>
-      </div>
+        <div id="overlay">
+          <div className="spinner"></div>
+        </div>
       );
     }
     return null;
   }
-}
+};
 
-module.exports = Spinner;
+const mapStateToProps = ({common}) => {
+  return {
+    show: common.showSpinner || false,
+  };
+};
+
+export default connect(mapStateToProps)(Spinner);
+
+Spinner.defaultProps = {
+  show: false,
+};

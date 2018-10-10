@@ -24,4 +24,4 @@ class Notice extends React.Component {
   }
 }
 
-module.exports = Notice;
+export default  Notice;

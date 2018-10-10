@@ -22,4 +22,4 @@ class CheckBoxGroup extends React.Component {
   }
 }
 
-module.exports = CheckBoxGroup;
+export default  CheckBoxGroup;

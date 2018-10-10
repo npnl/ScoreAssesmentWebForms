@@ -44,5 +44,5 @@ class ErrorNotice extends React.Component {
   }
 }
 
-module.exports = ErrorNotice;
+export default  ErrorNotice;
 
