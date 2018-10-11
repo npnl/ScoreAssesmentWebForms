@@ -1,7 +1,9 @@
 // NhssInputForm.js
 import React from 'react';
+import { connect } from 'react-redux';
 import NhssFormRow from './../rows/NhssFormRow'
 import DownloadCSV from './../common/DownloadCSV'
+import { formActions} from '../../_actions';
 
 class NhssInputForm extends React.Component {
 	constructor(props) {
@@ -16,6 +18,7 @@ class NhssInputForm extends React.Component {
 		this.calculateLocTotal = this.calculateLocTotal.bind(this);
 		this.calculateMotorTotal = this.calculateMotorTotal.bind(this);
 		this.calculateNihssTotal = this.calculateNihssTotal.bind(this);
+		this.sendToServer = this.sendToServer.bind(this);
 	}
 
 	subjectChanged(event) {
@@ -91,6 +94,33 @@ class NhssInputForm extends React.Component {
 		return data;
 	}
 
+  sendToServer() {
+    var loc_total = this.calculateLocTotal();
+    var motor_total = this.calculateMotorTotal();
+    var nihss_total = this.calculateNihssTotal();
+
+    var rows = this.state.rows.map(function(item) {
+      var new_item = {
+        item_no: item.item_no,
+        domain: item.domain,
+        specific: item.specific,
+        fas_score: item.score,
+        Loc_Total: loc_total,
+        Motor_Total: motor_total,
+        NHSS_Total: nihss_total
+      };
+      return new_item;
+    }, this);
+
+		var formatted = {
+			subject_name: this.state.subID,
+      assessment_date: this.getCurrentDate(),
+			nihss_form_rows: rows
+		};
+    const { dispatch } = this.props;
+    dispatch(formActions.sendFormData(formatted));
+	}
+
 	getCurrentDate() {
 		var d = new Date(),
 		month = '' + (d.getMonth() + 1),
@@ -140,6 +170,7 @@ class NhssInputForm extends React.Component {
 				</table>
 				<div className="download-btn">
 					<DownloadCSV dataHandler={this.getCSVData} subjectId={this.state.subID} date={this.state.date} filename="NHSS.csv" is_enabled={this.state.subID !== '' && this.state.date !== ''}/>
+					<button className="btn btn-primary" onClick={this.sendToServer}>Save data</button>
 				</div>
 			</div>
 			);
@@ -147,3 +178,10 @@ class NhssInputForm extends React.Component {
 }
 
 export default NhssInputForm;
+
+function mapStateToProps(state) {
+  return { };
+}
+
+const connectedNhssInputForm = connect(mapStateToProps)(NhssInputForm);
+export { connectedNhssInputForm as NhssInputForm };

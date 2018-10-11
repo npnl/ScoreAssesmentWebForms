@@ -1,7 +1,7 @@
 // Forms.js
 import React from 'react';
 import { connect } from 'react-redux';
-import NhssInputForm from './forms/NhssInputForm'
+import { NhssInputForm } from './forms/NhssInputForm'
 import FmaInputForm from './forms/FmaInputForm'
 import WmftInputForm from './forms/WmftInputForm'
 import MRSForm from './forms/MRSForm'

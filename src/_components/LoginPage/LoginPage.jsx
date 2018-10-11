@@ -38,11 +38,12 @@ class LoginPage extends React.Component {
     }
 
     render() {
-        const { loggingIn } = this.props;
+        const { loggingIn, alert } = this.props;
         const { email, password, submitted } = this.state;
         return (
             <div className="col-md-6 col-md-offset-3">
                 <h2>Login</h2>
+              {alert.message && <span className="text-danger">ERROR: {alert.message}</span>}
                 <form name="form" onSubmit={this.handleSubmit}>
                     <div className={'form-group' + (submitted && !email ? ' has-error' : '')}>
                         <label htmlFor="email">Email</label>
@@ -73,8 +74,10 @@ class LoginPage extends React.Component {
 
 function mapStateToProps(state) {
     const { loggingIn } = state.authentication;
+    const { alert } = state;
     return {
-        loggingIn
+      loggingIn,
+      alert
     };
 }
 

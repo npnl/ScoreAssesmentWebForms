@@ -96,7 +96,7 @@ function handleResponse(response) {
                 window.location.reload(true);
             }
 
-            const error = (data && data.message) || response.statusText;
+            const error = (data && data.errors && data.errors[0]) || response.statusText;
             return Promise.reject(error);
         }
 
