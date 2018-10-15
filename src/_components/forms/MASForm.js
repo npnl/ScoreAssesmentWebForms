@@ -1,6 +1,9 @@
 // MASForm.js
 import React from 'react';
+import { connect } from 'react-redux';
 import DownloadCSV from './../common/DownloadCSV'
+
+import { formActions } from '../../_actions'
 
 class MASForm extends React.Component {
 	constructor(props) {
@@ -16,6 +19,7 @@ class MASForm extends React.Component {
 		this.dateChanged = this.dateChanged.bind(this);
 		this.addNewMuscleRow = this.addNewMuscleRow.bind(this);
 		this.areRowsFilled = this.areRowsFilled.bind(this);
+		this.sendToServer = this.sendToServer.bind(this);
 	}
 
 	areRowsFilled() {
@@ -80,6 +84,25 @@ class MASForm extends React.Component {
 
 		return data;
 	}
+
+  sendToServer() {
+    var data = this.getCSVData();
+    var rows = data.map(function(item, index) {
+      var new_item = {
+        muscle_name: item.MuscleName,
+        score: item.Score
+      };
+      return new_item;
+    }, this);
+
+    var formatted = {
+      subject_name: this.state.subID,
+      assessment_date: this.getCurrentDate(),
+      mas_form_rows: rows
+    };
+    const { dispatch } = this.props;
+    dispatch(formActions.sendMasFormData(formatted));
+  }
 
 	getCurrentDate() {
 		var d = new Date(),
@@ -172,10 +195,18 @@ class MASForm extends React.Component {
 
 				<div className="download-btn">
 					<DownloadCSV dataHandler={this.getCSVData} subjectId={this.state.subID} date={this.state.date} filename={"MRS.csv"} customMessage="Subject_Id, Date and Score are mandatory fields to download the csv." is_enabled={this.state.subID !== '' && this.state.date !== '' && this.areRowsFilled()}/>
+					<button className="btn btn-primary" onClick={this.sendToServer}>Save data</button>
 				</div>
 			</div>
 			);
 	}
 }
 
-export default MASForm;
+function mapStateToProps(state) {
+  return { };
+}
+
+const connectedMASForm = connect(mapStateToProps)(MASForm);
+export { connectedMASForm as MASForm };
+
+

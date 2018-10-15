@@ -1,7 +1,9 @@
 // SisInputForm.js
 import React from 'react';
+import { connect } from 'react-redux';
 import SisAssessmentTable from './../rows/SisAssessmentTable'
 import DownloadCSV from './../common/DownloadCSV'
+import { formActions } from '../../_actions'
 
 class SisInputForm extends React.Component {
 	constructor(props) {
@@ -14,13 +16,14 @@ class SisInputForm extends React.Component {
 			tables: props.data,
 			selections: selections,
 			recovery: 0
-		}
+		};
 		this.scoreChanged = this.scoreChanged.bind(this);
 		this.getCSVData = this.getCSVData.bind(this);
 		this.hasAllAnswered = this.hasAllAnswered.bind(this);
 		this.recoveryChange = this.recoveryChange.bind(this);
 		this.subjectChanged = this.subjectChanged.bind(this);
 		this.dateChanged = this.dateChanged.bind(this);
+		this.sendToServer = this.sendToServer.bind(this);
 	}
 
 	subjectChanged(event) {
@@ -64,9 +67,28 @@ class SisInputForm extends React.Component {
 				QuestionId: "RecoveryPercent",
 				OptionSelected: this.state.recovery
 			};
-		data.push(new_item)
+		data.push(new_item);
 		return data;
 	}
+
+  sendToServer() {
+    var data = this.getCSVData();
+    var rows = data.map(function(item, index) {
+      var new_item = {
+        question_id: item.QuestionId,
+				selected_option: item.OptionSelected
+      };
+      return new_item;
+    }, this);
+
+    var formatted = {
+      subject_name: this.state.subID,
+      assessment_date: this.getCurrentDate(),
+      sis_form_rows: rows
+    };
+    const { dispatch } = this.props;
+    dispatch(formActions.sendSisFormData(formatted));
+  }
 
 	hasAllAnswered() {
 		var selections = this.state.selections;
@@ -125,6 +147,7 @@ class SisInputForm extends React.Component {
 
 				<div className="download-btn">
 					<DownloadCSV dataHandler={this.getCSVData} subjectId={this.state.subID} date={this.state.date} filename={"SIS.csv"} hideNode={false} is_enabled={this.hasAllAnswered()} customMessage="Please fill SubjectId, date and answer all the given questions to download/email the CSV"/>
+					<button className="btn btn-primary" onClick={this.sendToServer}>Save data</button>
 				</div>
 
 			</div>
@@ -132,4 +155,10 @@ class SisInputForm extends React.Component {
 	}
 }
 
-export default SisInputForm;
+function mapStateToProps(state) {
+  return { };
+}
+
+const connectedSisInputForm = connect(mapStateToProps)(SisInputForm);
+export { connectedSisInputForm as SisInputForm };
+

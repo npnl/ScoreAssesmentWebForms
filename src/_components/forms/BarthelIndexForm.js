@@ -1,20 +1,24 @@
 // BarthelIndexForm.js
 import React from 'react';
+import { connect } from 'react-redux';
 import DownloadCSV from '../common/DownloadCSV'
 import BarthelIndexCell from '../rows/BarthelIndexCell'
+
+import { formActions } from '../../_actions'
 
 class BarthelIndexForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.getCurrentDate = this.getCurrentDate.bind(this);
 		this.getFormData = this.getFormData.bind(this);
-		this.state = {rows: this.getFormData(), total_score: 0, subID: '', date: this.getCurrentDate()}
+		this.state = {rows: this.getFormData(), total_score: 0, subID: '', date: this.getCurrentDate()};
 		this.props = props;
 		this.getCSVData = this.getCSVData.bind(this);
 		this.scoreChanged = this.scoreChanged.bind(this);
 		this.subjectChanged = this.subjectChanged.bind(this);
 		this.dateChanged = this.dateChanged.bind(this);
 		this.reCalculateTotalScore = this.reCalculateTotalScore.bind(this);
+		this.sendToServer = this.sendToServer.bind(this);
 	}
 
 	getFormData() {
@@ -189,6 +193,7 @@ class BarthelIndexForm extends React.Component {
 				Day: day,
 				Activity: item.heading,
 				Score: item.score,
+				Description: (item.score !== '') ? item.options[Number(item.score)] : '',
 				TotalScore: total_score
 			};
 			return new_item; 
@@ -196,6 +201,26 @@ class BarthelIndexForm extends React.Component {
 
 		return data;
 	}
+
+  sendToServer() {
+		var data = this.getCSVData();
+    var rows = data.map(function(item, index) {
+      var new_item = {
+        activity: item.Activity,
+        score: item.Score,
+        description: item.Description,
+      };
+      return new_item;
+    }, this);
+
+    var formatted = {
+      subject_name: this.state.subID,
+      assessment_date: this.getCurrentDate(),
+      barthel_form_rows: rows
+    };
+    const { dispatch } = this.props;
+    dispatch(formActions.sendBathelFormData(formatted));
+  }
 
 	getCurrentDate() {
 		var d = new Date(),
@@ -246,10 +271,17 @@ class BarthelIndexForm extends React.Component {
 
 				<div className="download-btn">
 					<DownloadCSV dataHandler={this.getCSVData} subjectId={this.state.subID} date={this.state.date} filename={"MRS.csv"} customMessage="Subject_Id, Date and Score are mandatory fields to download the csv." is_enabled={this.state.subID !== '' && this.state.date !== ''}/>
+					<button className="btn btn-primary" onClick={this.sendToServer}>Save data</button>
 				</div>
 			</div>
 			);
 	}
 }
 
-export default BarthelIndexForm;
+function mapStateToProps(state) {
+  return { };
+}
+
+const connectedBarthelIndexForm = connect(mapStateToProps)(BarthelIndexForm);
+export { connectedBarthelIndexForm as BarthelIndexForm };
+

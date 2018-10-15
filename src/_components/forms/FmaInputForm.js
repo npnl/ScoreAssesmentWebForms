@@ -1,8 +1,10 @@
 // FmaInputForm.js
 import React from 'react';
+import { connect } from 'react-redux';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import FmaFormRow from './../rows/FmaFormRow'
 import DownloadCSV from './../common/DownloadCSV'
+import { formActions} from '../../_actions';
 
 class FmaInputForm extends React.Component {
 	constructor(props) {
@@ -19,6 +21,7 @@ class FmaInputForm extends React.Component {
 		this.calculateFmaUeTotal = this.calculateFmaUeTotal.bind(this);
 		this.calculateFmaSenseTotal = this.calculateFmaSenseTotal.bind(this);
 		this.getExtremityType = this.getExtremityType.bind(this);
+		this.sendToServer = this.sendToServer.bind(this);
 	}
 
 	subjectChanged(event) {
@@ -132,6 +135,28 @@ class FmaInputForm extends React.Component {
 		return data;
 	}
 
+  sendToServer() {
+    var rows = this.state.rows.map(function(item) {
+      var new_item = {
+        item_no: item.item_no,
+        category: item.category,
+        posture: item.posture,
+        movement: item.movement,
+        score: item.score,
+        extremity: this.getExtremityType(item.item_no),
+      };
+      return new_item;
+    }, this);
+
+    var formatted = {
+      subject_name: this.state.subID,
+      assessment_date: this.getCurrentDate(),
+      fma_form_rows: rows
+    };
+    const { dispatch } = this.props;
+    dispatch(formActions.sendFmaFormData(formatted));
+  }
+
 	getCurrentDate() {
 		var d = new Date(),
 		month = '' + (d.getMonth() + 1),
@@ -186,10 +211,17 @@ class FmaInputForm extends React.Component {
 				</table>
 				<div className="download-btn">
 					<DownloadCSV dataHandler={this.getCSVData} subjectId={this.state.subID} date={this.state.date} filename={"FMA.csv"} is_enabled={this.state.subID !== '' && this.state.date !== ''}/>
+					<button className="btn btn-primary" onClick={this.sendToServer}>Save data</button>
 				</div>
 			</div>
 			);
 	}
 }
 
-export default FmaInputForm;
+function mapStateToProps(state) {
+  return { };
+}
+
+const connectedFmaInputForm = connect(mapStateToProps)(FmaInputForm);
+export { connectedFmaInputForm as FmaInputForm };
+

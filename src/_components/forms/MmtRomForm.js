@@ -1,6 +1,9 @@
 // MmtRomForm.js
 import React from 'react';
+import { connect } from 'react-redux';
 import DownloadCSV from './../common/DownloadCSV'
+
+import { formActions } from '../../_actions'
 
 class MmtRomForm extends React.Component {
 	constructor(props) {
@@ -15,6 +18,7 @@ class MmtRomForm extends React.Component {
 		this.subjectChanged = this.subjectChanged.bind(this);
 		this.dateChanged = this.dateChanged.bind(this);
 		this.addNewMuscleRow = this.addNewMuscleRow.bind(this);
+		this.sendToServer = this.sendToServer.bind(this);
 	}
 
 	getFormData() {
@@ -120,6 +124,26 @@ class MmtRomForm extends React.Component {
 		return data;
 	}
 
+  sendToServer() {
+    var data = this.getCSVData();
+    var rows = data.map(function(item, index) {
+      var new_item = {
+        muscle_name: item.muscle_name,
+        mmt_score: item.MMT_Score,
+        rom_score: item.ROM_Score
+      };
+      return new_item;
+    }, this);
+
+    var formatted = {
+      subject_name: this.state.subID,
+      assessment_date: this.getCurrentDate(),
+      mmt_form_rows: rows
+    };
+    const { dispatch } = this.props;
+    dispatch(formActions.sendMmtFormData(formatted));
+  }
+
 	getCurrentDate() {
 		var d = new Date(),
 		month = '' + (d.getMonth() + 1),
@@ -223,10 +247,17 @@ class MmtRomForm extends React.Component {
 
 				<div className="download-btn">
 					<DownloadCSV dataHandler={this.getCSVData} subjectId={this.state.subID} date={this.state.date} filename={"MRS.csv"} customMessage="Subject_Id, Date and Score are mandatory fields to download the csv." is_enabled={this.state.subID !== '' && this.state.date !== ''}/>
+					<button className="btn btn-primary" onClick={this.sendToServer}>Save data</button>
 				</div>
 			</div>
 			);
 	}
 }
 
-export default MmtRomForm;
+function mapStateToProps(state) {
+  return { };
+}
+
+const connectedMmtRomForm = connect(mapStateToProps)(MmtRomForm);
+export { connectedMmtRomForm as MmtRomForm };
+

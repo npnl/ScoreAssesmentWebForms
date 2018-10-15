@@ -1,8 +1,10 @@
 // WmftInputForm.js
 import React from 'react';
+import { connect } from 'react-redux';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import WmftFormRow from './../rows/WmftFormRow'
 import DownloadCSV from './../common/DownloadCSV'
+import { formActions} from '../../_actions';
 
 class WmftInputForm extends React.Component {
 	constructor(props) {
@@ -18,6 +20,7 @@ class WmftInputForm extends React.Component {
 		this.calculateMedianTime = this.calculateMedianTime.bind(this);
 		this.getTotalScore = this.getTotalScore.bind(this);
 		this.getAverageStrength = this.getAverageStrength.bind(this);
+    this.sendToServer = this.sendToServer.bind(this);
 	}
 
 	subjectChanged(event) {
@@ -169,6 +172,31 @@ class WmftInputForm extends React.Component {
 		return data;
 	}
 
+  sendToServer() {
+    var rows = this.state.rows.map(function(item, index) {
+      var new_item = {
+        item_no: item.item_no,
+        task: item.task,
+        time: item.time,
+        fas_score: item.score,
+        arm_type: (index < 18 ) ? 'affected' : 'unaffected'
+      };
+      return new_item;
+    }, this);
+
+    rows = rows.filter(function (item) {
+      return Number(item.item_no) !== -1;
+    });
+
+    var formatted = {
+      subject_name: this.state.subID,
+      assessment_date: this.getCurrentDate(),
+      wmft_form_rows: rows
+    };
+    const { dispatch } = this.props;
+    dispatch(formActions.sendWmftFormData(formatted));
+  }
+
 	getCurrentDate() {
 		var d = new Date(),
 		month = '' + (d.getMonth() + 1),
@@ -220,10 +248,18 @@ class WmftInputForm extends React.Component {
 				</table>
 				<div className="download-btn">
 					<DownloadCSV dataHandler={this.getCSVData} subjectId={this.state.subID} date={this.state.date} filename={"WMFT.csv"} is_enabled={this.state.subID !== '' && this.state.date !== ''}/>
+					<button className="btn btn-primary" onClick={this.sendToServer}>Save data</button>
 				</div>
 			</div>
 			);
 	}
 }
 
-export default WmftInputForm;
+function mapStateToProps(state) {
+  return { };
+}
+
+const connectedWmftInputForm = connect(mapStateToProps)(WmftInputForm);
+export { connectedWmftInputForm as WmftInputForm };
+
+

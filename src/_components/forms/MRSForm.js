@@ -1,6 +1,8 @@
 // MRSForm.js
 import React from 'react';
+import { connect } from 'react-redux';
 import DownloadCSV from './../common/DownloadCSV'
+import { formActions } from '../../_actions'
 
 class MRSForm extends React.Component {
 	constructor(props) {
@@ -12,6 +14,7 @@ class MRSForm extends React.Component {
 		this.scoreChanged = this.scoreChanged.bind(this);
 		this.subjectChanged = this.subjectChanged.bind(this);
 		this.dateChanged = this.dateChanged.bind(this);
+		this.sendToServer = this.sendToServer.bind(this);
 	}
 
 	subjectChanged(event) {
@@ -46,6 +49,24 @@ class MRSForm extends React.Component {
 		};
 		return [data];
 	}
+
+  sendToServer() {
+    var data = this.getCSVData();
+    var rows = data.map(function(item, index) {
+      var new_item = {
+        score: item.Score
+      };
+      return new_item;
+    }, this);
+
+    var formatted = {
+      subject_name: this.state.subID,
+      assessment_date: this.getCurrentDate(),
+      mrs_form_rows: rows
+    };
+    const { dispatch } = this.props;
+    dispatch(formActions.sendMrsFormData(formatted));
+  }
 
 	getCurrentDate() {
 		var d = new Date(),
@@ -121,10 +142,16 @@ class MRSForm extends React.Component {
 				</div>
 				<div className="download-btn">
 					<DownloadCSV dataHandler={this.getCSVData} subjectId={this.state.subID} date={this.state.date} filename={"MRS.csv"} customMessage="Subject_Id, Date and Score are mandatory fields to download the csv." is_enabled={this.state.subID !== '' && this.state.date !== '' && this.state.score !== ''}/>
+					<button className="btn btn-primary" onClick={this.sendToServer}>Save data</button>
 				</div>
 			</div>
 			);
 	}
 }
 
-export default MRSForm;
+function mapStateToProps(state) {
+  return { };
+}
+
+const connectedMRSForm = connect(mapStateToProps)(MRSForm);
+export { connectedMRSForm as MRSForm };

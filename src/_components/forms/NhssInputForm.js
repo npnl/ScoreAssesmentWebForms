@@ -118,7 +118,7 @@ class NhssInputForm extends React.Component {
 			nihss_form_rows: rows
 		};
     const { dispatch } = this.props;
-    dispatch(formActions.sendFormData(formatted));
+    dispatch(formActions.sendNihssFormData(formatted));
 	}
 
 	getCurrentDate() {
@@ -176,8 +176,6 @@ class NhssInputForm extends React.Component {
 			);
 	}
 }
-
-export default NhssInputForm;
 
 function mapStateToProps(state) {
   return { };

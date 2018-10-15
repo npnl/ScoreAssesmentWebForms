@@ -1,21 +1,51 @@
 import { authHeader } from '../_helpers';
 import { serverConstants } from '../_constants'
 import { userService } from './user.service'
+import { formConstants } from '../_constants'
 
 export const formService = {
     sendFormDataToServer
 };
 
 function sendFormDataToServer(formData, formType) {
-    console.log("Form data is here");
-    console.log(formData);
     const requestOptions = {
         method: 'POST',
         headers: {...authHeader(), 'Content-Type': 'application/json'},
         body: JSON.stringify(formData)
     };
 
-    return fetch(`${serverConstants.BASE_URL}/nihss_form`, requestOptions)
+    let apiEndPoint;
+    switch (formType) {
+      case formConstants.TYPE_NIHSS_FORM:
+          apiEndPoint = `${serverConstants.BASE_URL}/nihss_form`;
+          break;
+      case formConstants.TYPE_FMA_FORM:
+          apiEndPoint = `${serverConstants.BASE_URL}/fma_form`;
+          break;
+      case formConstants.TYPE_MAS_FORM:
+        apiEndPoint = `${serverConstants.BASE_URL}/mas_form`;
+        break;
+      case formConstants.TYPE_SIS_FORM:
+        apiEndPoint = `${serverConstants.BASE_URL}/sis_form`;
+        break;
+      case formConstants.TYPE_MRS_FORM:
+        apiEndPoint = `${serverConstants.BASE_URL}/mrs_form`;
+        break;
+      case formConstants.TYPE_BATHEL_FORM:
+        apiEndPoint = `${serverConstants.BASE_URL}/barthel_form`;
+        break;
+      case formConstants.TYPE_ARM_FORM:
+        apiEndPoint = `${serverConstants.BASE_URL}/armtest_form`;
+        break;
+      case formConstants.TYPE_WMFT_FORM:
+        apiEndPoint = `${serverConstants.BASE_URL}/wmft_form`;
+        break;
+      case formConstants.TYPE_MMT_FORM:
+        apiEndPoint = `${serverConstants.BASE_URL}/mmt_form`;
+        break;
+    }
+
+    return fetch(apiEndPoint, requestOptions)
         .then(handleResponse)
         .then(response_data => {
             var message = '';
