@@ -22,13 +22,13 @@ class Header extends React.Component {
                   <li><Link to="/NhssInputForm">NIHSS</Link></li>
                   <li><Link to="/FmaInputForm">FMA</Link></li>
                   <li><Link to="/WmftInputForm">WMFT</Link></li>
-                  <li><Link to="/OtCogAssessment">OT Cog Assessment</Link></li>
                   <li><Link to="/SisInputForm">SIS</Link></li>
                   <li><Link to="/MRSForm">MRS</Link></li>
                   <li><Link to="/MASForm">MAS</Link></li>
                   <li><Link to="/MmtRomForm">MMT/ROM</Link></li>
                   <li><Link to="/BarthelIndexForm">Barthel Index Form</Link></li>
                   <li><Link to="/ArmTestForm">ARM Test</Link></li>
+                  <li><Link to="/OtCogAssessment">OT Cog Assessment</Link></li>
                   <li><Link to="/login">Logout({current_user.name})</Link></li>
                 </ul>
               </div>

@@ -17,8 +17,8 @@ class DownloadCSV extends React.Component {
 		var data = this.props.dataHandler();
 		this.propertyOrder = Object.keys(data[0]);
 		var textCsvData = this.getCSVContents(data);
-		textCsvData = encodeURIComponent(textCsvData)
-		var emailAddress = ""
+		textCsvData = encodeURIComponent(textCsvData);
+		var emailAddress = "";
 		var email_subject = this.props.subjectId.replace(/ +/g, "_")+ "_" + this.props.date.replace(/ +/g, "_") + "_"+ this.filename;
 		email_subject = email_subject.replace(".csv", "");
 		var link = "mailto:" + emailAddress + "?subject=" + email_subject + "&body=" + textCsvData;
@@ -69,6 +69,8 @@ class DownloadCSV extends React.Component {
 				{this.props.hideNode === true ? '' : note}
 				<CSVLink filename={this.props.subjectId.replace(/ +/g, "_")+ "_" + this.props.date.replace(/ +/g, "_") + "_"+ this.filename} className={this.props.is_enabled ? "btn btn-primary" : "btn btn-primary btn-disabled"} data={this.props.dataHandler()}>Download CSV</CSVLink>
 				<button className={this.props.is_enabled ? "btn btn-primary" : "btn btn-primary btn-disabled"} onClick={this.emailCSV}>Email CSV</button>
+				<button className={this.props.is_enabled ? "btn btn-primary" : "btn btn-primary btn-disabled"} onClick={this.props.sendToServer}>Save to Database</button>
+
 			</div>
 			);
 	}

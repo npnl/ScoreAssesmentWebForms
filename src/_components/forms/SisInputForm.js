@@ -146,8 +146,7 @@ class SisInputForm extends React.Component {
 				</div>
 
 				<div className="download-btn">
-					<DownloadCSV dataHandler={this.getCSVData} subjectId={this.state.subID} date={this.state.date} filename={"SIS.csv"} hideNode={false} is_enabled={this.hasAllAnswered()} customMessage="Please fill SubjectId, date and answer all the given questions to download/email the CSV"/>
-					<button className="btn btn-primary" onClick={this.sendToServer}>Save data</button>
+					<DownloadCSV sendToServer={this.sendToServer} dataHandler={this.getCSVData} subjectId={this.state.subID} date={this.state.date} filename={"SIS.csv"} hideNode={false} is_enabled={this.hasAllAnswered()} customMessage="Please fill SubjectId, date and answer all the given questions to download/email the CSV"/>
 				</div>
 
 			</div>

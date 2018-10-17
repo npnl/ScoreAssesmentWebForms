@@ -141,8 +141,7 @@ class MRSForm extends React.Component {
 					<input className="form-control" type="number" min="0" max="6" value={this.state.score} onChange={this.scoreChanged} />
 				</div>
 				<div className="download-btn">
-					<DownloadCSV dataHandler={this.getCSVData} subjectId={this.state.subID} date={this.state.date} filename={"MRS.csv"} customMessage="Subject_Id, Date and Score are mandatory fields to download the csv." is_enabled={this.state.subID !== '' && this.state.date !== '' && this.state.score !== ''}/>
-					<button className="btn btn-primary" onClick={this.sendToServer}>Save data</button>
+					<DownloadCSV sendToServer={this.sendToServer} dataHandler={this.getCSVData} subjectId={this.state.subID} date={this.state.date} filename={"MRS.csv"} customMessage="Subject_Id, Date and Score are mandatory fields to download the csv." is_enabled={this.state.subID !== '' && this.state.date !== '' && this.state.score !== ''}/>
 				</div>
 			</div>
 			);

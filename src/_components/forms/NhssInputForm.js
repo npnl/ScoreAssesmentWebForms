@@ -3,7 +3,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import NhssFormRow from './../rows/NhssFormRow'
 import DownloadCSV from './../common/DownloadCSV'
+import { subjectActions } from '../../_actions';
 import { formActions} from '../../_actions';
+import AutoSuggestInput from '../common/AutoSuggestInput'
 
 class NhssInputForm extends React.Component {
 	constructor(props) {
@@ -19,6 +21,7 @@ class NhssInputForm extends React.Component {
 		this.calculateMotorTotal = this.calculateMotorTotal.bind(this);
 		this.calculateNihssTotal = this.calculateNihssTotal.bind(this);
 		this.sendToServer = this.sendToServer.bind(this);
+		this.testFunction = this.testFunction.bind(this);
 	}
 
 	subjectChanged(event) {
@@ -33,7 +36,7 @@ class NhssInputForm extends React.Component {
 		var base_index = this.state.rows[0]['item_no'];
 		item_no = item_no - base_index;
 		var new_rows = this.state.rows;
-		new_rows[item_no]['score'] = value
+		new_rows[item_no]['score'] = value;
 		this.setState({rows: new_rows});
 	}
 
@@ -121,6 +124,11 @@ class NhssInputForm extends React.Component {
     dispatch(formActions.sendNihssFormData(formatted));
 	}
 
+  testFunction() {
+    const { dispatch } = this.props;
+    dispatch(subjectActions.getAllSubjects("asna"));
+	}
+
 	getCurrentDate() {
 		var d = new Date(),
 		month = '' + (d.getMonth() + 1),
@@ -137,6 +145,8 @@ class NhssInputForm extends React.Component {
 			var data = this.state.rows[i];
 		  	rows.push(<NhssFormRow data={data} getComment={this.getComment} scoreChanged={this.scoreChanged}/>);
 		}
+
+		const { subject_array } = this.props;
 
 		return(
 			<div className="main-form-container">
@@ -157,7 +167,7 @@ class NhssInputForm extends React.Component {
 				<table className="table table-bordered">
 					<thead>
 						<tr>
-							<th class="row-index">Item</th>
+							<th className="row-index">Item</th>
 							<th>Domain</th>
 							<th>Specific</th>
 							<th>FAS Score</th>
@@ -169,16 +179,19 @@ class NhssInputForm extends React.Component {
 					</tbody>
 				</table>
 				<div className="download-btn">
-					<DownloadCSV dataHandler={this.getCSVData} subjectId={this.state.subID} date={this.state.date} filename="NHSS.csv" is_enabled={this.state.subID !== '' && this.state.date !== ''}/>
-					<button className="btn btn-primary" onClick={this.sendToServer}>Save data</button>
+					<DownloadCSV sendToServer={this.sendToServer} dataHandler={this.getCSVData} subjectId={this.state.subID} date={this.state.date} filename="NHSS.csv" is_enabled={this.state.subID !== '' && this.state.date !== ''}/>
+					<button className="btn btn-primary"  onClick={this.testFunction}>Test</button>
 				</div>
+				{JSON.stringify(subject_array)}
 			</div>
 			);
 	}
 }
 
 function mapStateToProps(state) {
-  return { };
+  const { subjects } = state;
+  const { subject_array } = subjects;
+  return { subject_array };
 }
 
 const connectedNhssInputForm = connect(mapStateToProps)(NhssInputForm);

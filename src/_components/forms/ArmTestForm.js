@@ -137,7 +137,7 @@ class ArmTestForm extends React.Component {
 		var data = this.getCSVData();
     var rows = data.map(function(item, index) {
       var new_item = {
-        type: item.Type,
+        arm_type: item.Type,
         activity: item.Activity,
         score: item.Score
       };
@@ -186,8 +186,7 @@ class ArmTestForm extends React.Component {
 				<ArmTestRow scoreChanged={this.scoreChanged} data={this.state.grossmt}/>
 
 				<div className="download-btn">
-					<DownloadCSV dataHandler={this.getCSVData} subjectId={this.state.subID} date={this.state.date} filename={"MRS.csv"} customMessage="Subject_Id, Date and Score are mandatory fields to download the csv." is_enabled={this.state.subID !== '' && this.state.date !== ''}/>
-					<button className="btn btn-primary" onClick={this.sendToServer}>Save data</button>
+					<DownloadCSV sendToServer={this.sendToServer} dataHandler={this.getCSVData} subjectId={this.state.subID} date={this.state.date} filename={"MRS.csv"} customMessage="Subject_Id, Date and Score are mandatory fields to download the csv." is_enabled={this.state.subID !== '' && this.state.date !== ''}/>
 				</div>
 			</div>
 			);

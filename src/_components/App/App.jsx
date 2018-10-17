@@ -9,6 +9,7 @@ import { HomePage } from '../HomePage';
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
 import { Forms } from '../Forms';
+import { SubjectsPage } from '../Summary';
 import OtCogAssessment from '../forms/OtCogAssessment'
 
 class App extends React.Component {
@@ -43,26 +44,10 @@ class App extends React.Component {
                       <Route path="/MmtRomForm" component={() => <Forms form_type="MmtRomForm" />} />
                       <Route path="/BarthelIndexForm" component={() => <Forms form_type="BarthelIndexForm" />} />
                       <Route path="/ArmTestForm" component={() => <Forms form_type="ArmTestForm" />} />
+                      <Route path="/Summary/SubjectsPage" component={() => <SubjectsPage />} />
                   </div>
-                {/* <Route exact path="/WmftUnAffectedInputForm" component={()=><Forms form_type="WmftUnAffectedInputForm"/>} /> */}
               </Router>
           </div>
-            // <div className="jumbotron">
-            //     <div className="container">
-            //         <div className="col-sm-8 col-sm-offset-2">
-            //             {alert.message &&
-            //                 <div className={`alert ${alert.type}`}>{alert.message}</div>
-            //             }
-            //             <Router history={history}>
-            //                 <div>
-            //                     <PrivateRoute exact path="/" component={HomePage} />
-            //                     <Route path="/login" component={LoginPage} />
-            //                     <Route path="/register" component={RegisterPage} />
-            //                 </div>
-            //             </Router>
-            //         </div>
-            //     </div>
-            // </div>
         );
     }
 }

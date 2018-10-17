@@ -210,8 +210,7 @@ class FmaInputForm extends React.Component {
 					</tbody>
 				</table>
 				<div className="download-btn">
-					<DownloadCSV dataHandler={this.getCSVData} subjectId={this.state.subID} date={this.state.date} filename={"FMA.csv"} is_enabled={this.state.subID !== '' && this.state.date !== ''}/>
-					<button className="btn btn-primary" onClick={this.sendToServer}>Save data</button>
+					<DownloadCSV sendToServer={this.sendToServer} dataHandler={this.getCSVData} subjectId={this.state.subID} date={this.state.date} filename={"FMA.csv"} is_enabled={this.state.subID !== '' && this.state.date !== ''}/>
 				</div>
 			</div>
 			);
