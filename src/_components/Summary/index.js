@@ -3,3 +3,4 @@ export * from './SubjectsRow';
 export * from './AssessmentDownloadLink';
 export * from './GroupsPage'
 export * from './GroupsRow'
+export * from './AllSubjectsPage'

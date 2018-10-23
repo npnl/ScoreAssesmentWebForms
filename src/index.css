@@ -14,11 +14,17 @@ table {
 
 @media (min-width:641px)  {
 	.basic-info {
-		margin-bottom: 17%; 
+		margin-bottom: 17%;
 	}
 
 	.main-form-container {
-		margin-top: 200px;
+		margin-top: 100px;
+	}
+	.custom-alert{
+		top: 70px;
+		position: fixed;
+		width: 100%;
+		z-index: 120;
 	}
 }
 
@@ -29,6 +35,12 @@ table {
 
 	.main-form-container {
 		margin-top: 100px;
+	}
+	.custom-alert{
+		top: 70px;
+		position: fixed;
+		width: 100%;
+		z-index: 120;
 	}
 }
 
@@ -337,3 +349,8 @@ td input {
 .header-logout {
 	float: right !important;
 }
+
+.custom-alert-hide {
+	display: none;
+}
+

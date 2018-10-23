@@ -6,12 +6,12 @@ import { FormOptions } from '../FormOptions'
 import { subjectActions } from '../../_actions'
 
 class SubjectsPage extends React.Component {
-    componentDidMount() {
-        this.props.dispatch(subjectActions.getAllSubjects(''));
+    constructor(props) {
+      super(props);
     }
 
     render() {
-      const { subject_array } = this.props;
+      const subject_array= this.props.subject_array;
 
       var table_headings = [];
       table_headings.push(<th className="">S.No</th>);
@@ -39,31 +39,26 @@ class SubjectsPage extends React.Component {
 
         return (
           <div>
-              <Header/>
-              <div className="main-container">
-                  <table className="table table-bordered table-striped">
-                      <thead>
-                      <tr>
-                        {table_headings}
-                      </tr>
-                      </thead>
-                      <tbody>
-                        {table_rows}
-                      </tbody>
-                  </table>
-                  <br/><br/>
-                  <hr/>
-              </div>
-
+            <h1>Group : {this.props.group_name}</h1>
+            <table className="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  {table_headings}
+                </tr>
+                </thead>
+                <tbody>
+                  {table_rows}
+                </tbody>
+            </table>
+            <br/>
+            <hr/>
           </div>
         );
     }
 }
 
 function mapStateToProps(state) {
-    const { subjects } = state;
-    const { subject_array } = subjects;
-    return { subject_array };
+  return {};
 }
 
 const connectedSubjectsPage = connect(mapStateToProps)(SubjectsPage);

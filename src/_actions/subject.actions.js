@@ -1,5 +1,5 @@
 import { serverConstants } from '../_constants';
-import { formConstants } from '../_constants';
+import { formConstants, alertConstants } from '../_constants';
 import { subjectService } from '../_services';
 import { formService } from '../_services';
 import { alertActions } from './';
@@ -62,8 +62,8 @@ function createNewGroup(group_data) {
       );
   };
 
-  function success(message) { return { type: formConstants.FORM_DATA_SAVE_SUCCESS, message } }
-  function failure(error) { return { type: formConstants.FORM_DATA_SAVE_FAILURE, error } }
+  function success(message) { return { type: alertConstants.SUCCESS, message } }
+  function failure(error) { return { type: alertConstants.ERROR, error } }
 }
 
 function downloadAssessment(assessment_id, assessment_type) {

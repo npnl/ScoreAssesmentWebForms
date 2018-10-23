@@ -9,9 +9,9 @@ import { formActions } from '../../_actions'
 class MASForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.empty_row = {'MuscleName' : '', 'Score': ''}
+		this.empty_row = {'MuscleName' : '', 'Score': ''};
 		this.getCurrentDate = this.getCurrentDate.bind(this);
-		this.state = {rows: [Object.assign({}, this.empty_row)], subID: '', date: this.getCurrentDate()}
+		this.state = {rows: [Object.assign({}, this.empty_row)], subID: '', date: this.getCurrentDate()};
 		this.props = props;
 		this.getCSVData = this.getCSVData.bind(this);
 		this.scoreChanged = this.scoreChanged.bind(this);

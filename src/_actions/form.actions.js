@@ -1,4 +1,5 @@
 import { formConstants } from '../_constants';
+import { alertConstants } from '../_constants';
 import { formService } from '../_services';
 import { alertActions } from './';
 
@@ -29,8 +30,8 @@ function sendFormData(formData, formType) {
             );
     };
 
-    function success(message) { return { type: formConstants.FORM_DATA_SAVE_SUCCESS, message } }
-    function failure(error) { return { type: formConstants.FORM_DATA_SAVE_FAILURE, error } }
+    function success(message) { return { type: alertConstants.SUCCESS, message } }
+    function failure(error) { return { type: alertConstants.ERROR, error } }
 }
 
 function sendFmaFormData(formData) {

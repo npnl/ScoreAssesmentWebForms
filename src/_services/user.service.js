@@ -26,7 +26,7 @@ function login(credentials) {
             if (response_data && response_data.session && response_data.session.access_token) {
                 // store user session details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('access_token', response_data.session.access_token);
-                localStorage.setItem('current_user', JSON.stringify(response_data.user))
+                localStorage.setItem('current_user', JSON.stringify(response_data.user));
                 token_and_user = {access_token: response_data.session.access_token, current_user: response_data.user}
             }
             return token_and_user;
