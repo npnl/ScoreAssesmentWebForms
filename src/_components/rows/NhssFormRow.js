@@ -31,7 +31,7 @@ class NhssFormRow extends React.Component {
 		if (this.state.rowspan !== undefined && this.state.rowspan === 0) {
 			row = (
 				<tr>
-					<th class="row-index">{this.state.item_no}</th>
+					<th className="row-index">{this.state.item_no}</th>
 					<td>{this.state.specific }</td>
 					<td><input type="number" min={this.state.score_range[0]} max={this.state.score_range[1]} placeholder="FAS Score" value={this.state.score} onChange={this.handleChange}/></td>
 					<td>{this.props.getComment(this.state.score, this.state.comments)}</td>
@@ -39,7 +39,7 @@ class NhssFormRow extends React.Component {
 		} else {
 			row = (
 				<tr>
-					<th class="row-index">{this.state.item_no}</th>
+					<th className="row-index">{this.state.item_no}</th>
 					<td className="common-td" rowSpan={this.state.rowspan}>{this.state.domain}</td>
 					<td>{this.state.specific}</td>
 					<td><input type="number" min={this.state.score_range[0]} max={this.state.score_range[1]} placeholder="FAS Score" value={this.state.score} onChange={this.handleChange}/></td>

@@ -4,7 +4,8 @@ import { userService } from './user.service'
 
 export const subjectService = {
   getAll,
-  getAssessment
+  getAssessment,
+  getAllGroups
 };
 
 function getAll(subject_name) {
@@ -22,16 +23,31 @@ function getAll(subject_name) {
         });
 }
 
+function getAllGroups() {
+  const requestOptions = {
+    method: 'GET',
+    headers: {...authHeader(), 'Content-Type': 'application/json'}
+  };
+
+  let apiEndPoint = `${serverConstants.BASE_URL}/groups`;
+
+  return fetch(apiEndPoint, requestOptions)
+    .then(handleResponse)
+    .then(response_data => {
+      return response_data;
+    });
+}
+
 function getAssessment(assessment_id, assessment_type) {
   const requestOptions = {
     method: 'GET',
     headers: {...authHeader(), 'Content-Type': 'application/json'}
   };
 
-  let apiEndPoint = `${serverConstants.BASE_URL}/all_subject_info`;
+  let apiEndPoint = `${serverConstants.BASE_URL}/${assessment_type}/assessment/${assessment_id}/${assessment_type}.csv`;
 
   return fetch(apiEndPoint, requestOptions)
-    .then(handleResponse)
+    .then(downloadStreamData)
     .then(response_data => {
       return response_data;
     });
@@ -52,4 +68,20 @@ function handleResponse(response) {
 
         return data;
     });
+}
+
+function downloadStreamData(response) {
+  return response.text().then(text => {
+    if (!response.ok) {
+      if (response.status === 401) {
+        userService.logout();
+        window.location.reload(true);
+      }
+      const data = text && JSON.parse(text);
+      const error = (data && data.errors && data.errors[0]) || response.statusText;
+      return Promise.reject(error);
+    }
+
+    return text;
+  });
 }

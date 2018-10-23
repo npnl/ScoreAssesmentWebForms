@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import DownloadCSV from '../common/DownloadCSV'
 import BarthelIndexCell from '../rows/BarthelIndexCell'
+import { AutoSuggestInput } from '../common/AutoSuggestInput'
 
 import { formActions } from '../../_actions'
 
@@ -146,8 +147,8 @@ class BarthelIndexForm extends React.Component {
 		return rows;
 	}
 
-	subjectChanged(event) {
-		this.setState({subID: event.target.value});
+	subjectChanged(newSubId) {
+		this.setState({subID: newSubId});
 	}
 
 	dateChanged(event) {
@@ -250,7 +251,7 @@ class BarthelIndexForm extends React.Component {
 				<div className="basic-info">
 					<div className="subject_div">
 						<label>Subject Id</label>
-						<input type="text" className="form-control is-valid" placeholder="Subject Id" value={this.state.subID} onChange={this.subjectChanged} required />
+						<AutoSuggestInput value={this.state.subID} onChange={this.subjectChanged} required/>
 					</div>
 					<div className="date_div">
 						<label>Date</label>

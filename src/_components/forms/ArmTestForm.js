@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import DownloadCSV from './../common/DownloadCSV'
 import ArmTestRow from './../rows/ArmTestRow'
 import { formActions} from '../../_actions';
+import { AutoSuggestInput } from '../common/AutoSuggestInput'
 
 class ArmTestForm extends React.Component {
 	constructor(props) {
@@ -28,8 +29,8 @@ class ArmTestForm extends React.Component {
 		this.sendToServer = this.sendToServer.bind(this);
 	}
 
-	subjectChanged(event) {
-		this.setState({subID: event.target.value});
+	subjectChanged(newSubId) {
+		this.setState({subID: newSubId});
 	}
 
 	dateChanged(event) {
@@ -172,7 +173,7 @@ class ArmTestForm extends React.Component {
 				<div className="basic-info">
 					<div className="subject_div">
 						<label>Subject Id</label>
-						<input type="text" className="form-control is-valid" placeholder="Subject Id" value={this.state.subID} onChange={this.subjectChanged} required />
+						<AutoSuggestInput value={this.state.subID} onChange={this.subjectChanged} required/>
 					</div>
 					<div className="date_div">
 						<label>Date</label>

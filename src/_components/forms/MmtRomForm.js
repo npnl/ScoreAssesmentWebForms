@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import DownloadCSV from './../common/DownloadCSV'
-
+import { AutoSuggestInput } from '../common/AutoSuggestInput'
 import { formActions } from '../../_actions'
 
 class MmtRomForm extends React.Component {
@@ -13,11 +13,9 @@ class MmtRomForm extends React.Component {
 		this.state = {rows: this.getFormData(), subID: '', date: this.getCurrentDate()}
 		this.props = props;
 		this.getCSVData = this.getCSVData.bind(this);
-		this.scoreChanged = this.scoreChanged.bind(this);
 		this.muscleInfoChanged = this.muscleInfoChanged.bind(this);
 		this.subjectChanged = this.subjectChanged.bind(this);
 		this.dateChanged = this.dateChanged.bind(this);
-		this.addNewMuscleRow = this.addNewMuscleRow.bind(this);
 		this.sendToServer = this.sendToServer.bind(this);
 	}
 
@@ -68,16 +66,12 @@ class MmtRomForm extends React.Component {
 		return rows;
 	}
 
-	subjectChanged(event) {
-		this.setState({subID: event.target.value});
+	subjectChanged(newSubId) {
+		this.setState({subID: newSubId});
 	}
 
 	dateChanged(event) {
 		this.setState({date: event.target.value});
-	}
-
-	scoreChanged(event) {
-		this.setState({score: event.target.value});
 	}
 
 	muscleInfoChanged(type, event) {
@@ -90,12 +84,6 @@ class MmtRomForm extends React.Component {
 		else {
 			old_rows[index].rom = value
 		}
-		this.setState({rows: old_rows});
-	}
-
-	addNewMuscleRow() {
-		var old_rows = this.state.rows;
-		old_rows.push(Object.assign({}, this.empty_row));
 		this.setState({rows: old_rows});
 	}
 
@@ -160,7 +148,7 @@ class MmtRomForm extends React.Component {
 			rows.push((<tr>
 							<td className="row-index">{i+1}</td>
 							<td>{this.state.rows[i].muscle_name}</td>
-							<td><input id={i} className="form-control" type="number" min={this.state.rows[i].range[0]} max={this.state.rows[i].range[1]} placeholder={"(" + this.state.rows[i].range[0] + "-" + this.state.rows[i].range[1] + "*)"} value={this.state.rows[i].Score} onChange={(event) => this.muscleInfoChanged('rom', event)} /></td>
+							<td><input id={i} className="form-control" type="text" placeholder={"(" + this.state.rows[i].range[0] + "-" + this.state.rows[i].range[1] + "*)"} value={this.state.rows[i].Score} onChange={(event) => this.muscleInfoChanged('rom', event)} /></td>
 							<td><input id={i} className="form-control" type="text" value={this.state.rows[i].Score} onChange={(event) => this.muscleInfoChanged('mmt', event)} /></td>
 						</tr>));
 		}
@@ -173,7 +161,7 @@ class MmtRomForm extends React.Component {
 				<div className="basic-info">
 					<div className="subject_div">
 						<label>Subject Id</label>
-						<input type="text" className="form-control is-valid" placeholder="Subject Id" value={this.state.subID} onChange={this.subjectChanged} required />
+						<AutoSuggestInput value={this.state.subID} onChange={this.subjectChanged} required/>
 					</div>
 					<div className="date_div">
 						<label>Date</label>

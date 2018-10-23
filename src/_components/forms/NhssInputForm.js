@@ -3,15 +3,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import NhssFormRow from './../rows/NhssFormRow'
 import DownloadCSV from './../common/DownloadCSV'
-import { subjectActions } from '../../_actions';
 import { formActions} from '../../_actions';
-import AutoSuggestInput from '../common/AutoSuggestInput'
+import { AutoSuggestInput } from '../common/AutoSuggestInput'
 
 class NhssInputForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.getCurrentDate = this.getCurrentDate.bind(this);
-		this.state = {rows: props.data, subID: '', date: this.getCurrentDate()}
+		this.state = {rows: props.data, subID: '', date: this.getCurrentDate()};
 		this.getCSVData = this.getCSVData.bind(this);
 		this.scoreChanged = this.scoreChanged.bind(this);
 		this.subjectChanged = this.subjectChanged.bind(this);
@@ -21,11 +20,10 @@ class NhssInputForm extends React.Component {
 		this.calculateMotorTotal = this.calculateMotorTotal.bind(this);
 		this.calculateNihssTotal = this.calculateNihssTotal.bind(this);
 		this.sendToServer = this.sendToServer.bind(this);
-		this.testFunction = this.testFunction.bind(this);
 	}
 
-	subjectChanged(event) {
-		this.setState({subID: event.target.value});
+	subjectChanged(newSubjectId) {
+		this.setState({subID: newSubjectId});
 	}
 
 	dateChanged(event) {
@@ -124,11 +122,6 @@ class NhssInputForm extends React.Component {
     dispatch(formActions.sendNihssFormData(formatted));
 	}
 
-  testFunction() {
-    const { dispatch } = this.props;
-    dispatch(subjectActions.getAllSubjects("asna"));
-	}
-
 	getCurrentDate() {
 		var d = new Date(),
 		month = '' + (d.getMonth() + 1),
@@ -150,13 +143,15 @@ class NhssInputForm extends React.Component {
 
 		return(
 			<div className="main-form-container">
+
 				<div className="form-title">
 					<h1>NIH Stroke Scale</h1>
 				</div>
 				<div className="basic-info">
 					<div className="subject_div">
 						<label>Subject Id</label>
-						<input type="text" className="form-control is-valid" placeholder="Subject Id" value={this.state.subID} onChange={this.subjectChanged} required />
+						<AutoSuggestInput value={this.state.subID} onChange={this.subjectChanged} required/>
+						{/*<input type="text" className="form-control is-valid" placeholder="Subject Id"  />*/}
 					</div>
 					<div className="date_div">
 						<label>Date</label>
@@ -180,9 +175,7 @@ class NhssInputForm extends React.Component {
 				</table>
 				<div className="download-btn">
 					<DownloadCSV sendToServer={this.sendToServer} dataHandler={this.getCSVData} subjectId={this.state.subID} date={this.state.date} filename="NHSS.csv" is_enabled={this.state.subID !== '' && this.state.date !== ''}/>
-					<button className="btn btn-primary"  onClick={this.testFunction}>Test</button>
 				</div>
-				{JSON.stringify(subject_array)}
 			</div>
 			);
 	}

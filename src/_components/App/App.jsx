@@ -10,6 +10,7 @@ import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
 import { Forms } from '../Forms';
 import { SubjectsPage } from '../Summary';
+import { GroupsPage } from '../Summary';
 import OtCogAssessment from '../forms/OtCogAssessment'
 
 class App extends React.Component {
@@ -45,6 +46,7 @@ class App extends React.Component {
                       <Route path="/BarthelIndexForm" component={() => <Forms form_type="BarthelIndexForm" />} />
                       <Route path="/ArmTestForm" component={() => <Forms form_type="ArmTestForm" />} />
                       <Route path="/Summary/SubjectsPage" component={() => <SubjectsPage />} />
+                      <Route path="/Summary/GroupsPage" component={() => <GroupsPage />} />
                   </div>
               </Router>
           </div>

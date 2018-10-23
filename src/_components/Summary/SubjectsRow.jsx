@@ -13,6 +13,7 @@ class SubjectsRow extends React.Component {
             <td className="">{this.props.sno}</td>
             <td className="">{this.props.subject_name}</td>
             <td className="">{this.props.assessment_info.date}</td>
+            <td className="">{this.props.assessment_info.assessed_by}</td>
             <td className="">{this.props.assessment_info.nihss ? <AssessmentDownloadLink assessment_id={this.props.assessment_info.id} assessment_type={"nihss"}/> : ""}</td>
             <td className="">{this.props.assessment_info.fma ? <AssessmentDownloadLink assessment_id={this.props.assessment_info.id} assessment_type={"fma"}/> : ""}</td>
             <td className="">{this.props.assessment_info.mas ? <AssessmentDownloadLink assessment_id={this.props.assessment_info.id} assessment_type={"mas"}/> : ""}</td>

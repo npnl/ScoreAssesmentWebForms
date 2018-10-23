@@ -2,6 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import DownloadCSV from './../common/DownloadCSV'
+import { AutoSuggestInput } from '../common/AutoSuggestInput'
 
 import { formActions } from '../../_actions'
 
@@ -26,8 +27,8 @@ class MASForm extends React.Component {
 		return this.state.rows[0].MuscleName !== '' && this.state.rows[0].Score !== '';
 	}
 
-	subjectChanged(event) {
-		this.setState({subID: event.target.value});
+	subjectChanged(newSubId) {
+		this.setState({subID: newSubId});
 	}
 
 	dateChanged(event) {
@@ -132,7 +133,7 @@ class MASForm extends React.Component {
 				<div className="basic-info">
 					<div className="subject_div">
 						<label>Subject Id</label>
-						<input type="text" className="form-control is-valid" placeholder="Subject Id" value={this.state.subID} onChange={this.subjectChanged} required />
+						<AutoSuggestInput value={this.state.subID} onChange={this.subjectChanged} required/>
 					</div>
 					<div className="date_div">
 						<label>Date</label>

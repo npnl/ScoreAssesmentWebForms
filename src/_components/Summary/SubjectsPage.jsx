@@ -11,14 +11,13 @@ class SubjectsPage extends React.Component {
     }
 
     render() {
-        const { subject_array } = this.props;
-
-
+      const { subject_array } = this.props;
 
       var table_headings = [];
       table_headings.push(<th className="">S.No</th>);
       table_headings.push(<th className="">Subject Name</th>);
       table_headings.push(<th className="">Date</th>);
+      table_headings.push(<th className="">Assessed by</th>);
       table_headings.push(<th>NIHSS</th>);
       table_headings.push(<th>FMA</th>);
       table_headings.push(<th>MAS</th>);

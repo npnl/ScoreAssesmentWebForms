@@ -22,10 +22,7 @@ class DownloadCSV extends React.Component {
 		var email_subject = this.props.subjectId.replace(/ +/g, "_")+ "_" + this.props.date.replace(/ +/g, "_") + "_"+ this.filename;
 		email_subject = email_subject.replace(".csv", "");
 		var link = "mailto:" + emailAddress + "?subject=" + email_subject + "&body=" + textCsvData;
-		console.log(textCsvData);
 		window.location.href = link;
-
-		// window.open(link);
 	}
 
 	createTextLine(values, separator) {

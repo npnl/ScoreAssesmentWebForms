@@ -43,6 +43,9 @@ function sendFormDataToServer(formData, formType) {
       case formConstants.TYPE_MMT_FORM:
         apiEndPoint = `${serverConstants.BASE_URL}/mmt_form`;
         break;
+      case formConstants.TYPE_GROUP_CREATE_FORM:
+        apiEndPoint = `${serverConstants.BASE_URL}/groups`;
+        break;
     }
 
     return fetch(apiEndPoint, requestOptions)

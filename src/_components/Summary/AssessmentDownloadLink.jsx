@@ -17,7 +17,11 @@ class AssessmentDownloadLink extends React.Component {
 
     render() {
       return (
-        <button onClick={this.downloadCSV}>Download CSV</button>
+        <div>
+          <button className="btn btn-success" onClick={this.downloadCSV}>
+            <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> CSV</span>
+          </button>
+        </div>
       );
     }
 }
