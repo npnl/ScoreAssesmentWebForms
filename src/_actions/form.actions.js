@@ -1,7 +1,6 @@
 import { formConstants } from '../_constants';
-import { alertConstants } from '../_constants';
 import { formService } from '../_services';
-import { alertActions } from './';
+import { flashMessagesActions } from './';
 
 export const formActions = {
     sendFormData,
@@ -21,17 +20,13 @@ function sendFormData(formData, formType) {
       formService.sendFormDataToServer(formData, formType)
             .then(
               success_response => {
-                    dispatch(success(success_response));
+                    dispatch(flashMessagesActions.success(success_response));
                 },
                 error => {
-                    dispatch(failure(error.toString()));
-                    dispatch(alertActions.error(error.toString()));
+                    dispatch(flashMessagesActions.error(error.toString()));
                 }
             );
     };
-
-    function success(message) { return { type: alertConstants.SUCCESS, message } }
-    function failure(error) { return { type: alertConstants.ERROR, error } }
 }
 
 function sendFmaFormData(formData) {

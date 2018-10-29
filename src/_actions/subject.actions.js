@@ -1,8 +1,8 @@
 import { serverConstants } from '../_constants';
-import { formConstants, alertConstants } from '../_constants';
+import { formConstants, flashMessagesConstants } from '../_constants';
 import { subjectService } from '../_services';
 import { formService } from '../_services';
-import { alertActions } from './';
+import { flashMessagesActions } from './';
 import saveAs from 'file-saver';
 
 export const subjectActions = {
@@ -22,7 +22,7 @@ function getAllSubjectsInfo() {
                 },
                 error => {
                     dispatch(failure(error.toString()));
-                    dispatch(alertActions.error(error.toString()));
+                    dispatch(flashMessagesActions.error(error.toString()));
                 }
             );
     };
@@ -40,7 +40,7 @@ function getAllSubjectNames() {
         },
         error => {
           dispatch(failure(error.toString()));
-          dispatch(alertActions.error(error.toString()));
+          dispatch(flashMessagesActions.error(error.toString()));
         }
       );
   };
@@ -58,7 +58,7 @@ function getAllGroups() {
         },
         error => {
           dispatch(failure(error.toString()));
-          dispatch(alertActions.error(error.toString()));
+          dispatch(flashMessagesActions.error(error.toString()));
         }
       );
   };
@@ -76,13 +76,13 @@ function createNewGroup(group_data) {
         },
         error => {
           dispatch(failure(error.toString()));
-          dispatch(alertActions.error(error.toString()));
+          dispatch(flashMessagesActions.error(error.toString()));
         }
       );
   };
 
-  function success(message) { return { type: alertConstants.SUCCESS, message } }
-  function failure(error) { return { type: alertConstants.ERROR, error } }
+  function success(message) { return { type: flashMessagesConstants.SUCCESS, message } }
+  function failure(error) { return { type: flashMessagesConstants.ERROR, error } }
 }
 
 function downloadAssessment(assessment_id, assessment_type) {
@@ -101,6 +101,6 @@ function downloadAssessment(assessment_id, assessment_type) {
       );
   };
 
-  function success(response) { return { type: serverConstants.GET_ALL_SUBJECTS_SUCCESS, subjects: response } }
-  function failure(error) { return { type: serverConstants.GET_ALL_SUBJECTS_FAILURE, error } }
+  function success(response) { return { type: serverConstants.GET_ALL_SUBJECTS_INFO_SUCCESS, subjects: response } }
+  function failure(error) { return { type: serverConstants.GET_ALL_SUBJECTS_INFO_FAILURE, error } }
 }

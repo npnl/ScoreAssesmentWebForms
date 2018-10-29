@@ -3,7 +3,7 @@ import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { history } from '../../_helpers';
-import { alertActions } from '../../_actions';
+import { flashMessagesActions } from '../../_actions';
 import { PrivateRoute } from '../privateRoute';
 import { AdminRoute } from '../adminRoute';
 import { HomePage } from '../HomePage';
@@ -21,7 +21,7 @@ class App extends React.Component {
         const { dispatch } = this.props;
         history.listen((location, action) => {
             // clear alert on location change
-            dispatch(alertActions.clear());
+            dispatch(flashMessagesActions.clear());
         });
     }
 

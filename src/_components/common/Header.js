@@ -5,7 +5,7 @@ var React = require('react');
 
 class Header extends React.Component {
   render() {
-    const { current_user, loggedIn, alert } = this.props;
+    const { current_user, loggedIn, flashMessages } = this.props;
     var component = (<Redirect to={{ pathname: '/login', state: { from: this.props.location } }} />);
     if (loggedIn && current_user && current_user.name) {
       component = (
@@ -40,9 +40,9 @@ class Header extends React.Component {
               </div>
             </div>
           </nav>
-          <div className={"alert fade in custom-alert " + (alert.type !== undefined ? alert.type : 'custom-alert-hide')}>
+          <div className={"alert fade in custom-alert " + (flashMessages.type !== undefined ? flashMessages.type : 'custom-alert-hide')}>
             <a href="#" className="close" data-dismiss="alert">&times;</a>
-            <strong>{alert.type !== undefined ?(alert.type === 'alert-success' ? 'Success!' : 'Failure!') : ''}</strong> {alert.message}
+            <strong>{flashMessages.type !== undefined ?(flashMessages.type === 'flashMessages-success' ? 'Success!' : 'Failure!') : ''}</strong> {flashMessages.message !== undefined ? flashMessages.message : ''}
           </div>
         </div>);
     }
@@ -55,8 +55,8 @@ class Header extends React.Component {
 function mapStateToProps(state) {
   const { authentication } = state;
   const { current_user, loggedIn } = authentication;
-  const {alert} = state;
-  return { current_user, loggedIn, alert };
+  const {flashMessages} = state;
+  return { current_user, loggedIn, flashMessages };
 }
 
 const connectedHeader = connect(mapStateToProps)(Header);

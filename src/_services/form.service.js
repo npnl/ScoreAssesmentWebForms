@@ -51,13 +51,11 @@ function sendFormDataToServer(formData, formType) {
     return fetch(apiEndPoint, requestOptions)
         .then(handleResponse)
         .then(response_data => {
-            var message = '';
-            // login successful if there's a jwt token in the response
+            var success_response = '';
             if (response_data && response_data.message) {
-                // store user session details and jwt token in local storage to keep user logged in between page refreshes
-              message = response_data.message;
+              success_response = response_data.message;
             }
-            return message;
+            return success_response;
         });
 }
 
