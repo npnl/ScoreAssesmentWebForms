@@ -3,12 +3,13 @@ import { serverConstants } from '../_constants'
 import { userService } from './user.service'
 
 export const subjectService = {
-  getAll,
+  getAllSubjectsInfo,
   getAssessment,
-  getAllGroups
+  getAllGroups,
+  getAllSubjectNames
 };
 
-function getAll(subject_name) {
+function getAllSubjectsInfo() {
     const requestOptions = {
         method: 'GET',
         headers: {...authHeader(), 'Content-Type': 'application/json'}
@@ -21,6 +22,21 @@ function getAll(subject_name) {
         .then(response_data => {
             return response_data;
         });
+}
+
+function getAllSubjectNames() {
+  const requestOptions = {
+    method: 'GET',
+    headers: {...authHeader(), 'Content-Type': 'application/json'}
+  };
+
+  let apiEndPoint = `${serverConstants.BASE_URL}/all_subject_names`;
+
+  return fetch(apiEndPoint, requestOptions)
+    .then(handleResponse)
+    .then(response_data => {
+      return response_data;
+    });
 }
 
 function getAllGroups() {

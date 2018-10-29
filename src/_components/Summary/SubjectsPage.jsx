@@ -11,7 +11,7 @@ class SubjectsPage extends React.Component {
     }
 
     render() {
-      const subject_array= this.props.subject_array;
+      const subjects_info= this.props.subjects_info;
 
       var table_headings = [];
       table_headings.push(<th className="">S.No</th>);
@@ -30,9 +30,9 @@ class SubjectsPage extends React.Component {
 
       var table_rows = [];
       var counter = 1;
-      for (var i = 0; i < subject_array.length; i++) {
-          for(var j = 0; j < subject_array[i].assessments.length; j++ ) {
-            table_rows.push(<SubjectsRow sno={counter} subject_name={subject_array[i].subject_name} assessment_info={subject_array[i].assessments[j]} />);
+      for (var i = 0; i < subjects_info.length; i++) {
+          for(var j = 0; j < subjects_info[i].assessments.length; j++ ) {
+            table_rows.push(<SubjectsRow sno={counter} subject_name={subjects_info[i].subject_name} assessment_info={subjects_info[i].assessments[j]} />);
             counter += 1;
           }
       }

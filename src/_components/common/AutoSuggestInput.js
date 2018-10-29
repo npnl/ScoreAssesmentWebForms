@@ -21,7 +21,7 @@ class AutoSuggestInput extends React.Component {
     }
 
     componentDidMount() {
-      this.props.dispatch(subjectActions.getAllSubjects(''));
+      this.props.dispatch(subjectActions.getAllSubjectNames());
     }
 
     onChange = (event, { newValue }) => {
@@ -44,11 +44,11 @@ class AutoSuggestInput extends React.Component {
 
     // Teach Autosuggest how to calculate suggestions for any given input value.
     getSuggestions = value => {
-      const { subject_array } = this.props;
+      const { subject_names } = this.props;
       const inputValue = value.trim().toLowerCase();
       const inputLength = inputValue.length;
 
-      var matched_subjects = (inputLength === 0 || subject_array.length === 0) ? [] : subject_array.filter(lang =>
+      var matched_subjects = (inputLength === 0 || subject_names.length === 0) ? [] : subject_names.filter(lang =>
           lang.subject_name.toLowerCase().slice(0, inputLength) === inputValue
         );
       if (matched_subjects.length === 0){
@@ -82,7 +82,7 @@ class AutoSuggestInput extends React.Component {
 
     render() {
       const { value, suggestions } = this.state;
-      const { subject_array } = this.props;
+      const { subject_names } = this.props;
       // Autosuggest will pass through all these props to the input.
       const inputProps = {
         placeholder: 'Type a subject name',
@@ -106,8 +106,8 @@ class AutoSuggestInput extends React.Component {
 
 function mapStateToProps(state) {
   const { subjects } = state;
-  const { subject_array } = subjects;
-  return { subject_array };
+  const { subject_names } = subjects;
+  return { subject_names };
 }
 
 const connectedAutoSuggestInput = connect(mapStateToProps)(AutoSuggestInput);

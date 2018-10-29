@@ -6,18 +6,19 @@ import { alertActions } from './';
 import saveAs from 'file-saver';
 
 export const subjectActions = {
-  getAllSubjects,
+  getAllSubjectsInfo,
+  getAllSubjectNames,
   downloadAssessment,
   getAllGroups,
   createNewGroup
 };
 
-function getAllSubjects(subject_name) {
+function getAllSubjectsInfo() {
     return dispatch => {
-        subjectService.getAll(subject_name)
+        subjectService.getAllSubjectsInfo()
             .then(
-              subject_names => {
-                    dispatch(success(subject_names));
+              subjects_info => {
+                    dispatch(success(subjects_info));
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -26,8 +27,26 @@ function getAllSubjects(subject_name) {
             );
     };
 
-    function success(subjects_info) { return { type: serverConstants.GET_ALL_SUBJECTS_SUCCESS, subjects: subjects_info } }
-    function failure(error) { return { type: serverConstants.GET_ALL_SUBJECTS_FAILURE, error } }
+    function success(subjects_info) { return { type: serverConstants.GET_ALL_SUBJECTS_INFO_SUCCESS, subjects: subjects_info } }
+    function failure(error) { return { type: serverConstants.GET_ALL_SUBJECTS_INFO_FAILURE, error } }
+}
+
+function getAllSubjectNames() {
+  return dispatch => {
+    subjectService.getAllSubjectNames()
+      .then(
+        subject_names => {
+          dispatch(success(subject_names));
+        },
+        error => {
+          dispatch(failure(error.toString()));
+          dispatch(alertActions.error(error.toString()));
+        }
+      );
+  };
+
+  function success(subject_names) { return { type: serverConstants.GET_ALL_SUBJECT_NAMES_SUCCESS, subjects: subject_names } }
+  function failure(error) { return { type: serverConstants.GET_ALL_SUBJECT_NAMES_FAILURE, error } }
 }
 
 function getAllGroups() {
