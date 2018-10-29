@@ -6,6 +6,7 @@ export const getWmftData = () => {
 		category: "Assessment of Affected Arm",
 		posture: "",
 		movement: "",
+		disabled: false,
 		score: '',
 		score_range: [0, 0],
 		row_id: "affected",
@@ -18,6 +19,7 @@ export const getWmftData = () => {
 		item_no: 1,
 		task: "Forearm to table",
 		time: '',
+		disabled: false,
 		score: '',
 		score_range: [0, 5],
 		comments: {
@@ -36,6 +38,7 @@ export const getWmftData = () => {
 		item_no: 2,
 		task: "Forearm to box",
 		time: '',
+		disabled: false,
 		score: '',
 		score_range: [0, 5],
 		comments: {
@@ -54,6 +57,7 @@ export const getWmftData = () => {
 		item_no: 3,
 		task: "Extend elbow (to the side)",
 		time: '',
+		disabled: false,
 		score: '',
 		score_range: [0, 5],
 		comments: {
@@ -72,6 +76,7 @@ export const getWmftData = () => {
 		item_no: 4,
 		task: "Extend elbow (to the side with weight)",
 		time: '',
+		disabled: false,
 		score: '',
 		score_range: [0, 5],
 		comments: {
@@ -90,6 +95,7 @@ export const getWmftData = () => {
 		item_no: 5,
 		task: "Hand to table (front)",
 		time: '',
+		disabled: false,
 		score: '',
 		score_range: [0, 5],
 		comments: {
@@ -108,6 +114,7 @@ export const getWmftData = () => {
 		item_no: 6,
 		task: "Hand to box (front)",
 		time: '',
+		disabled: false,
 		score: '',
 		score_range: [0, 5],
 		comments: {
@@ -125,7 +132,8 @@ export const getWmftData = () => {
 	row = {
 		item_no: 7,
 		task: "Weight to box",
-		time: 'na',
+		time: '',
+		disabled: true,
 		score: '',
 		score_range: [0, 600],
 		comments: {
@@ -138,6 +146,7 @@ export const getWmftData = () => {
 		item_no: 8,
 		task: "Reach and retrieve",
 		time: '',
+		disabled: false,
 		score: '',
 		score_range: [0, 5],
 		comments: {
@@ -156,6 +165,7 @@ export const getWmftData = () => {
 		item_no: 9,
 		task: "Lift can",
 		time: '',
+		disabled: false,
 		score: '',
 		score_range: [0, 5],
 		comments: {
@@ -174,6 +184,7 @@ export const getWmftData = () => {
 		item_no: 10,
 		task: "Lift pencil",
 		time: '',
+		disabled: false,
 		score: '',
 		score_range: [0, 5],
 		comments: {
@@ -192,6 +203,7 @@ export const getWmftData = () => {
 		item_no: 11,
 		task: "Lift paper clip",
 		time: '',
+		disabled: false,
 		score: '',
 		score_range: [0, 5],
 		comments: {
@@ -210,6 +222,7 @@ export const getWmftData = () => {
 		item_no: 12,
 		task: "Stack checkers",
 		time: '',
+		disabled: false,
 		score: '',
 		score_range: [0, 5],
 		comments: {
@@ -228,6 +241,7 @@ export const getWmftData = () => {
 		item_no: 13,
 		task: "Flip cards",
 		time: '',
+		disabled: false,
 		score: '',
 		score_range: [0, 5],
 		comments: {
@@ -245,7 +259,8 @@ export const getWmftData = () => {
 	row = {
 		item_no: 14,
 		task: "Grip strength",
-		time: 'na',
+		time: '',
+		disabled: true,
 		score: '',
 		score_range: [0, 600],
 		comments: {
@@ -258,6 +273,7 @@ export const getWmftData = () => {
 		item_no: 15,
 		task: "Turning key in lock",
 		time: '',
+		disabled: false,
 		score: '',
 		score_range: [0, 5],
 		comments: {
@@ -276,6 +292,7 @@ export const getWmftData = () => {
 		item_no: 16,
 		task: "Fold towel",
 		time: '',
+		disabled: false,
 		score: '',
 		score_range: [0, 5],
 		comments: {
@@ -294,6 +311,7 @@ export const getWmftData = () => {
 		item_no: 17,
 		task: "Lift basket",
 		time: '',
+		disabled: false,
 		score: '',
 		score_range: [0, 5],
 		comments: {

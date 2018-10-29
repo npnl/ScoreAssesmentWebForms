@@ -43,13 +43,14 @@ class NhssInputForm extends React.Component {
 	}
 
 	calculateLocTotal() {
-		return parseInt(this.state.rows[0]['score'], 10) + parseInt(this.state.rows[1]['score'], 10) + parseInt(this.state.rows[2]['score'], 10)
+		var total = (parseInt(this.state.rows[0]['score'], 10) || 0) + (parseInt(this.state.rows[1]['score'], 10) || 0) + (parseInt(this.state.rows[2]['score'], 10) || 0);
+		return total;
 	}
 
 	calculateMotorTotal() {
 		var total = 0;
-		for (var i = 3; i < 7; i++) {
-			total += parseInt(this.state.rows[i]['score'], 10);
+		for (var i = 7; i <= 10; i++) {
+			total += (parseInt(this.state.rows[i]['score'], 10) || 0);
 		}
 		return total;
 	}
@@ -57,7 +58,7 @@ class NhssInputForm extends React.Component {
 	calculateNihssTotal() {
 		var total = 0;
 		for (var i = 0; i < this.state.rows.length; i++) {
-			total += parseInt(this.state.rows[i]['score'], 10);
+			total += (parseInt(this.state.rows[i]['score'], 10) || 0);
 		}
 		return total;
 	}
@@ -74,24 +75,24 @@ class NhssInputForm extends React.Component {
 		var motor_total = this.calculateMotorTotal();
 		var nihss_total = this.calculateNihssTotal();
 
-		var data = this.state.rows.map(function(item) { 
-		var new_item = {
-			SubID: subID,
-			Date: date,
-			Year: year,
-			Month: month,
-			Day: day,
-			Item_no: item.item_no,
-			Domain: item.domain,
-			Specific: item.specific,
-			Score: item.score,
-			Comment: this.getComment(item.score, item.comments),
-			Loc_Total: loc_total,
-			Motor_Total: motor_total,
-			NHSS_Total: nihss_total
-		};
-		return new_item; 
-		}, this, subID, day, month, year, date);
+		var data = this.state.rows.map(function(item) {
+			var new_item = {
+				SubID: subID,
+				Date: date,
+				Year: year,
+				Month: month,
+				Day: day,
+				Item_no: item.item_no,
+				Domain: item.domain,
+				Specific: item.specific,
+				Score: item.score,
+				Comment: this.getComment(item.score, item.comments),
+				Loc_Total: loc_total,
+				Motor_Total: motor_total,
+				NIHSS_Total: nihss_total
+			};
+			return new_item;
+			}, this, subID, day, month, year, date);
 		return data;
 	}
 
@@ -106,9 +107,10 @@ class NhssInputForm extends React.Component {
         domain: item.domain,
         specific: item.specific,
         fas_score: item.score,
-        Loc_Total: loc_total,
-        Motor_Total: motor_total,
-        NHSS_Total: nihss_total
+        loc_total: loc_total,
+        motor_total: motor_total,
+        nihss_total: nihss_total,
+				comment: this.getComment(item.score, item.comments)
       };
       return new_item;
     }, this);
@@ -151,7 +153,6 @@ class NhssInputForm extends React.Component {
 					<div className="subject_div">
 						<label>Subject Id</label>
 						<AutoSuggestInput value={this.state.subID} onChange={this.subjectChanged} required/>
-						{/*<input type="text" className="form-control is-valid" placeholder="Subject Id"  />*/}
 					</div>
 					<div className="date_div">
 						<label>Date</label>

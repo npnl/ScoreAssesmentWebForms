@@ -54,7 +54,7 @@ class FmaInputForm extends React.Component {
 		for (var i = 0; i < this.state.rows.length ; i++) {
 			var item_no = Number(this.state.rows[i]['item_no']);
 			if (item_no >= 1 && item_no <= 17 && item_no !== -1) {
-				total += Number(this.state.rows[i]['score']);
+				total += parseInt(this.state.rows[i]['score'], 10) || 0;
 			}
 		}
 		return total;
@@ -65,7 +65,7 @@ class FmaInputForm extends React.Component {
 		for (var i = 0; i < this.state.rows.length; i++) {
 			var item_no = Number(this.state.rows[i]['item_no']);
 			if (item_no >= 18 && item_no <= 50 && item_no !== -1) {
-				total += Number(this.state.rows[i]['score']);
+				total += parseInt(this.state.rows[i]['score'], 10) || 0;
 			}
 		}
 		return total;
@@ -76,7 +76,7 @@ class FmaInputForm extends React.Component {
 		for (var i = 0; i < this.state.rows.length; i++) {
 			var item_no = Number(this.state.rows[i]['item_no']);
 			if (item_no >= 51 && item_no <= 62 && item_no !== -1) {
-				total += Number(this.state.rows[i]['score']);
+				total += parseInt(this.state.rows[i]['score'], 10) || 0;
 			}
 		}
 		return total;
@@ -137,14 +137,20 @@ class FmaInputForm extends React.Component {
 	}
 
   sendToServer() {
-    var rows = this.state.rows.map(function(item) {
+		var data = this.getCSVData();
+    var rows = data.map(function(item) {
       var new_item = {
-        item_no: item.item_no,
-        category: item.category,
-        posture: item.posture,
-        movement: item.movement,
-        score: item.score,
-        extremity: this.getExtremityType(item.item_no),
+        item_no: item.Item_no,
+        category: item.Category,
+        posture: item.Posture,
+        movement: item.Movement,
+        score: item.Score,
+        extremity: item.Scale,
+				comment: item.Comment,
+        fma_ue_total: item.FMA_UE_Total,
+        fma_le_total: item.FMA_LE_Total,
+        fma_sense_total: item.FMA_SENSE_Total,
+        fma_total: item.FMA_Total
       };
       return new_item;
     }, this);

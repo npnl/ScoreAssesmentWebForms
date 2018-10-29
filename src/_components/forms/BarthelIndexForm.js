@@ -210,6 +210,7 @@ class BarthelIndexForm extends React.Component {
         activity: item.Activity,
         score: item.Score,
         description: item.Description,
+				total_score: item.TotalScore
       };
       return new_item;
     }, this);

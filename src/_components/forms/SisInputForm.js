@@ -9,7 +9,7 @@ import { AutoSuggestInput } from '../common/AutoSuggestInput'
 class SisInputForm extends React.Component {
 	constructor(props) {
 		super(props);
-		var selections = {}
+		var selections = {};
 		this.getCurrentDate = this.getCurrentDate.bind(this);
 		this.state = {
 			subID: '',
@@ -94,7 +94,7 @@ class SisInputForm extends React.Component {
 	hasAllAnswered() {
 		var selections = this.state.selections;
 		var keys = Object.keys(selections);
-		if (keys.length === 59 && this.state.subID !== '' && this.state.date !== '') {
+		if (this.state.subID !== '' && this.state.date !== '') {
 			return true;
 		}
 		return false;

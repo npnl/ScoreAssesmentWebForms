@@ -354,3 +354,7 @@ td input {
 	display: none;
 }
 
+.disabled-input {
+	background-color: #CCCCCC;
+}
+

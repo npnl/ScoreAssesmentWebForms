@@ -59,8 +59,8 @@ class WmftInputForm extends React.Component {
 		}
 		for(var i=0; i < 18; i++) {
 			var item_no = Number(this.state.rows[start_index + i]['item_no']);
-			if (item_no !== -1) {
-				values.push(Number(this.state.rows[start_index + i]['score']));
+			if (item_no !== -1 && this.state.rows[start_index + i]['disabled'] === false) {
+				values.push(parseInt(this.state.rows[start_index + i]['time'], 10) || 0);
 			}
 		}
 
@@ -92,7 +92,7 @@ class WmftInputForm extends React.Component {
 		for(var i= 0; i < 18; i++) {
 			var item_no = Number(this.state.rows[start_index + i]['item_no']);
 			if((item_no !== 7 && item_no !== 14) && item_no !== -1) {
-				total += Number(this.state.rows[start_index + i]['score']);
+				total += parseInt(this.state.rows[start_index + i]['score'], 10) || 0;
 			}
 		}
 		return total;
@@ -110,7 +110,7 @@ class WmftInputForm extends React.Component {
 		for(var i= 0; i < 18; i++) {
 			var item_no = Number(this.state.rows[start_index + i]['item_no']);
 			if(item_no === 7 || item_no === 14) {
-				total += Number(this.state.rows[start_index + i]['score']);
+				total += parseInt(this.state.rows[start_index + i]['score'], 10) || 0;
 			}
 		}
 		var average = parseFloat(total/2);
@@ -159,6 +159,7 @@ class WmftInputForm extends React.Component {
 				Task: item.task,
 				Time: item.time,
 				Score: item.score,
+        Type: (index < 18 ) ? 'affected' : 'unaffected',
 				Comment: this.getComment(item.score, item.comments),
 				Median_Time: median,
 				Total_FAS: total_score,
@@ -174,13 +175,40 @@ class WmftInputForm extends React.Component {
 	}
 
   sendToServer() {
+    var affected_median = this.calculateMedianTime(true);
+    var un_affected_median = this.calculateMedianTime(false);
+
+    var affected_total_score = this.getTotalScore(true);
+    var un_affected_total_score = this.getTotalScore(false);
+
+    var affected_strength = this.getAverageStrength(true);
+    var un_affected_strength = this.getAverageStrength(false);
+
     var rows = this.state.rows.map(function(item, index) {
+      var median;
+      var strength;
+      var total_score;
+      if (index < 18){
+        median = affected_median;
+        strength = affected_strength;
+        total_score = affected_total_score;
+      }
+      else {
+        median = un_affected_median;
+        strength = un_affected_strength;
+        total_score = un_affected_total_score;
+      }
+
       var new_item = {
         item_no: item.item_no,
         task: item.task,
         time: item.time,
         fas_score: item.score,
-        arm_type: (index < 18 ) ? 'affected' : 'unaffected'
+        arm_type: (index < 18 ) ? 'affected' : 'unaffected',
+				comment: this.getComment(item.score, item.comments),
+        median_time: median,
+        total_fas: total_score,
+        avg_strength: strength
       };
       return new_item;
     }, this);
@@ -236,7 +264,7 @@ class WmftInputForm extends React.Component {
 				<table className="table table-bordered">
 					<thead>
 						<tr>
-							<th class="row-index">Item</th>
+							<th className="row-index">Item</th>
 							<th>Task</th>
 							<th>Time</th>
 							<th>FAS Score</th>
