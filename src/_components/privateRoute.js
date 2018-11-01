@@ -6,6 +6,6 @@ export const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={props => (
     localStorage.getItem('access_token')
       ? <Component {...props} />
-      : <Redirect to={{ pathname: `/${serverConstants.UI_RELATIVE_PATH}/login`, state: { from: props.location } }} />
+      : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
   )} />
 );
