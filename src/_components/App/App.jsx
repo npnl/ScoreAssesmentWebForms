@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route } from 'react-router-dom';
+import { BrowserRouter, Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { history } from '../../_helpers';
@@ -26,13 +26,14 @@ class App extends React.Component {
     }
 
     render() {
-        const { alert } = this.props;
+        const { flashMessages } = this.props;
         return (
 
           <div className="App">
-              <Router history={history}>
+              <BrowserRouter basename="/ScoreAssessmentWebForms/" history={history}>
                   <div>
                       <PrivateRoute exact path="/" component={HomePage} />
+                      <PrivateRoute path="/Home" component={HomePage} />
                       <Route path="/login" component={LoginPage} />
                       <Route path="/register" component={RegisterPage} />
 
@@ -49,16 +50,16 @@ class App extends React.Component {
                       <Route path="/Summary/AllSubjectsPage" component={() => <AllSubjectsPage />} />
                       <AdminRoute path="/Summary/GroupsPage" component={GroupsPage} />
                   </div>
-              </Router>
+              </BrowserRouter>
           </div>
         );
     }
 }
 
 function mapStateToProps(state) {
-    const { alert } = state;
+    const { flashMessages } = state;
     return {
-        alert
+      flashMessages
     };
 }
 

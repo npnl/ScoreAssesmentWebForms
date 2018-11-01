@@ -2,6 +2,7 @@ import { userConstants } from '../_constants';
 import { userService } from '../_services';
 import { flashMessagesActions } from './';
 import { history } from '../_helpers';
+import { serverConstants } from '../_constants'
 
 export const userActions = {
     login,
@@ -19,7 +20,8 @@ function login(credentials) {
             .then(
               token_and_user => {
                     dispatch(success(token_and_user));
-                    history.push('/');
+                    history.push(`/${serverConstants.UI_RELATIVE_PATH}/Home`);
+                    window.location.reload();
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -46,7 +48,8 @@ function register(user) {
             .then(
                 user => { 
                     dispatch(success());
-                    history.push('/login');
+                    history.push(`/${serverConstants.UI_RELATIVE_PATH}/login`);
+                    window.location.reload();
                     dispatch(flashMessagesActions.success('Registration successful'));
                 },
                 error => {
