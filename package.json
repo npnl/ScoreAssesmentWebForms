@@ -2,7 +2,7 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://npnl.github.io/ScoreAssessmentWebForms/",
+  "homepage": "http://npnl.s3-website-us-west-1.amazonaws.com/",
   "dependencies": {
     "bootstrap": "^3.3.7",
     "file-saver": "^2.0.0-rc.4",
@@ -41,6 +41,7 @@
     "start": "PORT=3006 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "deploy": "aws s3 sync build/ s3://npnl",
     "eject": "react-scripts eject"
   }
 }

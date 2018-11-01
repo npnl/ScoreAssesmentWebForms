@@ -42,7 +42,7 @@ class Header extends React.Component {
           </nav>
           <div className={"alert fade in custom-alert " + (flashMessages.type !== undefined ? flashMessages.type : 'custom-alert-hide')}>
             <a href="#" className="close" data-dismiss="alert">&times;</a>
-            <strong>{flashMessages.type !== undefined ?(flashMessages.type === 'flashMessages-success' ? 'Success!' : 'Failure!') : ''}</strong> {flashMessages.message !== undefined ? flashMessages.message : ''}
+            <strong>{flashMessages.type !== undefined ?(flashMessages.type === 'alert-success' ? 'Success!' : 'Failure!') : ''}</strong> {flashMessages.message !== undefined ? flashMessages.message : ''}
           </div>
         </div>);
     }

@@ -358,3 +358,8 @@ td input {
 	background-color: #CCCCCC;
 }
 
+
+mark.red {
+	color:#ff0000;
+	background: none;
+}

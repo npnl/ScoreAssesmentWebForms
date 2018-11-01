@@ -64,6 +64,7 @@ class DownloadCSV extends React.Component {
 		return(
 			<div>
 				{this.props.hideNode === true ? '' : note}
+				<strong>Please <mark class="red">DO NOT</mark> click the "Save to database" button multiple times.</strong><br/><br/>
 				<CSVLink filename={this.props.subjectId.replace(/ +/g, "_")+ "_" + this.props.date.replace(/ +/g, "_") + "_"+ this.filename} className={this.props.is_enabled ? "btn btn-primary" : "btn btn-primary btn-disabled"} data={this.props.dataHandler()}>Download CSV</CSVLink>
 				<button className={this.props.is_enabled ? "btn btn-primary" : "btn btn-primary btn-disabled"} onClick={this.emailCSV}>Email CSV</button>
 				<button className={this.props.is_enabled ? "btn btn-primary" : "btn btn-primary btn-disabled"} onClick={this.props.sendToServer}>Save to Database</button>

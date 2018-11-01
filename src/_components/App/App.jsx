@@ -30,7 +30,7 @@ class App extends React.Component {
         return (
 
           <div className="App">
-              <BrowserRouter basename="/ScoreAssessmentWebForms/" history={history}>
+              <Router history={history}>
                   <div>
                       <PrivateRoute exact path="/" component={HomePage} />
                       <PrivateRoute path="/Home" component={HomePage} />
@@ -50,7 +50,7 @@ class App extends React.Component {
                       <Route path="/Summary/AllSubjectsPage" component={() => <AllSubjectsPage />} />
                       <AdminRoute path="/Summary/GroupsPage" component={GroupsPage} />
                   </div>
-              </BrowserRouter>
+              </Router>
           </div>
         );
     }

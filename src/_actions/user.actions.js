@@ -22,7 +22,7 @@ function login(credentials) {
                     dispatch(success(token_and_user));
                     history.push('/Home');
                     // history.push(`/${serverConstants.UI_RELATIVE_PATH}/Home`);
-                    window.location.reload();
+                    // window.location.reload();
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -51,7 +51,7 @@ function register(user) {
                     dispatch(success());
                     history.push('/login');
                     // history.push(`/${serverConstants.UI_RELATIVE_PATH}/login`);
-                    window.location.reload();
+                    // window.location.reload();
                     dispatch(flashMessagesActions.success('Registration successful'));
                 },
                 error => {
