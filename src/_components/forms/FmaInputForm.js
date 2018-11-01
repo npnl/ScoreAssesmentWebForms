@@ -157,7 +157,7 @@ class FmaInputForm extends React.Component {
 
     var formatted = {
       subject_name: this.state.subID,
-      assessment_date: this.getCurrentDate(),
+      assessment_date: this.state.date,
       fma_form_rows: rows
     };
     const { dispatch } = this.props;

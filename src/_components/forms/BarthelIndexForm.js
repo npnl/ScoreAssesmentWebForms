@@ -217,7 +217,7 @@ class BarthelIndexForm extends React.Component {
 
     var formatted = {
       subject_name: this.state.subID,
-      assessment_date: this.getCurrentDate(),
+      assessment_date: this.state.date,
       barthel_form_rows: rows
     };
     const { dispatch } = this.props;
