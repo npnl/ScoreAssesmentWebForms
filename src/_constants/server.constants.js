@@ -1,6 +1,6 @@
 export const serverConstants = {
-  // BASE_URL: 'http://54.153.47.191:80',
-  BASE_URL: 'http://localhost:5000',
+  BASE_URL: 'http://54.153.47.191:80',
+  // BASE_URL: 'http://localhost:5000',
 
   UI_RELATIVE_PATH: 'ScoreAssessmentWebForms',
 
