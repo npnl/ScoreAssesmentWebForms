@@ -76,10 +76,10 @@ class RegisterPage extends React.Component {
                       }
                     </div>
                     <div className={'form-group' + (submitted && !user.group ? ' has-error' : '')}>
-                        <label htmlFor="group">Group</label>
+                        <label htmlFor="group">Group Name</label>
                         <input type="text" className="form-control" name="group" value={user.group} onChange={this.handleChange} />
                         {submitted && !user.group &&
-                            <div className="help-block">Group is required</div>
+                            <div className="help-block">Group Name is required</div>
                         }
                     </div>
                     <div className={'form-group' + (submitted && !user.password ? ' has-error' : '')}>
@@ -97,10 +97,10 @@ class RegisterPage extends React.Component {
                       }
                     </div>
                     <div className={'form-group' + (submitted && !user.authentication_code ? ' has-error' : '')}>
-                        <label htmlFor="authentication_code">Authentication Code</label>
+                        <label htmlFor="authentication_code">Group Token</label>
                         <input type="password" className="form-control" name="authentication_code" value={user.authentication_code} onChange={this.handleChange} />
                       {submitted && !user.authentication_code &&
-                      <div className="help-block">Authentication Code is required</div>
+                      <div className="help-block">Group Token is required</div>
                       }
                     </div>
                     <div className="form-group">
