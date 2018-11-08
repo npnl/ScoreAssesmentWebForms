@@ -1,9 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Header } from '../common/Header'
 import { SubjectsRow } from './SubjectsRow'
-import { FormOptions } from '../FormOptions'
-import { subjectActions } from '../../_actions'
 
 class SubjectsPage extends React.Component {
     constructor(props) {
@@ -11,10 +8,8 @@ class SubjectsPage extends React.Component {
     }
 
     render() {
-      const subjects_info= this.props.subjects_info;
-
       var table_headings = [];
-      table_headings.push(<th className="">S.No</th>);
+      table_headings.push(<th className="subject-listing-sno">S.No</th>);
       table_headings.push(<th className="">Subject Name</th>);
       table_headings.push(<th className="">Date</th>);
       table_headings.push(<th className="">Assessed by</th>);
@@ -27,6 +22,9 @@ class SubjectsPage extends React.Component {
       table_headings.push(<th>WMFT</th>);
       table_headings.push(<th>Barthel</th>);
       table_headings.push(<th>Arm</th>);
+      table_headings.push(<th>Comments</th>);
+
+      const {subjects_info, group_name} = this.props;
 
       var table_rows = [];
       var counter = 1;
@@ -39,7 +37,7 @@ class SubjectsPage extends React.Component {
 
         return (
           <div>
-            <h1>Group : {this.props.group_name}</h1>
+            <h1>Group : {group_name}</h1>
             <table className="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -57,8 +55,8 @@ class SubjectsPage extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
-  return {};
+function mapStateToProps(state, ownProps) {
+  return {subject_info: ownProps.subjects_info, group_name: ownProps.group_name};
 }
 
 const connectedSubjectsPage = connect(mapStateToProps)(SubjectsPage);

@@ -6,7 +6,9 @@ export const subjectService = {
   getAllSubjectsInfo,
   getAssessment,
   getAllGroups,
-  getAllSubjectNames
+  getAllSubjectNames,
+  deleteAssessment,
+  saveComments
 };
 
 function getAllSubjectsInfo() {
@@ -64,6 +66,37 @@ function getAssessment(assessment_id, assessment_type) {
 
   return fetch(apiEndPoint, requestOptions)
     .then(downloadStreamData)
+    .then(response_data => {
+      return response_data;
+    });
+}
+
+function deleteAssessment(assessment_id, assessment_type) {
+  const requestOptions = {
+    method: 'DELETE',
+    headers: {...authHeader(), 'Content-Type': 'application/json'}
+  };
+
+  let apiEndPoint = `${serverConstants.BASE_URL}/destroy_assessment?delete_assessment[assessment_id]=${assessment_id}&delete_assessment[form_type]=${assessment_type}`;
+
+  return fetch(apiEndPoint, requestOptions)
+    .then(handleResponse)
+    .then(response_data => {
+      return response_data;
+    });
+}
+
+function saveComments(assessment_id, comments) {
+  const requestOptions = {
+    method: 'PUT',
+    headers: {...authHeader(), 'Content-Type': 'application/json'},
+    body: JSON.stringify({assessment: {assessment_id: assessment_id, comments: comments}})
+  };
+
+  let apiEndPoint = `${serverConstants.BASE_URL}/update_comments`;
+
+  return fetch(apiEndPoint, requestOptions)
+    .then(handleResponse)
     .then(response_data => {
       return response_data;
     });

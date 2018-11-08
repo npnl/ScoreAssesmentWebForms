@@ -1,5 +1,5 @@
 import { serverConstants } from '../_constants';
-import { formConstants, flashMessagesConstants } from '../_constants';
+import { formConstants, flashMessagesConstants, subjectConstants } from '../_constants';
 import { subjectService } from '../_services';
 import { formService } from '../_services';
 import { flashMessagesActions } from './';
@@ -10,7 +10,10 @@ export const subjectActions = {
   getAllSubjectNames,
   downloadAssessment,
   getAllGroups,
-  createNewGroup
+  createNewGroup,
+  toggleDeleteOptions,
+  deleteAssessment,
+  saveComments
 };
 
 function getAllSubjectsInfo() {
@@ -73,6 +76,7 @@ function createNewGroup(group_data) {
       .then(
         success_response => {
           dispatch(success(success_response));
+          window.location.reload(true);
         },
         error => {
           dispatch(failure(error.toString()));
@@ -103,4 +107,45 @@ function downloadAssessment(assessment_id, assessment_type) {
 
   function success(response) { return { type: serverConstants.GET_ALL_SUBJECTS_INFO_SUCCESS, subjects: response } }
   function failure(error) { return { type: serverConstants.GET_ALL_SUBJECTS_INFO_FAILURE, error } }
+}
+
+function toggleDeleteOptions() {
+  return {type : subjectConstants.TOGGLE_DELETE_BTNS};
+}
+
+function deleteAssessment(assessment_id, assessment_type) {
+  return dispatch => {
+    subjectService.deleteAssessment(assessment_id, assessment_type)
+      .then(
+        success_response => {
+          dispatch(success(success_response.message));
+        },
+        error => {
+          dispatch(failure(error.toString()));
+          dispatch(flashMessagesActions.error(error.toString()));
+        }
+      );
+  };
+
+  function success(message) { return { type: flashMessagesConstants.SUCCESS, message } }
+  function failure(error) { return { type: flashMessagesConstants.ERROR, error } }
+}
+
+function saveComments(assessment_id, comments) {
+  return dispatch => {
+    subjectService.saveComments(assessment_id, comments)
+      .then(
+        success_response => {
+          dispatch(success(success_response.message));
+          window.location.reload();
+        },
+        error => {
+          dispatch(failure(error.toString()));
+          dispatch(flashMessagesActions.error(error.toString()));
+        }
+      );
+  };
+
+  function success(message) { return { type: flashMessagesConstants.SUCCESS, message } }
+  function failure(error) { return { type: flashMessagesConstants.ERROR, error } }
 }
