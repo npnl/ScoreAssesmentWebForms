@@ -12,7 +12,8 @@ export const formActions = {
     sendMasFormData,
     sendMmtFormData,
     sendMrsFormData,
-    sendSisFormData
+    sendSisFormData,
+    sendMocaFormData
 };
 
 function sendFormData(formData, formType) {
@@ -27,6 +28,10 @@ function sendFormData(formData, formType) {
                 }
             );
     };
+}
+
+function sendMocaFormData(formData) {
+  return sendFormData(formData, formConstants.TYPE_MOCA_FORM);
 }
 
 function sendFmaFormData(formData) {

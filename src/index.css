@@ -420,3 +420,45 @@ mark.red {
 .comment-td {
 	margin: 0px;
 }
+
+.moca-sub-heading {
+	font-size: 200%;
+	text-align: left;
+}
+
+.moca-points {
+	width: 10%;
+}
+
+.td-checkbox {
+	width: auto;
+	margin-right: 3% !important;
+}
+
+.td-checkbox-left {
+	text-align: left !important;
+	padding-left: 10%;
+	font-weight:bold;
+}
+
+.td-checkbox-separated {
+	width: auto;
+	margin-left: 10% !important;
+	margin-right: 3% !important;
+}
+
+.full-table {
+	width: 100%;
+}
+
+.animal-images {
+	width: 75%;
+}
+
+.custom-bordered tr td{
+	border: solid thin;
+}
+
+.btn-download-csv {
+	margin: 0% !important;
+}

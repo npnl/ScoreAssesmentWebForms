@@ -10,6 +10,7 @@ import { MmtRomForm } from './forms/MmtRomForm'
 import { ArmTestForm } from './forms/ArmTestForm'
 import { BarthelIndexForm } from './forms/BarthelIndexForm'
 import { SisInputForm } from './forms/SisInputForm'
+import { MocaInputForm } from './forms/MocaInputForm'
 import {getFmaLeData, getFmaUeData, getFmaSenseData} from '../data/FmaData'
 import {getWmftData} from '../data/WmftData'
 import {getNhssData} from '../data/NhssData'
@@ -69,6 +70,9 @@ class Forms extends React.Component {
 				break;
 			case 'ArmTestForm':
 				form = (<ArmTestForm />);
+				break;
+			case 'MocaInputForm':
+				form = (<MocaInputForm />);
 				break;
 			default:
 				form = (<div>Something went wrong</div>);
