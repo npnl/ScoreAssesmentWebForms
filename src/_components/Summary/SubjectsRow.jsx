@@ -29,7 +29,7 @@ class SubjectsRow extends React.Component {
       return (
         <tr className="">
             <td className="subject-listing-sno">{sno}</td>
-            <td className="">{subject_name}</td>
+            <td className="subject-name-cell">{subject_name}</td>
             <td className="">{assessment_info.date}</td>
             <td className="">{assessment_info.assessed_by}</td>
             <td className="">{assessment_info.nihss ? <AssessmentDownloadLink assessment_id={assessment_info.id} assessment_type={"nihss"}/> : ""}</td>

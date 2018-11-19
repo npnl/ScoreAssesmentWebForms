@@ -462,3 +462,7 @@ mark.red {
 .btn-download-csv {
 	margin: 0% !important;
 }
+
+.subject-name-cell {
+	word-wrap:break-word;
+}
