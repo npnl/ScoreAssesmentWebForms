@@ -11,10 +11,12 @@ import { ArmTestForm } from './forms/ArmTestForm'
 import { BarthelIndexForm } from './forms/BarthelIndexForm'
 import { SisInputForm } from './forms/SisInputForm'
 import { MocaInputForm } from './forms/MocaInputForm'
+import { MalInputForm } from './forms/MalInputForm'
 import {getFmaLeData, getFmaUeData, getFmaSenseData} from '../data/FmaData'
 import {getWmftData} from '../data/WmftData'
 import {getNhssData} from '../data/NhssData'
 import {getSisData} from '../data/SisData'
+import {getMalData} from '../data/MalData'
 import { Header } from './common/Header'
 
 class Forms extends React.Component {
@@ -74,6 +76,9 @@ class Forms extends React.Component {
 			case 'MocaInputForm':
 				form = (<MocaInputForm />);
 				break;
+      case 'MalInputForm':
+        form = (<MalInputForm data={getMalData()} />);
+        break;
 			default:
 				form = (<div>Something went wrong</div>);
 				break

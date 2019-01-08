@@ -23,6 +23,7 @@ class SubjectsPage extends React.Component {
       table_headings.push(<th>Barthel</th>);
       table_headings.push(<th>Arm</th>);
       table_headings.push(<th>MOCA</th>);
+      table_headings.push(<th>MAL</th>);
       table_headings.push(<th>Comments</th>);
 
       const {subjects_info, group_name} = this.props;

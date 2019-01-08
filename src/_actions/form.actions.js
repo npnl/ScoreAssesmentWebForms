@@ -13,7 +13,8 @@ export const formActions = {
     sendMmtFormData,
     sendMrsFormData,
     sendSisFormData,
-    sendMocaFormData
+    sendMocaFormData,
+    sendMalFormData
 };
 
 function sendFormData(formData, formType) {
@@ -68,4 +69,8 @@ function sendMrsFormData(formData) {
 
 function sendSisFormData(formData) {
   return sendFormData(formData, formConstants.TYPE_SIS_FORM);
+}
+
+function sendMalFormData(formData) {
+  return sendFormData(formData, formConstants.TYPE_MAL_FORM);
 }

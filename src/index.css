@@ -466,3 +466,7 @@ mark.red {
 .subject-name-cell {
 	word-wrap:break-word;
 }
+
+.integer-code {
+	width: 10%;
+}
