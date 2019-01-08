@@ -56,21 +56,21 @@ class RegisterPage extends React.Component {
                 <form name="form" onSubmit={this.handleSubmit}>
                     <div className={'form-group' + (submitted && !user.name ? ' has-error' : '')}>
                         <label htmlFor="name">Name</label>
-                        <input type="text" className="form-control" name="name" value={user.name} onChange={this.handleChange} />
+                        <input type="text" className="form-control" name="name" placeholder="Enter your full name here" value={user.name} onChange={this.handleChange} />
                         {submitted && !user.name &&
                             <div className="help-block">First Name is required</div>
                         }
                     </div>
                     <div className={'form-group' + (submitted && !user.email ? ' has-error' : '')}>
                         <label htmlFor="email">Email</label>
-                        <input type="text" className="form-control" name="email" value={user.email} onChange={this.handleChange} />
+                        <input type="text" className="form-control" name="email" placeholder="Your email like tommytrojan@usc.edu" value={user.email} onChange={this.handleChange} />
                       {submitted && !user.email &&
                       <div className="help-block">Email is required</div>
                       }
                     </div>
                     <div className={'form-group' + (submitted && !user.designation ? ' has-error' : '')}>
                         <label htmlFor="designation">Designation</label>
-                        <input type="text" className="form-control" name="designation" value={user.designation} onChange={this.handleChange} />
+                        <input type="text" className="form-control" name="designation" placeholder="E.g. Student, PhD, Professor etc" value={user.designation} onChange={this.handleChange} />
                       {submitted && !user.designation &&
                       <div className="help-block">Designation is required</div>
                       }
