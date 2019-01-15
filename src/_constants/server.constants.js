@@ -1,7 +1,7 @@
 export const serverConstants = {
   // BASE_URL: 'http://54.153.47.191:80', // Integration West Zone
-  BASE_URL: 'http://35.153.226.68:80', // Production: East zone
-  // BASE_URL: 'http://localhost:5000',
+  // BASE_URL: 'http://35.153.226.68:80', // Production: East zone
+  BASE_URL: 'http://localhost:5000',
 
   UI_RELATIVE_PATH: '',
 

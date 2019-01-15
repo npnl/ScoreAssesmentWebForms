@@ -9,6 +9,7 @@ import { AdminRoute } from '../adminRoute';
 import { HomePage } from '../HomePage';
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
+import { ResetPasswordPage } from '../ResetPasswordPage';
 import { Forms } from '../Forms';
 import { AllSubjectsPage } from '../Summary';
 import { GroupsPage } from '../Summary';
@@ -36,6 +37,8 @@ class App extends React.Component {
                       <PrivateRoute path="/Home" component={HomePage} />
                       <Route path="/login" component={LoginPage} />
                       <Route path="/register" component={RegisterPage} />
+                      <Route path="/reset_password/update_password/:reset_token" component={(props)=><ResetPasswordPage {...props} step="update_password" />} />
+                      <Route path="/reset_password/request/" component={(props)=><ResetPasswordPage {...props} step="request_password_link" />} />
 
                       <Route path="/NhssInputForm" component={()=><Forms form_type="NhssInputForm"/>} />
                       <Route path="/FmaInputForm" component={()=><Forms form_type="FmaInputForm" />} />

@@ -9,8 +9,52 @@ export const userActions = {
     logout,
     register,
     getAll,
+    reset_password,
+    request_password_update,
     delete: _delete
 };
+
+function reset_password(user, reset_token) {
+  return dispatch => {
+    userService.reset_password(user, reset_token)
+      .then(
+        message => {
+          history.push('/login');
+          // dispatch(success());
+          // history.push(`/${serverConstants.UI_RELATIVE_PATH}/login`);
+          // window.location.reload();
+          // dispatch(flashMessagesActions.success(message));
+        },
+        error => {
+          dispatch(failure(error.toString()));
+          dispatch(flashMessagesActions.error(error.toString()));
+        }
+      );
+  };
+
+  function failure(error) { return { type: userConstants.RESET_PASSWORD_FAILURE, error } }
+}
+
+function request_password_update(user) {
+  return dispatch => {
+    userService.request_password_update(user)
+      .then(
+        message => {
+          history.push('/login');
+          // dispatch(success());
+          // history.push(`/${serverConstants.UI_RELATIVE_PATH}/login`);
+          // window.location.reload();
+          // dispatch(flashMessagesActions.success(message));
+        },
+        error => {
+          dispatch(failure(error.toString()));
+          dispatch(flashMessagesActions.error(error.toString()));
+        }
+      );
+  };
+
+  function failure(error) { return { type: userConstants.RESET_PASSWORD_FAILURE, error } }
+}
 
 function login(credentials) {
     return dispatch => {

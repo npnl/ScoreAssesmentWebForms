@@ -8,8 +8,30 @@ export const userService = {
     getAll,
     getById,
     update,
+    reset_password,
+    request_password_update,
     delete: _delete
 };
+
+function reset_password(user, reset_token) {
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(user)
+  };
+
+  return fetch(`${serverConstants.BASE_URL}/reset_password/update_password/${reset_token}`, requestOptions).then(handleResponse);
+}
+
+function request_password_update(user) {
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(user)
+  };
+
+  return fetch(`${serverConstants.BASE_URL}/reset_password/request_token`, requestOptions).then(handleResponse);
+}
 
 function login(credentials) {
     const requestOptions = {
