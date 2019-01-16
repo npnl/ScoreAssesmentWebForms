@@ -6,14 +6,17 @@ export function users(state = {}, action) {
       return {
         loading: true
       };
+      break;
     case userConstants.GETALL_SUCCESS:
       return {
         items: action.users
       };
+      break;
     case userConstants.GETALL_FAILURE:
       return { 
         error: action.error
       };
+      break;
     case userConstants.DELETE_REQUEST:
       // add 'deleting:true' property to user being deleted
       return {
@@ -24,11 +27,27 @@ export function users(state = {}, action) {
             : user
         )
       };
+      break;
     case userConstants.DELETE_SUCCESS:
       // remove deleted user from state
       return {
         items: state.items.filter(user => user.id !== action.id)
       };
+      break;
+
+    case userConstants.RESET_PASSWORD_MAIL_SUCCESS:
+      return {
+        ...state,
+        reset_mail_sent: true
+      };
+      break;
+
+    case userConstants.RESET_PASSWORD_STEP:
+      return {
+        ...state,
+        reset_mail_sent: false
+      };
+      break;
     case userConstants.DELETE_FAILURE:
       // remove 'deleting:true' property and add 'deleteError:[error]' property to user 
       return {
@@ -44,6 +63,7 @@ export function users(state = {}, action) {
           return user;
         })
       };
+      break;
     default:
       return state
   }

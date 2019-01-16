@@ -17,12 +17,18 @@ class ResetPasswordPage extends React.Component {
           password: '',
           password_confirmation: ''
         },
+        waiting: false,
         submitted: false
       };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+  componentWillUnmount() {
+    this.setState({waiting: false});
+    this.props.dispatch(userActions.resetPasswordStepZero());
+  }
 
     handleChange(e) {
       const { name, value } = e.target;
@@ -48,11 +54,12 @@ class ResetPasswordPage extends React.Component {
       if (this.props.step === 'request_password_link' && user.email) {
         dispatch(userActions.request_password_update({user: user}));
       }
+      this.setState({waiting: true});
     }
 
     render() {
-        const { flashMessages } = this.props;
-        const { user, submitted } = this.state;
+        const { flashMessages, reset_mail_sent } = this.props;
+        const { user, submitted, waiting } = this.state;
         var request_screen = (
           <div className="col-md-6 col-md-offset-3">
               <h2>Forgot Password</h2>
@@ -67,10 +74,22 @@ class ResetPasswordPage extends React.Component {
                   </div>
                   <div className="form-group">
                       <button className="btn btn-primary">Reset Password</button>
+                    {waiting &&
+                    <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                    }
                   </div>
               </form>
           </div>
         );
+
+        var mail_sent_screen = (
+          <div className="col-md-6 col-md-offset-3">
+            <h2>Password email sent successfully to your email account</h2>
+          {flashMessages.message && <span className={""+flashMessages.type}>{flashMessages.message !== undefined ? (flashMessages.type === 'alert-success' ? 'Success : ' + flashMessages.message : 'Failure : ' + flashMessages.message) : ''}</span>}
+          <br/><br/><br/>
+              <p>Open your email and click on the reset link to reset your account password for SCORE Assessment Portal.</p>
+              <Link to="/login" className="btn btn-link">Login</Link>
+          </div>);
 
         var update_screen = (<div className="col-md-6 col-md-offset-3">
             <h2>Forgot Password</h2>
@@ -108,14 +127,19 @@ class ResetPasswordPage extends React.Component {
             render_screen = update_screen;
         }
 
+        if (reset_mail_sent !== undefined && reset_mail_sent === true) {
+            render_screen = mail_sent_screen;
+        }
+
         return render_screen;
     }
 }
 
 function mapStateToProps(state) {
-    const { flashMessages } = state;
+    const { flashMessages, users } = state;
     return {
-      flashMessages
+      flashMessages,
+      reset_mail_sent: users.reset_mail_sent
     };
 }
 

@@ -11,6 +11,7 @@ export const userActions = {
     getAll,
     reset_password,
     request_password_update,
+    resetPasswordStepZero,
     delete: _delete
 };
 
@@ -40,11 +41,12 @@ function request_password_update(user) {
     userService.request_password_update(user)
       .then(
         message => {
-          history.push('/login');
+          // history.push('/login');
           // dispatch(success());
           // history.push(`/${serverConstants.UI_RELATIVE_PATH}/login`);
           // window.location.reload();
-          // dispatch(flashMessagesActions.success(message));
+          dispatch(flashMessagesActions.success(message.message));
+          dispatch({type: userConstants.RESET_PASSWORD_MAIL_SUCCESS});
         },
         error => {
           dispatch(failure(error.toString()));
@@ -83,6 +85,10 @@ function login(credentials) {
 function logout() {
     userService.logout();
     return { type: userConstants.LOGOUT };
+}
+
+function resetPasswordStepZero() {
+  return {type: userConstants.RESET_PASSWORD_STEP}
 }
 
 function register(user) {
