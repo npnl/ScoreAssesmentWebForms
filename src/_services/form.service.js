@@ -49,6 +49,9 @@ function sendFormDataToServer(formData, formType) {
       case formConstants.TYPE_MAL_FORM:
         apiEndPoint = `${serverConstants.BASE_URL}/mal_form`;
         break;
+      case formConstants.TYPE_MOCA_ALTERNATE_FORM:
+        apiEndPoint = `${serverConstants.BASE_URL}/moca_alternate_form`;
+        break;
       case formConstants.TYPE_GROUP_CREATE_FORM:
         apiEndPoint = `${serverConstants.BASE_URL}/groups`;
         break;

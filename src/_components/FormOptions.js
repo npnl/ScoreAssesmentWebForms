@@ -57,6 +57,11 @@ class FormOptions extends React.Component {
               <h2><Link to="/MalInputForm">MAL</Link></h2>
             </td>
           </tr>
+          <tr>
+            <td>
+              <h2><Link to="/MocaAlternateInputForm">MOCA Alternate</Link></h2>
+            </td>
+          </tr>
           </tbody>
         </table>
       </div>

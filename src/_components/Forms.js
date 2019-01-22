@@ -11,6 +11,7 @@ import { ArmTestForm } from './forms/ArmTestForm'
 import { BarthelIndexForm } from './forms/BarthelIndexForm'
 import { SisInputForm } from './forms/SisInputForm'
 import { MocaInputForm } from './forms/MocaInputForm'
+import { MocaAlternateInputForm } from './forms/MocaAlternateInputForm'
 import { MalInputForm } from './forms/MalInputForm'
 import {getFmaLeData, getFmaUeData, getFmaSenseData} from '../data/FmaData'
 import {getWmftData} from '../data/WmftData'
@@ -75,6 +76,9 @@ class Forms extends React.Component {
 				break;
 			case 'MocaInputForm':
 				form = (<MocaInputForm />);
+				break;
+			case 'MocaAlternateInputForm':
+				form = (<MocaAlternateInputForm />);
 				break;
       case 'MalInputForm':
         form = (<MalInputForm data={getMalData()} />);

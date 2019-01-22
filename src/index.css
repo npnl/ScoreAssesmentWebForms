@@ -470,3 +470,7 @@ mark.red {
 .integer-code {
 	width: 10%;
 }
+
+.glyphicon-download-alt:before {
+	padding-right: 5px;
+}

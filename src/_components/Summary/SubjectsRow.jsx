@@ -42,6 +42,7 @@ class SubjectsRow extends React.Component {
             <td className="">{assessment_info.barthel ? <AssessmentDownloadLink assessment_id={assessment_info.id} assessment_type={"barthel"}/> : ""}</td>
             <td className="">{assessment_info.arm ? <AssessmentDownloadLink assessment_id={assessment_info.id} assessment_type={"arm"}/> : ""}</td>
             <td className="">{assessment_info.moca ? <AssessmentDownloadLink assessment_id={assessment_info.id} assessment_type={"moca"}/> : ""}</td>
+            <td className="">{assessment_info.moca_alternate ? <AssessmentDownloadLink assessment_id={assessment_info.id} assessment_type={"moca_alternate"}/> : ""}</td>
             <td className="">{assessment_info.mal ? <AssessmentDownloadLink assessment_id={assessment_info.id} assessment_type={"mal"}/> : ""}</td>
             <td className="comment-td" onClick={this.showPopup}>{<Popup show_comment_box={this.state.show_comment_box} text={assessment_info.comments} assessment_id={assessment_info.id} closePopup={this.hidePopup}/>}</td>
         </tr>

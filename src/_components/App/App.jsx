@@ -52,6 +52,7 @@ class App extends React.Component {
                       <Route path="/ArmTestForm" component={() => <Forms form_type="ArmTestForm" />} />
                       <Route path="/MocaInputForm" component={() => <Forms form_type="MocaInputForm" />} />
                       <Route path="/MalInputForm" component={() => <Forms form_type="MalInputForm" />} />
+                      <Route path="/MocaAlternateInputForm" component={() => <Forms form_type="MocaAlternateInputForm" />} />
                       <Route path="/Summary/AllSubjectsPage" component={() => <AllSubjectsPage />} />
                       <AdminRoute path="/Summary/GroupsPage" component={GroupsPage} />
                   </div>

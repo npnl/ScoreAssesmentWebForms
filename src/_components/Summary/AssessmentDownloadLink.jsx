@@ -25,7 +25,7 @@ class AssessmentDownloadLink extends React.Component {
         <div>
           <button className={'glyphicon glyphicon-remove ' + (delete_btns_visible === true ? 'delete-assessment-show' : 'delete-assessment-hide' )} onClick={this.deleteAssessment}></button>
           <button className="btn btn-success btn-download-csv" onClick={this.downloadCSV}>
-            <span className="glyphicon glyphicon-download-alt" aria-hidden="true"> CSV</span>
+            <span className="glyphicon glyphicon-download-alt" aria-hidden="true">CSV</span>
           </button>
         </div>
       );

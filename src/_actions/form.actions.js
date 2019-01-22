@@ -14,7 +14,8 @@ export const formActions = {
     sendMrsFormData,
     sendSisFormData,
     sendMocaFormData,
-    sendMalFormData
+    sendMalFormData,
+    sendMocaAlternateFormData
 };
 
 function sendFormData(formData, formType) {
@@ -33,6 +34,10 @@ function sendFormData(formData, formType) {
 
 function sendMocaFormData(formData) {
   return sendFormData(formData, formConstants.TYPE_MOCA_FORM);
+}
+
+function sendMocaAlternateFormData(formData) {
+  return sendFormData(formData, formConstants.TYPE_MOCA_ALTERNATE_FORM);
 }
 
 function sendFmaFormData(formData) {
